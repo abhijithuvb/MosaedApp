@@ -2,6 +2,8 @@ import splashscreenbottomlogo from './Logo/splashscreenbottomlogo/splashscreenbo
 import splashscreenbackgroundlogo from './Logo/splashscreenbackgroundlogo/splashscreenbackgroundlogo.png'
 import splashscreentoplogo from './Logo/splashscreentoplogo/splashscreentoplogo.png'
 import splashscreenmainlogo from './Logo/splashscreenmainlogo/splashscreenmainlogo.png'
+import backgroundlogo from './Logo/backgroundlogo/backgroundlogo.png'
+import mainsmalllogo from './Logo/mainsmalllogo/mainsmalllogo.png'
 
 
-export { splashscreenbackgroundlogo, splashscreenbottomlogo, splashscreentoplogo, splashscreenmainlogo }
+export { splashscreenbackgroundlogo, splashscreenbottomlogo, splashscreentoplogo, splashscreenmainlogo, backgroundlogo, mainsmalllogo }

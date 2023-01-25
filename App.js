@@ -14,8 +14,8 @@ import { Dimensions, SafeAreaView, ScrollView, StatusBar, View, } from 'react-na
 
 
 // import Routes from './src/components/Routes/Routes';
-import Routes from '../MyApp/mosaedApp/src/Routes/Routes';
-// import Routes from './VIP/Routes/Routes'
+// import Routes from '../MyApp/mosaedApp/src/Routes/Routes';
+import Routes from './VIP/Routes/Routes'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
@@ -32,7 +32,7 @@ const App = () => {
   return (
     <>
       <View style={{ flex: 1 }}>
-        {/* <SafeAreaView style={{ flex: 1, }}>  */}
+        {/* <SafeAreaView style={{ flex: 1, }}> */}
         <StatusBar animated={true} barStyle={'light-content'} hidden={false} />
         <Provider store={store}>
           <NavigationContainer>

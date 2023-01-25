@@ -1,8 +1,15 @@
 import { View, Text, Image } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { splashscreenbackgroundlogo, splashscreenbottomlogo, splashscreentoplogo, splashscreenmainlogo } from '../assets'
 
-const SplashScreen = () => {
+const SplashScreen = ({ navigation }) => {
+    useEffect(() => {
+        setTimeout(() => {
+            navigation.navigate("LoginScreen")
+        }, 1000)
+    }, [])
+
+
     return (
         <View style={{ flex: 1, backgroundColor: '#181D23' }}>
             <View style={{ position: 'absolute', right: 0 }}>
