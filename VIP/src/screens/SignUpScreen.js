@@ -13,7 +13,7 @@ const SignUpScreen = ({ navigation }) => {
 
     const validation = () => {
         if (userDetails.email !== "" && userDetails.firstname !== "" && userDetails.lastname !== "" && userDetails.phone !== "" & userDetails.qid !== "") {
-            navigation.navigate("")
+            navigation.navigate("HomeScreen")
         } else {
             alert("Fill Required Fields")
         }
