@@ -47,7 +47,7 @@ const TerrainScreen = ({navigation}) => {
       logo: beachlogo,
       title: 'BEACH',
       buttonFunction: () => beachStatus(),
-      background: terrainStatus?.beach ? '#0FC1A1' : 'black',
+      background: terrainStatus?.beach ? '#0FC1A1' : '#181D23',
       checklogo: terrainStatus?.beach ? (
         <Ionicons name="ios-checkmark-circle" />
       ) : (
@@ -59,7 +59,7 @@ const TerrainScreen = ({navigation}) => {
       logo: desertlogo,
       title: 'DESERT',
       buttonFunction: () => desertStatus(),
-      background: terrainStatus?.desert ? '#0FC1A1' : 'black',
+      background: terrainStatus?.desert ? '#0FC1A1' : '#181D23',
       checklogo: terrainStatus?.desert ? (
         <Ionicons name="ios-checkmark-circle" />
       ) : (
@@ -90,7 +90,10 @@ const TerrainScreen = ({navigation}) => {
           />
         </View>
 
-        <View style={{flex: 1}}>
+        <View
+          style={{
+            flex: 1,
+          }}>
           <View
             style={{
               height: HEIGHT * 0.28,
@@ -98,6 +101,7 @@ const TerrainScreen = ({navigation}) => {
               borderBottomRightRadius: HEIGHT * 0.008,
               justifyContent: 'center',
               alignItems: 'center',
+              overflow: 'hidden',
             }}>
             <Image source={mainmediumlogo} />
             <Text
@@ -135,12 +139,12 @@ const TerrainScreen = ({navigation}) => {
                 />
               )}
             />
-          </View>
-          <View style={{alignItems: 'center', marginBottom: HEIGHT * 0.06}}>
-            <ButtonComponent
-              label="NEXT"
-              onPressFunction={() => handleFunction()}
-            />
+            <View style={{alignItems: 'center', marginBottom: HEIGHT * 0.06}}>
+              <ButtonComponent
+                label="NEXT"
+                onPressFunction={() => handleFunction()}
+              />
+            </View>
           </View>
         </View>
       </SafeAreaView>
