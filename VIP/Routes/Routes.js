@@ -2,12 +2,15 @@ import {
   createDrawerNavigator,
   useDrawerProgress,
 } from '@react-navigation/drawer';
-import {createStackNavigator} from '@react-navigation/stack';
-import {useEffect, useState} from 'react';
-import {Image, View} from 'react-native';
-import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
-import {WIDTH} from '../Constants/Constants';
-import {drawertoplogo} from '../src/assets';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useEffect, useState } from 'react';
+import { Image, View } from 'react-native';
+import Animated, { interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import { WIDTH } from '../Constants/Constants';
+import { drawertoplogo } from '../src/assets';
+import BeachDetailsScreen from '../src/screens/BeachDetailsScreen';
+import BeachListScreen from '../src/screens/BeachListScreen';
+import DesertListScreen from '../src/screens/DesertListScreen';
 
 import DrawerScreen from '../src/screens/DrawerScreen';
 import HomeScreen from '../src/screens/HomeScreen';
@@ -17,6 +20,7 @@ import RentDayBookingScreen from '../src/screens/RentDayBookingScreen';
 import SignUpScreen from '../src/screens/SignUpScreen';
 import SplashScreen from '../src/screens/SplashScreen';
 import TerrainScreen from '../src/screens/TerrainScreen';
+import TerrainSummaryScreen from '../src/screens/TerrainSummaryScreen';
 
 const RouteDrawer = createDrawerNavigator();
 
@@ -40,7 +44,7 @@ const Drawer = () => {
     outputRange: [1, 0.8],
   });
   const animatedStyle = {
-    transform: [{scaleX: scaleX}, {scaleY: scaleY}],
+    transform: [{ scaleX: scaleX }, { scaleY: scaleY }],
   };
   console.log(scaleX, scaleY);
 
@@ -51,11 +55,11 @@ const Drawer = () => {
         return <CustomDrawerContent {...props} />;
       }}
       screenOptions={{
-        drawerStyle: {width: WIDTH * 0.8},
+        drawerStyle: { width: WIDTH * 0.8 },
         headerShown: false,
         drawerType: 'back',
         overlayColor: 'transparent',
-        sceneContainerStyle: {backgroundColor: '#181D23'},
+        sceneContainerStyle: { backgroundColor: '#181D23' },
       }}>
       <RouteDrawer.Screen name="drawer">
         {props => {
@@ -67,13 +71,13 @@ const Drawer = () => {
 };
 
 const animatedStack = createStackNavigator();
-const AnimatedScreen = ({animatedStyles}) => {
+const AnimatedScreen = ({ animatedStyles }) => {
   return (
-    <Animated.View style={[animatedStyles, {flex: 1}]}>
-      <View style={{position: 'absolute', left: 0, top: -100}}>
+    <Animated.View style={[animatedStyles, { flex: 1 }]}>
+      <View style={{ position: 'absolute', left: 0, top: -100 }}>
         <Image source={drawertoplogo} />
       </View>
-      <animatedStack.Navigator screenOptions={{headerShown: false}}>
+      <animatedStack.Navigator screenOptions={{ headerShown: false }}>
         <animatedStack.Screen name="HomeScreen" component={HomeScreen} />
       </animatedStack.Navigator>
     </Animated.View>
@@ -83,7 +87,7 @@ const AnimatedScreen = ({animatedStyles}) => {
 const Routes = () => {
   const RouteStack = createStackNavigator();
   return (
-    <RouteStack.Navigator screenOptions={{headerShown: false}}>
+    <RouteStack.Navigator initialRouteName='SplashScreen' screenOptions={{ headerShown: false }}>
       <RouteStack.Screen name="SplashScreen" component={SplashScreen} />
       <RouteStack.Screen name="LoginScreen" component={LoginScreen} />
       <RouteStack.Screen name="OtpScreen" component={OtpScreen} />
@@ -93,6 +97,22 @@ const Routes = () => {
       <RouteStack.Screen
         name="RentDayBookingScreen"
         component={RentDayBookingScreen}
+      />
+      <RouteStack.Screen
+        name="BeachListScreen"
+        component={BeachListScreen}
+      />
+      <RouteStack.Screen
+        name="DesertListScreen"
+        component={DesertListScreen}
+      />
+      <RouteStack.Screen
+        name="BeachDetailsScreen"
+        component={BeachDetailsScreen}
+      />
+      <RouteStack.Screen
+        name="TerrainSummaryScreen"
+        component={TerrainSummaryScreen}
       />
     </RouteStack.Navigator>
   );

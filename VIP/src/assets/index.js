@@ -30,6 +30,30 @@ import backgroundtinylogo from './Logo/backgroundtinylogo/backgroundtinylogo.png
 import backarrow from './Logo/backarrow/backarrow.png';
 import submitleftarrow from './Logo/submitleftarrow/submitleftarrow.png';
 import submitrightarrow from './Logo/submitrightarrow/submitrightarrow.png';
+import calendarleftlogo from './Logo/calendarleftlogo/calendarleftlogo.png'
+import calendarrightlogo from './Logo/calendarrightlogo/calendarrightlogo.png'
+import calendarleftlogocontainer from './Logo/calendarleftlogocontainer/calendarleftlogocontainer.png'
+import calendarrightlogocontainer from './Logo/calendarrightlogocontainer/calendarrightlogocontainer.png'
+import calendarSmalllogo from './Logo/calendarSmalllogo/calendarSmalllogo.png'
+import boatimage1 from './images/boatimage1/boatimage1.png'
+import starrating from './Logo/starrating/starrating.png'
+import locationsmalllogo from './Logo/locationsmalllogo/locationsmalllogo.png'
+import boatimage2 from './images/boatimage2/boatimage2.png'
+import boatimage3 from './images/boatimage3/boatimage3.png'
+import boatimage4 from './images/boatimage4/boatimage4.png'
+import boatimage5 from './images/boatimage5/boatimage5.png'
+import boatimage6 from './images/boatimage6/boatimage6.png'
+import boatimage7 from './images/boatimage7/boatimage7.png'
+import boatimage8 from './images/boatimage8/boatimage8.png'
+import squarelogo from './Logo/squarelogo/squarelogo.png'
+import boatlargeimage from './images/boatlargeimage/boatlargeimage.png'
+import locationmediumlogo from './Logo/locationmediumlogo/locationmediumlogo.png'
+import locationarrowlogo from './Logo/locationarrowlogo/locationarrowlogo.png'
+import boatsmallimage from './images/boatsmallimage/boatsmallimage.png'
+import calendarwhitesmalllogo from './Logo/calendarwhitesmalllogo/calendarwhitesmalllogo.png'
+import plusicon from './Logo/plusicon/plusicon.png'
+import minusicon from './Logo/minusicon/minusicon.png'
+import closeiconX from './Logo/closeiconX/closeiconX.png'
 
 export {
   splashscreenbackgroundlogo,
@@ -64,4 +88,25 @@ export {
   backarrow,
   submitleftarrow,
   submitrightarrow,
+  calendarleftlogo,
+  calendarrightlogo,
+  calendarleftlogocontainer,
+  calendarrightlogocontainer,
+  calendarSmalllogo,
+  boatimage1,
+  starrating,
+  locationsmalllogo,
+  boatimage2,
+  boatimage3,
+  boatimage4,
+  boatimage5,
+  boatimage6,
+  boatimage7,
+  boatimage8,
+  squarelogo,
+  boatlargeimage,
+  locationmediumlogo,
+  locationarrowlogo,
+  boatsmallimage,
+  calendarwhitesmalllogo, plusicon, minusicon, closeiconX
 };
