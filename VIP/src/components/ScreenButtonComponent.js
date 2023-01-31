@@ -9,9 +9,9 @@ const ScreenButtonComponent = ({ onPress, text }) => {
             onPress={() => onPress()}
             style={{
                 width: '100%',
-                flex: 1,
+                // flex: 1,
                 justifyContent: 'center',
-                alignItems: 'center',
+                alignItems: 'center', height: HEIGHT * 0.075
             }}>
             <View style={{ flexDirection: 'row' }}>
                 <Image source={submitleftarrow} />

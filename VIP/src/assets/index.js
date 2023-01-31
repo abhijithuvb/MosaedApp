@@ -54,6 +54,23 @@ import calendarwhitesmalllogo from './Logo/calendarwhitesmalllogo/calendarwhites
 import plusicon from './Logo/plusicon/plusicon.png'
 import minusicon from './Logo/minusicon/minusicon.png'
 import closeiconX from './Logo/closeiconX/closeiconX.png'
+import spritelogo from './Logo/spritelogo/spritelogo.png'
+import pepsilogo from './Logo/pepsilogo/pepsilogo.png'
+import cococolalogo from './Logo/cococolalogo/cococolalogo.png'
+import pepsibrownlogo from './Logo/pepsibrownlogo/pepsibrownlogo.png'
+import itaipavadrinklogo from './Logo/itaipavadrinklogo/itaipavadrinklogo.png'
+import fantalogo from './Logo/fantalogo/fantalogo.png'
+import paymentsuccesslogo from './Logo/paymentsuccesslogo/paymentsuccesslogo.png'
+import washinglogo from './Logo/washinglogo/washinglogo.png'
+import towinglogo from './Logo/towinglogo/towinglogo.png'
+import searchlogogreen from './Logo/searchlogogreen/searchlogogreen.png'
+import cabanlogo from './Logo/cabanlogo/cabanlogo.png'
+import servicelogo1 from './Logo/washservicelogo/servicelogo1/servicelogo1.png'
+import servicelogo2 from './Logo/washservicelogo/servicelogo2/servicelogo2.png'
+import servicelogo3 from './Logo/washservicelogo/servicelogo3/servicelogo3.png'
+import servicelogo4 from './Logo/washservicelogo/servicelogo4/servicelogo4.png'
+import multicolorrightlogo from './Logo/multicolorrightlogo/multicolorrightlogo.png'
+import maplogo from './Logo/maplogo/maplogo.png'
 
 export {
   splashscreenbackgroundlogo,
@@ -108,5 +125,25 @@ export {
   locationmediumlogo,
   locationarrowlogo,
   boatsmallimage,
-  calendarwhitesmalllogo, plusicon, minusicon, closeiconX
+  calendarwhitesmalllogo,
+  plusicon,
+  minusicon,
+  closeiconX,
+  spritelogo,
+  pepsilogo,
+  cococolalogo,
+  pepsibrownlogo,
+  itaipavadrinklogo,
+  fantalogo,
+  paymentsuccesslogo,
+  washinglogo,
+  towinglogo,
+  searchlogogreen,
+  cabanlogo,
+  servicelogo1,
+  servicelogo2,
+  servicelogo3,
+  servicelogo4,
+  multicolorrightlogo,
+  maplogo
 };

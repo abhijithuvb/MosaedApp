@@ -2,7 +2,7 @@ import { View, Text, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { HEIGHT, WIDTH } from '../../../mosaedApp/src/components/constants/constants';
 
-const TextInputComponent = ({ logo, label, keyboardtype, setState, length }) => {
+const TextInputComponent = ({ Width, logo, label, keyboardtype, setState, length }) => {
 
     const [colour, setColour] = useState("#AFABC4")
 
@@ -20,7 +20,7 @@ const TextInputComponent = ({ logo, label, keyboardtype, setState, length }) => 
             style={{
                 borderWidth: 0.5,
                 borderColor: colour,
-                width: WIDTH * 0.83,
+                width: Width ? WIDTH * 0.33 : WIDTH * 0.83,
                 borderRadius: HEIGHT * 0.01,
                 height: HEIGHT * 0.07,
                 backgroundColor: '#0E1216',
@@ -38,10 +38,10 @@ const TextInputComponent = ({ logo, label, keyboardtype, setState, length }) => 
                 <TextInput
                     style={{
                         height: /* Height ? Height / 1.5 : */ HEIGHT * 0.03,
-                        width: WIDTH * 0.83,
-                        marginLeft: logo ? 0 : WIDTH * -0.2,
-                        width: WIDTH * 0.5,
-                        color: '#0FC1A1'
+                        width: Width ? WIDTH * 0.17 : WIDTH * 0.63,
+                        marginLeft: logo ? 0 : WIDTH * - 0.05,
+                        // width: WIDTH * 0.5,
+                        color: '#0FC1A1',
                     }} keyboardType={keyboardtype ? keyboardtype : "default"}
                     onFocus={handleFocus}
                     onBlur={handleBlur}

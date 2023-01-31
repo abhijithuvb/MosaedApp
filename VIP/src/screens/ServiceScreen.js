@@ -4,14 +4,10 @@ import React, { useState } from 'react';
 import {
     backgroundsmalllogo,
     multicolormediumlogo,
-    homeheaderleftlogo,
     searchlogo,
-    mainmediumlogo,
-    homerentlogo,
-    drawertoplogo,
     backarrow,
-    beachlogo,
-    desertlogo,
+    washinglogo,
+    towinglogo,
 } from '../assets';
 import {
     HEIGHT,
@@ -23,32 +19,33 @@ import HomeScreenListComponent from '../components/HomeScreenListComponent';
 import TerrainComponent from '../components/TerrainComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+// import { service } from '../Arrays/Arrays';
 
-const TerrainScreen = ({ navigation }) => {
-    const beachStatus = () => {
-        setTerrainStatus({ ...terrainStatus, beach: true, desert: false });
+const ServiceScreen = ({ navigation }) => {
+    const washingStatus = () => {
+        setServiceStatus({ ...serviceStatus, washing: true, towing: false });
     };
-    const desertStatus = () => {
-        [setTerrainStatus({ ...terrainStatus, beach: false, desert: true })];
+    const towingStatus = () => {
+        [setServiceStatus({ ...serviceStatus, washing: false, towing: true })];
     };
 
     const handleFunction = () => {
-        navigation.navigate('RentDayBookingScreen', { terrainStatus });
+        navigation.navigate('ChooseLocationScreen', { serviceStatus });
     };
 
-    const [terrainStatus, setTerrainStatus] = useState({
-        beach: false,
-        desert: false,
+    const [serviceStatus, setServiceStatus] = useState({
+        washing: false,
+        towing: false,
     });
 
-    const terrain = [
+    const service = [
         {
             id: 1,
-            logo: beachlogo,
-            title: 'BEACH',
-            buttonFunction: () => beachStatus(),
-            background: terrainStatus?.beach ? '#0FC1A1' : '#181D23',
-            checklogo: terrainStatus?.beach ? (
+            logo: washinglogo,
+            title: 'WASHING',
+            buttonFunction: () => washingStatus(),
+            background: serviceStatus?.washing ? '#0FC1A1' : '#181D23',
+            checklogo: serviceStatus?.washing ? (
                 <Ionicons name="checkmark-outline" />
             ) : (
                 ''
@@ -56,11 +53,11 @@ const TerrainScreen = ({ navigation }) => {
         },
         {
             id: 2,
-            logo: desertlogo,
-            title: 'DESERT',
-            buttonFunction: () => desertStatus(),
-            background: terrainStatus?.desert ? '#0FC1A1' : '#181D23',
-            checklogo: terrainStatus?.desert ? (
+            logo: towinglogo,
+            title: 'TOWING',
+            buttonFunction: () => towingStatus(),
+            background: serviceStatus?.towing ? '#0FC1A1' : '#181D23',
+            checklogo: serviceStatus?.towing ? (
                 <Ionicons name="checkmark-outline" />
             ) : (
                 ''
@@ -68,8 +65,9 @@ const TerrainScreen = ({ navigation }) => {
         },
     ];
 
-    console.log('terrain=>', terrainStatus);
+    console.log("service==>>", serviceStatus);
     return (
+
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
             <SafeAreaView style={{ flex: 1 }}>
                 <Image
@@ -84,7 +82,7 @@ const TerrainScreen = ({ navigation }) => {
                 <View style={{ marginTop: HEIGHT * 0.025 }}>
                     <HeaderComponent
                         leftOnPress={() => navigation.goBack()}
-                        title="RENT"
+                        title="SERVICES"
                         leftlogo={backarrow}
                         rightlogo={searchlogo}
                     />
@@ -104,7 +102,7 @@ const TerrainScreen = ({ navigation }) => {
                             overflow: 'hidden',
 
                         }}>
-                        <Text style={{ color: 'white', fontSize: HEIGHT * 0.03, marginTop: HEIGHT * 0.06 }}>CHOOSE TERRAIN</Text>
+                        <Text style={{ color: 'white', fontSize: HEIGHT * 0.03, marginTop: HEIGHT * 0.06 }}>CHOOSE SERVICE</Text>
                         <Text
                             style={{
                                 color: '#FFFFFF',
@@ -112,7 +110,7 @@ const TerrainScreen = ({ navigation }) => {
                                 fontSize: HEIGHT * 0.02,
                                 marginTop: HEIGHT * 0.020, width: WIDTH * 0.75
                             }}>
-                            Please Specify The Type Of Vehicles You Want,Desert Or Beach
+                            Please Specify The Type Of Service You Want
                         </Text>
                         <Image
                             source={multicolormediumlogo}
@@ -127,13 +125,13 @@ const TerrainScreen = ({ navigation }) => {
                         }}>
                         <FlatList
                             horizontal
-                            data={terrain}
+                            data={service}
                             renderItem={({ item, index }) => (
                                 <TerrainComponent
                                     logo={item.logo}
                                     title={item.title}
                                     background={item.background}
-                                    terrainStatus={terrainStatus}
+                                    serviceStatus={serviceStatus}
                                     onPressFn={() => item.buttonFunction()}
                                     checklogo={item.checklogo}
                                 />
@@ -149,7 +147,7 @@ const TerrainScreen = ({ navigation }) => {
                 </View>
             </SafeAreaView>
         </View>
-    );
-};
+    )
+}
 
-export default TerrainScreen;
+export default ServiceScreen

@@ -8,29 +8,25 @@ import { color } from 'react-native-reanimated'
 import ScreenButtonComponent from '../components/ScreenButtonComponent'
 import DrinkBoxModalComponent from '../components/DrinkBoxModalComponent'
 
-const TerrainSummaryScreen = ({ navigation }) => {
-    const route = useRoute()
-    const { title, company, location, rate, sourceimage } = route.params
-    const [modalVisible, setModalVisible] = useState(false)
-
+const BookedTicketScreen = ({ navigation }) => {
     return (
-        <View style={{ backgroundColor: '#181D23', flex: 1 }}><DrinkBoxModalComponent visible={modalVisible} setVisible={setModalVisible} buttonOnPress={() => setModalVisible(!modalVisible)} />
+        <View style={{ backgroundColor: '#181D23', flex: 1 }}>
             <SafeAreaView style={{ flex: 1 }}>
 
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: HEIGHT * 0.83, backgroundColor: 'black', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
+                    <View style={{ height: HEIGHT * 0.83, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
                         <View style={{ height: HEIGHT * 0.37, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
                             <View style={{ marginTop: HEIGHT * 0.03 }}>
-                                <HeaderComponent leftlogo={backarrow} title={"SUMMARY"} leftOnPress={() => navigation.goBack()} />
+                                <HeaderComponent leftlogo={backarrow} title={"BOOKED TICKET"} leftOnPress={() => navigation.goBack()} />
                             </View>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: HEIGHT * 0.02 }}>
                                 <Image source={boatsmallimage} />
                                 <View style={{ marginLeft: -HEIGHT * 0.02 }}>
-                                    <Text style={{ color: 'white', fontSize: HEIGHT * 0.021, fontWeight: '400' }}>{title}</Text>
-                                    <Text style={{ color: '#FF5F00', fontSize: HEIGHT * 0.014, marginTop: HEIGHT * 0.004 }}>{company}</Text>
+                                    <Text style={{ color: 'white', fontSize: HEIGHT * 0.021, fontWeight: '400' }}>2021 SVHO</Text>
+                                    <Text style={{ color: '#FF5F00', fontSize: HEIGHT * 0.014, marginTop: HEIGHT * 0.004 }}>Yamaha</Text>
                                 </View>
                                 <View>
-                                    <Text style={{ color: '#0FC1A1', textAlign: 'right', fontSize: HEIGHT * 0.03, fontWeight: '700' }}>{rate}</Text>
+                                    <Text style={{ color: '#0FC1A1', textAlign: 'right', fontSize: HEIGHT * 0.03, fontWeight: '700' }}>50</Text>
                                     <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.015, }}>QAR/hour</Text>
                                 </View>
                             </View>
@@ -68,20 +64,16 @@ const TerrainSummaryScreen = ({ navigation }) => {
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.022 }}>DRINKS BOX</Text>
                                 <Text style={{ marginTop: HEIGHT * 0.004, color: '#0FC1A1', fontSize: HEIGHT * 0.015 }}>No Items Selected</Text>
                             </View>
-                            <Pressable onPress={() => setModalVisible(true)} style={{ height: HEIGHT * 0.03, width: WIDTH * 0.06, backgroundColor: '#0E1114', justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.003, marginRight: WIDTH * 0.05 }}>
-                                <Image source={plusicon} />
-                            </Pressable>
+
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: HEIGHT * 0.03 }}>
                             <View style={{ marginLeft: WIDTH * 0.05, }}>
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.022 }}>Home BUSINESSES</Text>
                                 <Text style={{ marginTop: HEIGHT * 0.004, color: '#0FC1A1', fontSize: HEIGHT * 0.015 }}>No Items Selected</Text>
                             </View>
-                            <View style={{ height: HEIGHT * 0.03, width: WIDTH * 0.06, backgroundColor: '#0E1114', justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.003, marginRight: WIDTH * 0.05 }}>
-                                <Image source={plusicon} />
-                            </View>
+
                         </View>
-                        <View style={{ backgroundColor: '#181D23', flex: 1, marginTop: HEIGHT * 0.03, borderRadius: HEIGHT * 0.02 }}>
+                        <View style={{ backgroundColor: 'black', flex: 1, marginTop: HEIGHT * 0.03, borderRadius: HEIGHT * 0.02 }}>
                             <View style={{ marginTop: HEIGHT * 0.02, marginLeft: HEIGHT * 0.02 }}>
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>PAYMENTS</Text>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>
@@ -112,7 +104,10 @@ const TerrainSummaryScreen = ({ navigation }) => {
                         </View>
 
                     </View>
-                    <ScreenButtonComponent text={'PROCEED TO PAYMENT'} onPress={() => navigation.navigate('PaymentGatewayScreen', { path: "BookedTicketScreen" })} />
+                    <ScreenButtonComponent text={'Home'} onPress={() => navigation.navigate('HomeScreen')} />
+                    {/* <Pressable>
+
+                    </Pressable> */}
                 </View>
 
             </SafeAreaView >
@@ -121,4 +116,4 @@ const TerrainSummaryScreen = ({ navigation }) => {
     )
 }
 
-export default TerrainSummaryScreen
+export default BookedTicketScreen

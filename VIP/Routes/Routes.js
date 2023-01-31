@@ -10,17 +10,26 @@ import { WIDTH } from '../Constants/Constants';
 import { drawertoplogo } from '../src/assets';
 import BeachDetailsScreen from '../src/screens/BeachDetailsScreen';
 import BeachListScreen from '../src/screens/BeachListScreen';
+import BookedTicketScreen from '../src/screens/BookedTicketScreen';
+import ChooseLocationScreen from '../src/screens/ChooseLocationScreen';
 import DesertListScreen from '../src/screens/DesertListScreen';
 
 import DrawerScreen from '../src/screens/DrawerScreen';
 import HomeScreen from '../src/screens/HomeScreen';
 import LoginScreen from '../src/screens/LoginScreen';
 import OtpScreen from '../src/screens/OtpScreen';
+import PaymentGatewayScreen from '../src/screens/PaymentGatewayScreen';
 import RentDayBookingScreen from '../src/screens/RentDayBookingScreen';
+import ServiceScreen from '../src/screens/ServiceScreen';
 import SignUpScreen from '../src/screens/SignUpScreen';
 import SplashScreen from '../src/screens/SplashScreen';
 import TerrainScreen from '../src/screens/TerrainScreen';
 import TerrainSummaryScreen from '../src/screens/TerrainSummaryScreen';
+import WashCabanSCreen from '../src/screens/WashCabanSCreen';
+import WashingBookingScreen from '../src/screens/WashingBookingScreen';
+import WashServicesScreen from '../src/screens/WashServicesScreen';
+import WashSummaryScreen from '../src/screens/WashSummaryScreen';
+import WashTicketScreen from '../src/screens/WashTicketScreen';
 
 const RouteDrawer = createDrawerNavigator();
 
@@ -94,10 +103,7 @@ const Routes = () => {
       <RouteStack.Screen name="SignUpScreen" component={SignUpScreen} />
       <RouteStack.Screen name="HomeScreen" component={Drawer} />
       <RouteStack.Screen name="TerrainScreen" component={TerrainScreen} />
-      <RouteStack.Screen
-        name="RentDayBookingScreen"
-        component={RentDayBookingScreen}
-      />
+      <RouteStack.Screen name="RentDayBookingScreen" component={RentDayBookingScreen} />
       <RouteStack.Screen
         name="BeachListScreen"
         component={BeachListScreen}
@@ -114,6 +120,43 @@ const Routes = () => {
         name="TerrainSummaryScreen"
         component={TerrainSummaryScreen}
       />
+      <RouteStack.Screen
+        name="PaymentGatewayScreen"
+        component={PaymentGatewayScreen}
+      />
+      <RouteStack.Screen
+        name="BookedTicketScreen"
+        component={BookedTicketScreen}
+      />
+      <RouteStack.Screen
+        name="ServiceScreen"
+        component={ServiceScreen}
+      />
+      <RouteStack.Screen
+        name="ChooseLocationScreen"
+        component={ChooseLocationScreen}
+      />
+      <RouteStack.Screen
+        name="WashingBookingScreen"
+        component={WashingBookingScreen}
+      />
+      <RouteStack.Screen
+        name="WashCabanSCreen"
+        component={WashCabanSCreen}
+      />
+      <RouteStack.Screen
+        name="WashServicesScreen"
+        component={WashServicesScreen}
+      />
+      <RouteStack.Screen
+        name="WashSummaryScreen"
+        component={WashSummaryScreen}
+      />
+      <RouteStack.Screen
+        name="WashTicketScreen"
+        component={WashTicketScreen}
+      />
+
     </RouteStack.Navigator>
   );
 };

@@ -1,4 +1,4 @@
-import { beachlogo, boatimage1, boatimage2, boatimage3, boatimage4, boatimage5, boatimage6, boatimage7, boatimage8, desertlogo, drawerlistaboutlogo, drawerlisthomelogo, drawerlistprivacylogo, drawerlistprofilelogo, drawerlistsupportlogo, homebuildlogo, homerentlogo, homeserviceslogo } from "../assets"
+import { beachlogo, boatimage1, boatimage2, boatimage3, boatimage4, boatimage5, boatimage6, boatimage7, boatimage8, desertlogo, drawerlistaboutlogo, drawerlisthomelogo, drawerlistprivacylogo, drawerlistprofilelogo, drawerlistsupportlogo, homebuildlogo, homerentlogo, homeserviceslogo, servicelogo1, servicelogo2, servicelogo3, servicelogo4, towinglogo, washinglogo } from "../assets"
 
 const signupArray = [
     {
@@ -27,7 +27,7 @@ const signupArray = [
 
 const homeScreenList = [
     { logo: homerentlogo, title: 'RENT', subtitle: 'The Best Water And Desert Bikes', path: 'TerrainScreen' },
-    { logo: homeserviceslogo, title: 'SERVICES', subtitle: 'Towing And Cleaning Service For Containers', path: 'TerrainScreen' },
+    { logo: homeserviceslogo, title: 'SERVICES', subtitle: 'Towing And Cleaning Service For Containers', path: 'ServiceScreen' },
     { logo: homebuildlogo, title: 'BUILD', subtitle: 'Easily Create Your Own Cabana', path: 'TerrainScreen' }
 ]
 
@@ -42,6 +42,10 @@ const drawerMenu = [
 const terrain = [
     { id: 1, logo: beachlogo, title: 'BEACH' },
     { id: 2, logo: desertlogo, title: 'DESERT' }
+]
+const service = [
+    { id: 1, logo: washinglogo, title: 'WASHING' },
+    { id: 2, logo: towinglogo, title: 'TOWING' }
 ]
 
 const hours = [
@@ -81,4 +85,52 @@ const beachVehicleList = [
     { id: 7, title: '2021 FX SVHO', company: 'Yamaha', location: 'Abu Hamour,Doha', sourceimage: boatimage7, rate: 50 },
     { id: 8, title: '2021 FX SVHO', company: 'Yamaha', location: 'Abu Hamour,Doha', sourceimage: boatimage8, rate: 50 }
 ]
-export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList }
+
+const locations = [
+    { id: 1, location: 'Abu Dhalouf' },
+    { id: 2, location: 'Abu Hamour' },
+    { id: 3, location: 'Al Rayyan' },
+    { id: 4, location: 'Ain Khaled' },
+    { id: 5, location: 'Ain Sinan' },
+    { id: 6, location: 'Baaya' },
+    { id: 7, location: 'Bani Hajer' },
+    { id: 8, location: 'Barahat Al Jufairi' },
+    { id: 9, location: 'Bu Fasseela' },
+    { id: 10, location: 'Dahl Al Hamam' },
+    { id: 11, location: 'Doha International Airport' },
+    { id: 12, location: 'Doha Port' },
+    { id: 13, location: 'Duhail' },
+    { id: 14, location: 'Fuwayrit' },
+    { id: 15, location: 'Fereej Abdel Aziz' },
+    { id: 16, location: 'Fereej Bin Durham' },
+    { id: 17, location: 'Fereej Bin Mahmoud' },
+    { id: 18, location: 'Fereej Bin Omran' },
+    { id: 19, location: 'Gharrafat Al Rayyan' },
+    { id: 20, location: 'Hamad Medical City' },
+    { id: 21, location: 'Hazm Al Markhiya' },
+    { id: 22, location: 'zghawa (Al Rayyan)' },
+    { id: 23, location: 'Jelaiah' },
+    { id: 24, location: 'Jeryan Jenaihat' },
+    { id: 25, location: 'Jeryan Nejaima' },
+    { id: 26, location: 'Khawr al Udayd' },
+    { id: 27, location: 'Al Karaana' },
+    { id: 28, location: 'Leabaib' },
+    { id: 29, location: 'Lebday' },
+    { id: 30, location: 'Madinat Al Kaaban' },
+
+]
+
+const washingTime = [
+    { id: 1, title: 'MORNING', timing: '7:00 am to 12:00 pm' },
+    { id: 2, title: 'MIDDAY', timing: '12:00 pm to 3:00 pm' },
+    { id: 3, title: 'AFTERNOON', timing: '3:00 am to 7:00 pm' },
+    { id: 4, title: 'EVENING', timing: '7:00 pm to 10:00 am' }
+]
+
+const cabanservicelist = [
+    { id: 1, title: 'BADRI PULLING', description: 'Lorem Ipsum has been the industry standard', rate: 250, logo: servicelogo1 },
+    { id: 2, title: 'BADRI PULLING', description: 'Lorem Ipsum has been the industry standard', rate: 250, logo: servicelogo2 },
+    { id: 3, title: 'BADRI PULLING', description: 'Lorem Ipsum has been the industry standard', rate: 250, logo: servicelogo3 },
+    { id: 4, title: 'BADRI PULLING', description: 'Lorem Ipsum has been the industry standard', rate: 250, logo: servicelogo4 },
+]
+export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist }
