@@ -1,4 +1,29 @@
-import { beachlogo, boatimage1, boatimage2, boatimage3, boatimage4, boatimage5, boatimage6, boatimage7, boatimage8, desertlogo, drawerlistaboutlogo, drawerlisthomelogo, drawerlistprivacylogo, drawerlistprofilelogo, drawerlistsupportlogo, homebuildlogo, homerentlogo, homeserviceslogo, servicelogo1, servicelogo2, servicelogo3, servicelogo4, towinglogo, washinglogo } from "../assets"
+import {
+    beachlogo, boatimage1, boatimage2, boatimage3, boatimage4, boatimage5, boatimage6, boatimage7, boatimage8, cabana1, cabana2, cabana3, cabana4, cabanaaclogo, cabanabathroomlogo, cabanakitchenlogo, cabanaroomlogo, cabansizelogo, desertlogo, drawerlistaboutlogo, drawerlisthomelogo, drawerlistprivacylogo, drawerlistprofilelogo, drawerlistsupportlogo, homebuildlogo, homerentlogo, homeserviceslogo, servicelogo1, servicelogo2, servicelogo3, servicelogo4, towinglogo, washinglogo, cabanaroomfloorlogo,
+    cabanawardrobelogo,
+    cabanawalllogo,
+    cabanawindowsizelogo,
+    cabanawindowshutterlogo,
+    cabanalifterlogo,
+    cabanatoiletlogo,
+    cabanaairlogo,
+    cabanaoutercoverlogo,
+    cabanawatertanklogo,
+    cabanatowhooklogo,
+    bathroomsizelogo,
+    floorlogo1,
+    floorlogo2,
+    floorlogo3,
+    floorlogo4,
+    wardrobelogo4,
+    wardrobelogo3,
+    wardrobelogo2,
+    wardrobelogo1,
+    wallpaperlogo,
+    paintinglogo,
+    outercoverlogo1,
+    outercoverlogo2
+} from "../assets"
 
 const signupArray = [
     {
@@ -28,7 +53,7 @@ const signupArray = [
 const homeScreenList = [
     { logo: homerentlogo, title: 'RENT', subtitle: 'The Best Water And Desert Bikes', path: 'TerrainScreen' },
     { logo: homeserviceslogo, title: 'SERVICES', subtitle: 'Towing And Cleaning Service For Containers', path: 'ServiceScreen' },
-    { logo: homebuildlogo, title: 'BUILD', subtitle: 'Easily Create Your Own Cabana', path: 'TerrainScreen' }
+    { logo: homebuildlogo, title: 'BUILD', subtitle: 'Easily Create Your Own Cabana', path: 'BuildScreen' }
 ]
 
 const drawerMenu = [
@@ -133,4 +158,116 @@ const cabanservicelist = [
     { id: 3, title: 'BADRI PULLING', description: 'Lorem Ipsum has been the industry standard', rate: 250, logo: servicelogo3 },
     { id: 4, title: 'BADRI PULLING', description: 'Lorem Ipsum has been the industry standard', rate: 250, logo: servicelogo4 },
 ]
-export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist }
+
+const cabanadata = [
+    { id: 1, title: 'FAMILY CABANA', size: '6X4 m2', price: '250', image: cabana1, company: 'Al-Rayyan Co.' },
+    { id: 2, title: 'COFFEE SHOP CABANA', size: '6X4 m2', price: '250', image: cabana2, company: 'Al-Sad Co.' },
+    { id: 3, title: 'XL FAMILY CABANA', size: '6X4 m2', price: '250', image: cabana3, company: 'Amaar Co.' },
+    { id: 4, title: '2021 SVHO CABANA', size: '6X4 m2', price: '250', image: cabana4, company: 'Amaar Co.' },
+]
+
+const cabanafeature = [
+    { id: 1, logo: cabanakitchenlogo, text: 'Kitchen' },
+    { id: 2, logo: cabanaroomlogo, text: 'Rooms' },
+    { id: 3, logo: cabanaaclogo, text: 'Ac' },
+    { id: 4, logo: cabanabathroomlogo, text: 'Bathroom' },
+]
+
+const bathroomsize = [
+    { id: 1, title: 'STANDARD', size: '160 x 160 CM2' },
+    { id: 2, title: 'MEDIUM', size: '180 x 180 CM2' },
+    { id: 3, title: 'LARGE SIZE', size: '200 x 200 CM2' },
+]
+
+const customDetails = [
+    { id: 1, title: 'CABAN SIZE', case: 'cabansize', logo: cabansizelogo },
+    { id: 2, title: 'BATHROOM SIZE', case: 'bathroomsize', logo: bathroomsizelogo },
+    { id: 3, title: 'ROOM FLOOR', case: 'roomfloor', logo: cabanaroomfloorlogo },
+    { id: 4, title: 'WARDROBE', case: 'wardrobe', logo: cabanawardrobelogo },
+    { id: 5, title: 'THE WALL', case: 'thewall', logo: cabanawalllogo },
+    { id: 6, title: 'WINDOW SIZE', case: 'windowsize', logo: cabanawindowsizelogo },
+    { id: 7, title: 'WINDOW SHUTTERS', case: 'windowshutters', logo: cabanawindowshutterlogo },
+    { id: 8, title: 'LIFTERS', case: 'lifters', logo: cabanalifterlogo },
+    { id: 9, title: 'BATHROOM TYPE', case: 'bathroomtype', logo: cabanatoiletlogo },
+    { id: 10, title: 'CONDITION', case: 'condition', logo: cabanaairlogo },
+    { id: 11, title: 'OUTER COVER', case: 'outercover', logo: cabanaoutercoverlogo },
+    { id: 12, title: 'WATER TANK', case: 'watertank', logo: cabanawatertanklogo },
+    { id: 13, title: 'TOW HOOK', case: 'towhook', logo: cabanatowhooklogo },
+
+]
+
+const floorDetails = [
+    { id: 1, title: 'PARQUET', logo: floorlogo1 },
+    { id: 2, title: 'CARPET', logo: floorlogo2 },
+    { id: 3, title: 'MARBLE ALTERNATIVE', logo: floorlogo3 },
+    { id: 4, title: 'NOTHING', logo: floorlogo4 },
+]
+const wardrobe = [
+    { id: 1, title: 'SLIDING DOOR', logo: wardrobelogo1 },
+    { id: 2, title: 'HINGE DOOR', logo: wardrobelogo2 },
+    { id: 3, title: 'CORNER WARDROBE', logo: wardrobelogo3 },
+    { id: 4, title: 'WALK-IN-WARDROBE', logo: wardrobelogo4 },
+]
+const wall = [
+    { id: 1, title: 'WALLPAPER', logo: wallpaperlogo },
+    { id: 2, title: 'PAINT', logo: paintinglogo },
+    { id: 3, title: 'NOTHING', logo: floorlogo4 },
+
+]
+const windowsize = [
+    { id: 1, title: 'STANDARD', size: '160 x 100 CM2' },
+    { id: 2, title: 'MEDIUM', size: '120 x 100 CM2' },
+    { id: 3, title: 'LARGE SIZE', size: '200 x 100 CM2' },
+]
+const windowshutter = [
+    { id: 1, title: 'YES', description: 'With Shutters' },
+    { id: 2, title: 'NO', description: 'Without Shutters' },
+
+]
+const lifters = [
+    { id: 1, title: '(X2 LIFTERS)', description: 'Only in the Front' },
+    { id: 2, title: '(X4 LIFTERS)', description: 'To All Slides' },
+
+]
+const bathroom = [
+    { id: 1, title: 'STANDARD', description: 'Classic' },
+    { id: 2, title: 'CUSTOM', description: 'Select One' },
+
+]
+const condition = [
+    { id: 1, title: '(1) TON', },
+    { id: 2, title: '(1) TON', },
+    { id: 3, title: '(2) TON', },
+    { id: 4, title: '(1) TON X 2', },
+    { id: 5, title: '(2,5) TON', },
+    { id: 6, title: '(2) TON X 2', },
+    { id: 7, title: 'WITHOUT', },
+
+]
+const outerCover = [
+    { id: 1, title: 'GALVANISED IRON', logo: outercoverlogo1 },
+    { id: 2, title: 'FIPER', logo: outercoverlogo2 }
+
+]
+const waterTank = [
+    { id: 1, title: '500 LITER', },
+    { id: 2, title: '1000 LITER', },
+    { id: 3, title: '1500 LITER', },
+    { id: 4, title: '2000 LITER', },
+]
+const hook = [
+    { id: 1, title: 'YES', description: 'With Hook' },
+    { id: 2, title: 'NO', description: 'Without Hook' },
+]
+
+
+
+
+
+
+
+
+
+
+
+export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook }

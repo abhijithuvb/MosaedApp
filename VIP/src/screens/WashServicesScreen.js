@@ -6,14 +6,17 @@ import { HEIGHT } from '../../Constants/Constants'
 import CabanServiceComponent from '../components/CabanServiceComponent'
 import { cabanservicelist } from '../Arrays/Arrays'
 import ScreenButtonComponent from '../components/ScreenButtonComponent'
+import { useRoute } from '@react-navigation/native'
 
 const WashServicesScreen = ({ navigation }) => {
     const [Index, setIndex] = useState()
+    const Route = useRoute()
+    const { serviceStatus } = Route.params
     return (
         <View style={{ backgroundColor: 'black', flex: 1 }}>
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={{ marginTop: HEIGHT * 0.03 }}>
-                    <HeaderComponent leftlogo={backarrow} rightlogo={searchlogo} title={'SERVICES'} />
+                    <HeaderComponent leftlogo={backarrow} rightlogo={searchlogo} title={'SERVICES'} leftOnPress={() => navigation.goBack()} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
                     <View style={{ backgroundColor: 'black', height: HEIGHT * 0.775, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02, alignItems: 'center', }}>
@@ -21,7 +24,7 @@ const WashServicesScreen = ({ navigation }) => {
 
                     </View>
                     <View>
-                        <ScreenButtonComponent text={'CHOOSE SERVICE'} onPress={() => navigation.navigate('WashSummaryScreen')} />
+                        <ScreenButtonComponent text={serviceStatus.washing ? 'CHOOSE SERVICE' : 'PROCEED TO PAYMENT'} onPress={() => navigation.navigate('PaymentGatewayScreen', { path: serviceStatus.washing ? 'WashTicketScreen' : 'TowingTicketScreen' })} />
                     </View>
                 </View>
 

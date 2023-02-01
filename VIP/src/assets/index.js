@@ -71,6 +71,52 @@ import servicelogo3 from './Logo/washservicelogo/servicelogo3/servicelogo3.png'
 import servicelogo4 from './Logo/washservicelogo/servicelogo4/servicelogo4.png'
 import multicolorrightlogo from './Logo/multicolorrightlogo/multicolorrightlogo.png'
 import maplogo from './Logo/maplogo/maplogo.png'
+import towingsmalllogo from './Logo/towingsmalllogo/towingsmalllogo.png'
+import pickuplogo from './Logo/pickuplogo/pickuplogo.png'
+import dropofflocationlogo from './Logo/dropofflocationlogo/dropofflocationlogo.png'
+import buildstandardlogo from './Logo/buildstandardlogo/buildstandardlogo.png'
+import buildcustomlogo from './Logo/buildcustomlogo/buildcustomlogo.png'
+import cabana1 from './images/cabana1/cabana1.png'
+import cabana2 from './images/cabana2/cabana2.png'
+import cabana3 from './images/cabana3/cabana3.png'
+import cabana4 from './images/cabana4/cabana4.png'
+import singlecabanaimage from './images/singlecabanaimage/singlecabanaimage.png'
+
+import cabanaaclogo from './Logo/cabanaaclogo/cabanaaclogo.png'
+import cabanaroomlogo from './Logo/cabanaroomlogo/cabanaroomlogo.png'
+import cabanakitchenlogo from './Logo/cabanakitchenlogo/cabanakitchenlogo.png'
+import messagelogo from './Logo/messagelogo/messagelogo.png'
+import phonelogo from './Logo/phonelogo/phonelogo.png'
+import progresslogo1 from './Logo/progresslogo/progresslogo1/progresslogo1.png'
+import cabansizelogo from './Logo/cabansizelogo/cabansizelogo.png'
+import cabanabathroomlogo from './Logo/cabanabathroomlogo/cabanabathroomlogo.png'
+import cabanaroomfloorlogo from './Logo/cabanaroomfloorlogo/cabanaroomfloorlogo.png'
+import cabanawardrobelogo from './Logo/cabanawardrobelogo/cabanawardrobelogo.png'
+import cabanawalllogo from './Logo/cabanawalllogo/cabanawalllogo.png'
+import cabanawindowsizelogo from './Logo/cabanawindowsizelogo/cabanawindowsizelogo.png'
+
+import cabanalifterlogo from './Logo/cabanalifterlogo/cabanalifterlogo.png'
+import cabanatoiletlogo from './Logo/cabanatoiletlogo/cabanatoiletlogo.png'
+import cabanaairlogo from './Logo/cabanaairlogo/cabanaairlogo.png'
+import cabanaoutercoverlogo from './Logo/cabanaoutercoverlogo/cabanaoutercoverlogo.png'
+import cabanawatertanklogo from './Logo/cabanawatertanklogo/cabanawatertanklogo.png'
+import cabanatowhooklogo from './Logo/cabanatowhooklogo/cabanatowhooklogo.png'
+import bathroomsizelogo from './Logo/bathroomsizelogo/bathroomsizelogo.png'
+import cabanawindowshutterlogo from './Logo/cabanawindowshutterlogo/cabanawindowshutterlogo.png'
+import floorlogo1 from './Logo/customroomfloor/floorlogo1/floorlogo1.png'
+import floorlogo2 from './Logo/customroomfloor/floorlogo2/floorlogo2.png'
+import floorlogo3 from './Logo/customroomfloor/floorlogo3/floorlogo3.png'
+import floorlogo4 from './Logo/customroomfloor/floorlogo4/floorlogo4.png'
+import wardrobelogo1 from './Logo/wardrobe/wardrobelogo1/wardrobelogo1.png'
+import wardrobelogo2 from './Logo/wardrobe/wardrobelogo2/wardrobelogo2.png'
+import wardrobelogo3 from './Logo/wardrobe/wardrobelogo3/wardrobelogo3.png'
+import wardrobelogo4 from './Logo/wardrobe/wardrobelogo4/wardrobelogo4.png'
+import paintinglogo from './Logo/paintinglogo/paintinglogo.png'
+import wallpaperlogo from './Logo/wallpaperlogo/wallpaperlogo.png'
+import outercoverlogo1 from './Logo/outercoverlogo1/outercoverlogo1.png'
+import outercoverlogo2 from './Logo/outercoverlogo2/outercoverlogo2.png'
+
+
 
 export {
   splashscreenbackgroundlogo,
@@ -145,5 +191,47 @@ export {
   servicelogo3,
   servicelogo4,
   multicolorrightlogo,
-  maplogo
+  maplogo,
+  towingsmalllogo,
+  pickuplogo,
+  dropofflocationlogo,
+  buildstandardlogo,
+  buildcustomlogo,
+  cabana1,
+  cabana2,
+  cabana3,
+  cabana4,
+  singlecabanaimage,
+  cabanaaclogo,
+  cabanaroomlogo,
+  cabanakitchenlogo,
+  messagelogo,
+  phonelogo,
+  progresslogo1,
+  cabansizelogo,
+  cabanabathroomlogo,
+  cabanaroomfloorlogo,
+  cabanawardrobelogo,
+  cabanawalllogo,
+  cabanawindowsizelogo,
+  cabanawindowshutterlogo,
+  cabanalifterlogo,
+  cabanatoiletlogo,
+  cabanaairlogo,
+  cabanaoutercoverlogo,
+  cabanawatertanklogo,
+  cabanatowhooklogo,
+  bathroomsizelogo,
+  floorlogo1,
+  floorlogo2,
+  floorlogo3,
+  floorlogo4,
+  wardrobelogo1,
+  wardrobelogo2,
+  wardrobelogo3,
+  wardrobelogo4,
+  paintinglogo,
+  wallpaperlogo,
+  outercoverlogo1,
+  outercoverlogo2
 };

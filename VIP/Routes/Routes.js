@@ -11,6 +11,10 @@ import { drawertoplogo } from '../src/assets';
 import BeachDetailsScreen from '../src/screens/BeachDetailsScreen';
 import BeachListScreen from '../src/screens/BeachListScreen';
 import BookedTicketScreen from '../src/screens/BookedTicketScreen';
+import BuildScreen from '../src/screens/cabanas/BuildScreen';
+import CabanaScreen from '../src/screens/cabanas/CabanaScreen';
+import CustomCabanaScreen from '../src/screens/cabanas/CustomCabanaScreen';
+import SingleCabanaScreen from '../src/screens/cabanas/SingleCabanaScreeen';
 import ChooseLocationScreen from '../src/screens/ChooseLocationScreen';
 import DesertListScreen from '../src/screens/DesertListScreen';
 
@@ -25,6 +29,8 @@ import SignUpScreen from '../src/screens/SignUpScreen';
 import SplashScreen from '../src/screens/SplashScreen';
 import TerrainScreen from '../src/screens/TerrainScreen';
 import TerrainSummaryScreen from '../src/screens/TerrainSummaryScreen';
+import TowingLocationScreen from '../src/screens/TowingLocationScreen';
+import TowingTicketScreen from '../src/screens/TowingTicketScreen';
 import WashCabanSCreen from '../src/screens/WashCabanSCreen';
 import WashingBookingScreen from '../src/screens/WashingBookingScreen';
 import WashServicesScreen from '../src/screens/WashServicesScreen';
@@ -156,6 +162,12 @@ const Routes = () => {
         name="WashTicketScreen"
         component={WashTicketScreen}
       />
+      <RouteStack.Screen name='TowingLocationScreen' component={TowingLocationScreen} />
+      <RouteStack.Screen name='TowingTicketScreen' component={TowingTicketScreen} />
+      <RouteStack.Screen name='BuildScreen' component={BuildScreen} />
+      <RouteStack.Screen name='CabanaScreen' component={CabanaScreen} />
+      <RouteStack.Screen name='SingleCabanaScreen' component={SingleCabanaScreen} />
+      <RouteStack.Screen name='CustomCabanaScreen' component={CustomCabanaScreen} />
 
     </RouteStack.Navigator>
   );

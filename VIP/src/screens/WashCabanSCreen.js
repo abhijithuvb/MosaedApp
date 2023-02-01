@@ -47,7 +47,7 @@ const WashCabanSCreen = ({ navigation }) => {
 
                         </View>
                         <View style={{ marginTop: HEIGHT * 0.015 }}>
-                            <ButtonComponent label={'NEXT'} onPressFunction={() => navigation.navigate('WashServicesScreen')} />
+                            <ButtonComponent label={'NEXT'} onPressFunction={() => navigation.navigate(serviceStatus.washing ? 'WashServicesScreen' : 'TowingLocationScreen', { serviceStatus })} />
                         </View>
 
                     </View>
