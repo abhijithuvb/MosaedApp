@@ -22,7 +22,7 @@ import Routes from './VIP/Routes/Routes';
 
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
-// import { store } from './src/components/redux/store'
+// import {store} from './src/components/redux/store';
 import {store} from './mosaedApp/src/redux/store';
 
 const App = () => {
