@@ -2,21 +2,40 @@ import {
   createDrawerNavigator,
   useDrawerProgress,
 } from '@react-navigation/drawer';
-import {createStackNavigator} from '@react-navigation/stack';
-import {useEffect, useState} from 'react';
-import {Image, View} from 'react-native';
-import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
-import {WIDTH} from '../Constants/Constants';
-import {drawertoplogo} from '../src/assets';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useEffect, useState } from 'react';
+import { Image, View } from 'react-native';
+import Animated, { interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import { WIDTH } from '../Constants/Constants';
+import { drawertoplogo } from '../src/assets';
+import BeachDetailsScreen from '../src/screens/BeachDetailsScreen';
+import BeachListScreen from '../src/screens/BeachListScreen';
+import BookedTicketScreen from '../src/screens/BookedTicketScreen';
+import BuildScreen from '../src/screens/cabanas/BuildScreen';
+import CabanaScreen from '../src/screens/cabanas/CabanaScreen';
+import CustomCabanaScreen from '../src/screens/cabanas/CustomCabanaScreen';
+import SingleCabanaScreen from '../src/screens/cabanas/SingleCabanaScreeen';
+import ChooseLocationScreen from '../src/screens/ChooseLocationScreen';
+import DesertListScreen from '../src/screens/DesertListScreen';
 
 import DrawerScreen from '../src/screens/DrawerScreen';
 import HomeScreen from '../src/screens/HomeScreen';
 import LoginScreen from '../src/screens/LoginScreen';
 import OtpScreen from '../src/screens/OtpScreen';
+import PaymentGatewayScreen from '../src/screens/PaymentGatewayScreen';
 import RentDayBookingScreen from '../src/screens/RentDayBookingScreen';
+import ServiceScreen from '../src/screens/ServiceScreen';
 import SignUpScreen from '../src/screens/SignUpScreen';
 import SplashScreen from '../src/screens/SplashScreen';
 import TerrainScreen from '../src/screens/TerrainScreen';
+import TerrainSummaryScreen from '../src/screens/TerrainSummaryScreen';
+import TowingLocationScreen from '../src/screens/TowingLocationScreen';
+import TowingTicketScreen from '../src/screens/TowingTicketScreen';
+import WashCabanSCreen from '../src/screens/WashCabanSCreen';
+import WashingBookingScreen from '../src/screens/WashingBookingScreen';
+import WashServicesScreen from '../src/screens/WashServicesScreen';
+import WashSummaryScreen from '../src/screens/WashSummaryScreen';
+import WashTicketScreen from '../src/screens/WashTicketScreen';
 
 const RouteDrawer = createDrawerNavigator();
 
@@ -40,7 +59,7 @@ const Drawer = () => {
     outputRange: [1, 0.8],
   });
   const animatedStyle = {
-    transform: [{scaleX: scaleX}, {scaleY: scaleY}],
+    transform: [{ scaleX: scaleX }, { scaleY: scaleY }],
   };
   console.log(scaleX, scaleY);
 
@@ -51,11 +70,11 @@ const Drawer = () => {
         return <CustomDrawerContent {...props} />;
       }}
       screenOptions={{
-        drawerStyle: {width: WIDTH * 0.8},
+        drawerStyle: { width: WIDTH * 0.8 },
         headerShown: false,
         drawerType: 'back',
         overlayColor: 'transparent',
-        sceneContainerStyle: {backgroundColor: '#181D23'},
+        sceneContainerStyle: { backgroundColor: '#181D23' },
       }}>
       <RouteDrawer.Screen name="drawer">
         {props => {
@@ -67,13 +86,13 @@ const Drawer = () => {
 };
 
 const animatedStack = createStackNavigator();
-const AnimatedScreen = ({animatedStyles}) => {
+const AnimatedScreen = ({ animatedStyles }) => {
   return (
-    <Animated.View style={[animatedStyles, {flex: 1}]}>
-      <View style={{position: 'absolute', left: 0, top: -100}}>
+    <Animated.View style={[animatedStyles, { flex: 1 }]}>
+      <View style={{ position: 'absolute', left: 0, top: -100 }}>
         <Image source={drawertoplogo} />
       </View>
-      <animatedStack.Navigator screenOptions={{headerShown: false}}>
+      <animatedStack.Navigator screenOptions={{ headerShown: false }}>
         <animatedStack.Screen name="HomeScreen" component={HomeScreen} />
       </animatedStack.Navigator>
     </Animated.View>
@@ -83,17 +102,73 @@ const AnimatedScreen = ({animatedStyles}) => {
 const Routes = () => {
   const RouteStack = createStackNavigator();
   return (
-    <RouteStack.Navigator screenOptions={{headerShown: false}}>
+    <RouteStack.Navigator initialRouteName='SplashScreen' screenOptions={{ headerShown: false }}>
       <RouteStack.Screen name="SplashScreen" component={SplashScreen} />
       <RouteStack.Screen name="LoginScreen" component={LoginScreen} />
       <RouteStack.Screen name="OtpScreen" component={OtpScreen} />
       <RouteStack.Screen name="SignUpScreen" component={SignUpScreen} />
       <RouteStack.Screen name="HomeScreen" component={Drawer} />
       <RouteStack.Screen name="TerrainScreen" component={TerrainScreen} />
+      <RouteStack.Screen name="RentDayBookingScreen" component={RentDayBookingScreen} />
       <RouteStack.Screen
-        name="RentDayBookingScreen"
-        component={RentDayBookingScreen}
+        name="BeachListScreen"
+        component={BeachListScreen}
       />
+      <RouteStack.Screen
+        name="DesertListScreen"
+        component={DesertListScreen}
+      />
+      <RouteStack.Screen
+        name="BeachDetailsScreen"
+        component={BeachDetailsScreen}
+      />
+      <RouteStack.Screen
+        name="TerrainSummaryScreen"
+        component={TerrainSummaryScreen}
+      />
+      <RouteStack.Screen
+        name="PaymentGatewayScreen"
+        component={PaymentGatewayScreen}
+      />
+      <RouteStack.Screen
+        name="BookedTicketScreen"
+        component={BookedTicketScreen}
+      />
+      <RouteStack.Screen
+        name="ServiceScreen"
+        component={ServiceScreen}
+      />
+      <RouteStack.Screen
+        name="ChooseLocationScreen"
+        component={ChooseLocationScreen}
+      />
+      <RouteStack.Screen
+        name="WashingBookingScreen"
+        component={WashingBookingScreen}
+      />
+      <RouteStack.Screen
+        name="WashCabanSCreen"
+        component={WashCabanSCreen}
+      />
+      <RouteStack.Screen
+        name="WashServicesScreen"
+        component={WashServicesScreen}
+      />
+      <RouteStack.Screen
+        name="WashSummaryScreen"
+        component={WashSummaryScreen}
+      />
+      <RouteStack.Screen
+        name="WashTicketScreen"
+        component={WashTicketScreen}
+      />
+      <RouteStack.Screen name='TowingLocationScreen' component={TowingLocationScreen} />
+      <RouteStack.Screen name='TowingTicketScreen' component={TowingTicketScreen} />
+      <RouteStack.Screen name='BuildScreen' component={BuildScreen} />
+      <RouteStack.Screen name='CabanaScreen' component={CabanaScreen} />
+      <RouteStack.Screen name='SingleCabanaScreen' component={SingleCabanaScreen} />
+      <RouteStack.Screen name='CustomCabanaScreen' component={CustomCabanaScreen} />
+
     </RouteStack.Navigator>
   );
 };
