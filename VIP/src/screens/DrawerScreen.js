@@ -37,7 +37,7 @@ const DrawerScreen = () => {
                         </View>
                     </View>
                     <View>
-                        <FlatList data={drawerMenu} renderItem={({ item }) => <DrawerMenuComponent logo={item.logo} title={item.title} />} />
+                        <FlatList data={drawerMenu} renderItem={({ item }) => <DrawerMenuComponent logo={item.logo} title={item.title} path={item.path} />} />
                     </View>
 
                     <View style={{ marginTop: HEIGHT * 0.045, }}>

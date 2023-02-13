@@ -115,6 +115,13 @@ import paintinglogo from './Logo/paintinglogo/paintinglogo.png'
 import wallpaperlogo from './Logo/wallpaperlogo/wallpaperlogo.png'
 import outercoverlogo1 from './Logo/outercoverlogo1/outercoverlogo1.png'
 import outercoverlogo2 from './Logo/outercoverlogo2/outercoverlogo2.png'
+import myprofiledp from './Logo/myprofiledp/myprofiledp.png'
+import editprofilesmalllogo from './Logo/editprofilesmalllogo/editprofilesmalllogo.png'
+import rightarrowlogo from './Logo/rightarrowlogo/rightarrowlogo.png'
+import myactivitysmalllogo from './Logo/myactivitysmalllogo/myactivitysmalllogo.png'
+import membershipsmalllogo from './Logo/membershipsmalllogo/membershipsmalllogo.png'
+import dpblackcovered from './Logo/dpblackcovered/dpblackcovered.png'
+import camerasmalllogo from './Logo/camerasmalllogo/camerasmalllogo.png'
 
 
 
@@ -233,5 +240,12 @@ export {
   paintinglogo,
   wallpaperlogo,
   outercoverlogo1,
-  outercoverlogo2
+  outercoverlogo2,
+  myprofiledp,
+  editprofilesmalllogo,
+  rightarrowlogo,
+  myactivitysmalllogo,
+  membershipsmalllogo,
+  dpblackcovered,
+  camerasmalllogo
 };

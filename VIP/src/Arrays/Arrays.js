@@ -22,7 +22,10 @@ import {
     wallpaperlogo,
     paintinglogo,
     outercoverlogo1,
-    outercoverlogo2
+    outercoverlogo2,
+    editprofilesmalllogo,
+    myactivitysmalllogo,
+    membershipsmalllogo
 } from "../assets"
 
 const signupArray = [
@@ -57,11 +60,11 @@ const homeScreenList = [
 ]
 
 const drawerMenu = [
-    { logo: drawerlisthomelogo, title: 'Home' },
-    { logo: drawerlistprofilelogo, title: 'My Profile' },
-    { logo: drawerlistaboutlogo, title: 'About Us' },
-    { logo: drawerlistsupportlogo, title: 'Support' },
-    { logo: drawerlistprivacylogo, title: 'Privacy Policy' },
+    { logo: drawerlisthomelogo, title: 'Home', path: '' },
+    { logo: drawerlistprofilelogo, title: 'My Profile', path: 'MyProfileScreen' },
+    { logo: drawerlistaboutlogo, title: 'About Us', path: '' },
+    { logo: drawerlistsupportlogo, title: 'Support', path: '' },
+    { logo: drawerlistprivacylogo, title: 'Privacy Policy', path: '' },
 ]
 
 const terrain = [
@@ -193,6 +196,7 @@ const customDetails = [
     { id: 11, title: 'OUTER COVER', case: 'outercover', logo: cabanaoutercoverlogo },
     { id: 12, title: 'WATER TANK', case: 'watertank', logo: cabanawatertanklogo },
     { id: 13, title: 'TOW HOOK', case: 'towhook', logo: cabanatowhooklogo },
+    { id: 14, title: 'NAME OF CUSTOMISATION', case: 'customizationname', logo: cabanatowhooklogo },
 
 ]
 
@@ -259,15 +263,10 @@ const hook = [
     { id: 1, title: 'YES', description: 'With Hook' },
     { id: 2, title: 'NO', description: 'Without Hook' },
 ]
+const myprofileData = [
+    { id: 1, logo: editprofilesmalllogo, title: 'Edit Profile', path: 'EditProfileScreen' },
+    { id: 2, logo: myactivitysmalllogo, title: 'My Activities', path: 'MyActivityScreen' },
+    { id: 3, logo: membershipsmalllogo, title: 'MemberShip', path: '' }
+]
 
-
-
-
-
-
-
-
-
-
-
-export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook }
+export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook, myprofileData }

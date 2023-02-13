@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useEffect, useState } from 'react';
 import { Image, View } from 'react-native';
 import Animated, { interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
 import { WIDTH } from '../Constants/Constants';
 import { drawertoplogo } from '../src/assets';
 import BeachDetailsScreen from '../src/screens/BeachDetailsScreen';
@@ -19,10 +21,14 @@ import ChooseLocationScreen from '../src/screens/ChooseLocationScreen';
 import DesertListScreen from '../src/screens/DesertListScreen';
 
 import DrawerScreen from '../src/screens/DrawerScreen';
+import EditProfileScreen from '../src/screens/EditProfileScreen';
 import HomeScreen from '../src/screens/HomeScreen';
 import LoginScreen from '../src/screens/LoginScreen';
+import MyActivityScreen from '../src/screens/MyActivityScreen';
+import MyProfileScreen from '../src/screens/MyProfileScreen';
 import OtpScreen from '../src/screens/OtpScreen';
 import PaymentGatewayScreen from '../src/screens/PaymentGatewayScreen';
+import ProfileScreen from '../src/screens/ProfileScreen';
 import RentDayBookingScreen from '../src/screens/RentDayBookingScreen';
 import ServiceScreen from '../src/screens/ServiceScreen';
 import SignUpScreen from '../src/screens/SignUpScreen';
@@ -36,6 +42,9 @@ import WashingBookingScreen from '../src/screens/WashingBookingScreen';
 import WashServicesScreen from '../src/screens/WashServicesScreen';
 import WashSummaryScreen from '../src/screens/WashSummaryScreen';
 import WashTicketScreen from '../src/screens/WashTicketScreen';
+import ActivityIndicatorsDemo from '../../src/components/ActivityIndicators';
+import TextSwitch from '../../src/components/TextSwitch';
+import ScrollViewDemo from '../../src/components/ScrollViewDemo';
 
 const RouteDrawer = createDrawerNavigator();
 
@@ -98,6 +107,17 @@ const AnimatedScreen = ({ animatedStyles }) => {
     </Animated.View>
   );
 };
+
+const TopTabs = () => {
+  const Tab = createMaterialTopTabNavigator()
+  return (
+    <Tab.Navigator tabBar={MyActivityScreen} >
+      <Tab.Screen name='activity' component={ActivityIndicatorsDemo} />
+      <Tab.Screen name='two' component={TextSwitch} />
+      <Tab.Screen name='three' component={ScrollViewDemo} />
+    </Tab.Navigator>
+  )
+}
 
 const Routes = () => {
   const RouteStack = createStackNavigator();
@@ -168,7 +188,10 @@ const Routes = () => {
       <RouteStack.Screen name='CabanaScreen' component={CabanaScreen} />
       <RouteStack.Screen name='SingleCabanaScreen' component={SingleCabanaScreen} />
       <RouteStack.Screen name='CustomCabanaScreen' component={CustomCabanaScreen} />
-
+      <RouteStack.Screen name='ProfileScreen' component={ProfileScreen} />
+      <RouteStack.Screen name='MyProfileScreen' component={MyProfileScreen} />
+      <RouteStack.Screen name='EditProfileScreen' component={EditProfileScreen} />
+      <RouteStack.Screen name='MyActivityScreen' component={MyActivityScreen} />
     </RouteStack.Navigator>
   );
 };
