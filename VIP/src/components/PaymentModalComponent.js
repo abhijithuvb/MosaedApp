@@ -11,6 +11,7 @@ const PaymentModalComponent = ({ visible, setVisible }) => {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
+
             marginTop: -HEIGHT * 0.03,
         }}>
             <Modal
@@ -22,7 +23,8 @@ const PaymentModalComponent = ({ visible, setVisible }) => {
                     flex: 1,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    marginTop: -HEIGHT * 0.03,
+                    marginTop: -HEIGHT * 0.03, backgroundColor: '#00000030',
+
                 }}>
                     <View style={{
                         backgroundColor: '#181D23',

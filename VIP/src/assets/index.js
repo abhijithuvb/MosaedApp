@@ -122,7 +122,15 @@ import myactivitysmalllogo from './Logo/myactivitysmalllogo/myactivitysmalllogo.
 import membershipsmalllogo from './Logo/membershipsmalllogo/membershipsmalllogo.png'
 import dpblackcovered from './Logo/dpblackcovered/dpblackcovered.png'
 import camerasmalllogo from './Logo/camerasmalllogo/camerasmalllogo.png'
-
+import downarrow from './Logo/downarrow/downarrow.png'
+import multicolorcardlogo from './Logo/multicolorcardlogo/multicolorcardlogo.png'
+import backgroundcardlogo from './Logo/backgroundcardlogo/backgroundcardlogo.png'
+import cardcurve from './Logo/cardcurve/cardcurve.png'
+import cardcurveboxlogo from './Logo/cardcurveboxlogo/cardcurveboxlogo.png'
+import goldsmalllogo from './Logo/goldsmalllogo/goldsmalllogo.png'
+import goldimagebackground from './Logo/goldimagebackground/goldimagebackground.png'
+import vipgoldtext from './Logo/vipgoldtext/vipgoldtext.png'
+import rightarrow from './Logo/rightarrow/rightarrow.png'
 
 
 export {
@@ -247,5 +255,14 @@ export {
   myactivitysmalllogo,
   membershipsmalllogo,
   dpblackcovered,
-  camerasmalllogo
+  camerasmalllogo,
+  downarrow,
+  multicolorcardlogo,
+  backgroundcardlogo,
+  cardcurve,
+  cardcurveboxlogo,
+  goldsmalllogo,
+  goldimagebackground,
+  vipgoldtext,
+  rightarrow
 };

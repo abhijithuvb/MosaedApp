@@ -25,7 +25,8 @@ import {
     outercoverlogo2,
     editprofilesmalllogo,
     myactivitysmalllogo,
-    membershipsmalllogo
+    membershipsmalllogo,
+    boatsmallimage
 } from "../assets"
 
 const signupArray = [
@@ -266,7 +267,49 @@ const hook = [
 const myprofileData = [
     { id: 1, logo: editprofilesmalllogo, title: 'Edit Profile', path: 'EditProfileScreen' },
     { id: 2, logo: myactivitysmalllogo, title: 'My Activities', path: 'MyActivityScreen' },
-    { id: 3, logo: membershipsmalllogo, title: 'MemberShip', path: '' }
+    { id: 3, logo: membershipsmalllogo, title: 'MemberShip', path: 'MemberShipScreen' }
 ]
 
-export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook, myprofileData }
+const myActivityRentArray = [
+    { id: 1, logo: boatsmallimage, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Beach' },
+    { id: 2, logo: boatsmallimage, bgcolor: '#FF5F0030', color: '#FF5F00', status: 'Pending', text: 'Desert' },
+    { id: 3, logo: boatsmallimage, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Beach' },
+    { id: 4, logo: boatsmallimage, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Beach' },
+    { id: 5, logo: boatsmallimage, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Beach' },
+    { id: 6, logo: boatsmallimage, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Desert' },
+    { id: 7, logo: boatsmallimage, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Beach' },
+    { id: 8, logo: boatsmallimage, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Beach' },
+
+]
+
+const myActivityTabs = [
+    { id: 1, title: "Rent" },
+    { id: 2, title: "Services" },
+    { id: 3, title: 'Build' }
+]
+
+
+const myActivityServiceArray = [
+    { id: 1, logo: servicelogo1, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Cleaning | 4X6 M2 CABANA', time: 'Morning' },
+    { id: 2, logo: servicelogo2, bgcolor: '#FF5F0030', color: '#FF5F00', status: 'Pending', text: 'Cleaning | 4X6 M2 CABANA', time: 'Evening' },
+    { id: 3, logo: servicelogo3, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: 'Pulling | 4X6 M2 CABANA', time: 'Morning' },
+    { id: 4, logo: servicelogo4, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: '4X6 M2 CABANA', time: 'Morning' },
+    { id: 5, logo: servicelogo1, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: '4X6 M2 CABANA', time: 'Morning' },
+    { id: 6, logo: servicelogo2, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: '4X6 M2 CABANA', time: 'Morning' },
+    { id: 7, logo: servicelogo3, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: '4X6 M2 CABANA', time: 'Morning' },
+    { id: 8, logo: servicelogo4, bgcolor: '#0FC1A130', color: '#0FC1A1', status: 'Confirmed', text: '4X6 M2 CABANA', time: 'Morning' },
+
+]
+const myActivityBuildArray = [
+    { id: 1, color: '#FF5F00', date: '23 Jan 2021', text: 'Custom' },
+    { id: 2, color: '#1EC0DE', date: '23 Jan 2021', text: 'Standard' },
+    { id: 3, color: '#FF5F00', date: '23 Jan 2021', text: 'Custom' },
+    { id: 4, color: '#1EC0DE', date: '23 Jan 2021', text: 'Standard' },
+    { id: 5, color: '#FF5F00', date: '23 Jan 2021', text: 'Custom' },
+    { id: 6, color: '#1EC0DE', date: '23 Jan 2021', text: 'Standard' },
+    { id: 7, color: '#FF5F00', date: '23 Jan 2021', text: 'Custom' },
+    { id: 8, color: '#1EC0DE', date: '23 Jan 2021', text: 'Standard' },
+
+]
+
+export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook, myprofileData, myActivityRentArray, myActivityTabs, myActivityServiceArray, myActivityBuildArray }

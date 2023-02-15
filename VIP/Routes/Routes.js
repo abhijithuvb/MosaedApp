@@ -45,6 +45,7 @@ import WashTicketScreen from '../src/screens/WashTicketScreen';
 import ActivityIndicatorsDemo from '../../src/components/ActivityIndicators';
 import TextSwitch from '../../src/components/TextSwitch';
 import ScrollViewDemo from '../../src/components/ScrollViewDemo';
+import MemberShipScreen from '../src/screens/MemberShipScreen';
 
 const RouteDrawer = createDrawerNavigator();
 
@@ -192,6 +193,7 @@ const Routes = () => {
       <RouteStack.Screen name='MyProfileScreen' component={MyProfileScreen} />
       <RouteStack.Screen name='EditProfileScreen' component={EditProfileScreen} />
       <RouteStack.Screen name='MyActivityScreen' component={MyActivityScreen} />
+      <RouteStack.Screen name='MemberShipScreen' component={MemberShipScreen} />
     </RouteStack.Navigator>
   );
 };
