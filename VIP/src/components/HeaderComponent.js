@@ -1,11 +1,11 @@
-import {View, Text, Image, Pressable} from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 import React from 'react';
 import {
   HEIGHT,
   WIDTH,
 } from '../../../mosaedApp/src/components/constants/constants';
 
-const HeaderComponent = ({leftlogo, rightlogo, leftOnPress, title}) => {
+const HeaderComponent = ({ leftlogo, rightlogo, leftOnPress, title }) => {
   return (
     <View
       style={{
@@ -17,7 +17,7 @@ const HeaderComponent = ({leftlogo, rightlogo, leftOnPress, title}) => {
       <Pressable onPress={() => leftOnPress()}>
         <Image source={leftlogo} />
       </Pressable>
-      <View /* style={{marginRight: !rightlogo && WIDTH * 0.06}} */>
+      <View style={{ marginRight: rightlogo ? WIDTH * 0.02 : WIDTH * 0.06 }}>
         <Text
           style={{
             color: '#FFFFFF',

@@ -46,6 +46,11 @@ import ActivityIndicatorsDemo from '../../src/components/ActivityIndicators';
 import TextSwitch from '../../src/components/TextSwitch';
 import ScrollViewDemo from '../../src/components/ScrollViewDemo';
 import MemberShipScreen from '../src/screens/MemberShipScreen';
+import GoldScreen from '../src/screens/GoldScreen';
+import AboutUsScreen from '../src/screens/AboutUsScreen';
+import SupportScreen from '../src/screens/SupportScreen';
+import PolicyScreen from '../src/screens/PolicyScreen';
+import CustomCabanaEndScreen from '../src/screens/cabanas/CustomCabanaEndScreen';
 
 const RouteDrawer = createDrawerNavigator();
 
@@ -123,7 +128,7 @@ const TopTabs = () => {
 const Routes = () => {
   const RouteStack = createStackNavigator();
   return (
-    <RouteStack.Navigator initialRouteName='SplashScreen' screenOptions={{ headerShown: false }}>
+    <RouteStack.Navigator initialRouteName='SplashScreen' screenOptions={{ headerShown: false, gestureEnabled: false }}>
       <RouteStack.Screen name="SplashScreen" component={SplashScreen} />
       <RouteStack.Screen name="LoginScreen" component={LoginScreen} />
       <RouteStack.Screen name="OtpScreen" component={OtpScreen} />
@@ -194,6 +199,11 @@ const Routes = () => {
       <RouteStack.Screen name='EditProfileScreen' component={EditProfileScreen} />
       <RouteStack.Screen name='MyActivityScreen' component={MyActivityScreen} />
       <RouteStack.Screen name='MemberShipScreen' component={MemberShipScreen} />
+      <RouteStack.Screen name='GoldScreen' component={GoldScreen} />
+      <RouteStack.Screen name='AboutUsScreen' component={AboutUsScreen} />
+      <RouteStack.Screen name='SupportScreen' component={SupportScreen} />
+      <RouteStack.Screen name='PolicyScreen' component={PolicyScreen} />
+      <RouteStack.Screen name='CustomCabanaEndScreen' component={CustomCabanaEndScreen} />
     </RouteStack.Navigator>
   );
 };

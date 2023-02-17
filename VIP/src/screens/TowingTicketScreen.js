@@ -11,12 +11,12 @@ const TowingTicketScreen = ({ navigation }) => {
     // const { serviceStatus } = Route.params
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ marginTop: HEIGHT * 0.035 }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.035 : HEIGHT * 0.08 }}>
                     <HeaderComponent leftOnPress={() => navigation.goBack()} leftlogo={backarrow} title={'LOCATIONS'} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: HEIGHT * 0.77, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.82 : HEIGHT * 0.79, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
                         <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.18, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
                             <View style={{ flexDirection: 'row', marginTop: HEIGHT * 0.03, marginLeft: HEIGHT * 0.03 }}>
                                 <View style={{ justifyContent: 'center' }}>
@@ -80,7 +80,7 @@ const TowingTicketScreen = ({ navigation }) => {
                                 </View>
                             </View>
                         </View>
-                        <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.203, marginTop: HEIGHT * 0.038, borderRadius: HEIGHT * 0.02 }}>
+                        <View style={{ backgroundColor: '#181D23', height: Platform.OS === "android" ? HEIGHT * 0.236 : HEIGHT * 0.223, marginTop: HEIGHT * 0.04, borderRadius: HEIGHT * 0.02 }}>
                             <View style={{ marginTop: HEIGHT * 0.02, marginLeft: HEIGHT * 0.02 }}>
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>PAYMENTS</Text>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>
@@ -110,7 +110,7 @@ const TowingTicketScreen = ({ navigation }) => {
                     </View>
 
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

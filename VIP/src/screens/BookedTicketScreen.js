@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, Pressable } from 'react-native'
+import { View, Text, SafeAreaView, Image, Pressable, Platform } from 'react-native'
 import React, { useState } from 'react'
 import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import HeaderComponent from '../components/HeaderComponent'
@@ -11,12 +11,12 @@ import DrinkBoxModalComponent from '../components/DrinkBoxModalComponent'
 const BookedTicketScreen = ({ navigation }) => {
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
 
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: HEIGHT * 0.83, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
+                    <View style={[Platform.OS = "android" ? { height: HEIGHT * 0.87, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 } : { height: HEIGHT * 0.83, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }]}>
                         <View style={{ height: HEIGHT * 0.37, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
-                            <View style={{ marginTop: HEIGHT * 0.03 }}>
+                            <View style={[Platform.OS === "android" ? { marginTop: HEIGHT * 0.03 } : { marginTop: HEIGHT * 0.08 }]}>
                                 <HeaderComponent leftlogo={backarrow} title={"BOOKED TICKET"} leftOnPress={() => navigation.goBack()} />
                             </View>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: HEIGHT * 0.02 }}>
@@ -110,7 +110,7 @@ const BookedTicketScreen = ({ navigation }) => {
                     </Pressable> */}
                 </View>
 
-            </SafeAreaView >
+            </View >
 
         </View >
     )

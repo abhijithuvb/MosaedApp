@@ -15,7 +15,8 @@ const DrinkBoxModalComponent = ({ visible, setVisible, buttonOnPress }) => {
             // justifyContent: 'center',
             // alignItems: 'center',
 
-            marginBottom: HEIGHT * 0.02
+            marginBottom: HEIGHT * 0.02,
+            backgroundColor: 'red'
 
         }}>
             <Modal
@@ -31,7 +32,9 @@ const DrinkBoxModalComponent = ({ visible, setVisible, buttonOnPress }) => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     marginTop: HEIGHT * 0.12,
-                    marginBottom: HEIGHT * 0.10
+                    marginBottom: HEIGHT * 0.10,
+
+
 
                 }}>
                     <View style={{
@@ -44,7 +47,7 @@ const DrinkBoxModalComponent = ({ visible, setVisible, buttonOnPress }) => {
 
 
                     }}>
-                        <View style={{ height: HEIGHT * 0.825, width: '100%', backgroundColor: '#181D23', borderRadius: HEIGHT * 0.02 }}>
+                        <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.85 : HEIGHT * 0.83, width: '100%', backgroundColor: '#181D23', borderRadius: HEIGHT * 0.02 }}>
 
 
                             <View style={{ width: '100%', height: HEIGHT * 0.02, justifyContent: 'center', alignItems: 'center' }}>
@@ -54,7 +57,7 @@ const DrinkBoxModalComponent = ({ visible, setVisible, buttonOnPress }) => {
                                 </Pressable>
 
                             </View>
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: HEIGHT * 0.02 }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: HEIGHT * 0.01, marginRight: HEIGHT * 0.01, marginTop: HEIGHT * 0.01 }}>
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.023 }}>DRINKS BOX</Text>
                                 <Text style={{ color: '#0FC1A1' }}>(3) items</Text>
                             </View>

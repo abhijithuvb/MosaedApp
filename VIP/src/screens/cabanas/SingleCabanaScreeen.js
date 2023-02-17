@@ -14,15 +14,15 @@ const SingleCabanaScreen = ({ navigation }) => {
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
 
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ position: 'absolute', width: '100%', marginTop: HEIGHT * 0.09, zIndex: 1 }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ position: 'absolute', width: '100%', marginTop: Platform.OS === "android" ? HEIGHT * 0.025 : HEIGHT * 0.06, zIndex: 1 }}>
                     <HeaderComponent leftlogo={backarrow} title={'RENT'} rightlogo={squarelogo} leftOnPress={() => navigation.goBack()}
                     />
                 </View>
 
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
                     <Image source={singlecabanaimage} style={{ width: '100%' }} />
-                    <View style={{ height: HEIGHT * 0.16, backgroundColor: '#0E1114', borderRadius: HEIGHT * 0.01, position: 'absolute', width: '100%', top: HEIGHT * 0.31, zIndex: 1 }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.16 : HEIGHT * 0.15, backgroundColor: '#0E1114', borderRadius: HEIGHT * 0.01, position: 'absolute', width: '100%', top: HEIGHT * 0.35, zIndex: 1 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: HEIGHT * 0.02 }}>
                             <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
                             <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
@@ -46,11 +46,11 @@ const SingleCabanaScreen = ({ navigation }) => {
 
 
                     </View>
-                    <View style={{ height: HEIGHT * 0.4, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.01, borderBottomRightRadius: HEIGHT * 0.01 }}>
-                        <View style={{ marginTop: HEIGHT * 0.06, marginLeft: HEIGHT * 0.02 }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.4 : HEIGHT * 0.45, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.01, borderBottomRightRadius: HEIGHT * 0.01 }}>
+                        <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.04 : HEIGHT * 0.09, marginLeft: HEIGHT * 0.02 }}>
                             <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>FEATURES</Text>
                             <View style={{ marginTop: HEIGHT * 0.02 }}>
-                                <FlatList data={cabanafeature} horizontal renderItem={({ item }) => <View style={{ height: HEIGHT * 0.045, width: WIDTH * 0.28, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
+                                <FlatList data={cabanafeature} horizontal renderItem={({ item }) => <View style={{ height: HEIGHT * 0.045, width: WIDTH * 0.28, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', marginRight: HEIGHT * 0.02 }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Image source={item.logo} />
                                         <Text style={{ color: '#0FC1A1', marginLeft: HEIGHT * 0.01 }}>(1){item.text}</Text>
@@ -94,7 +94,7 @@ const SingleCabanaScreen = ({ navigation }) => {
                 </View>
 
 
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

@@ -1,3 +1,4 @@
+import { HEIGHT } from "../../Constants/Constants"
 import {
     beachlogo, boatimage1, boatimage2, boatimage3, boatimage4, boatimage5, boatimage6, boatimage7, boatimage8, cabana1, cabana2, cabana3, cabana4, cabanaaclogo, cabanabathroomlogo, cabanakitchenlogo, cabanaroomlogo, cabansizelogo, desertlogo, drawerlistaboutlogo, drawerlisthomelogo, drawerlistprivacylogo, drawerlistprofilelogo, drawerlistsupportlogo, homebuildlogo, homerentlogo, homeserviceslogo, servicelogo1, servicelogo2, servicelogo3, servicelogo4, towinglogo, washinglogo, cabanaroomfloorlogo,
     cabanawardrobelogo,
@@ -26,7 +27,14 @@ import {
     editprofilesmalllogo,
     myactivitysmalllogo,
     membershipsmalllogo,
-    boatsmallimage
+    boatsmallimage,
+    pointslogo1,
+    pointslogo2,
+    pointslogo3,
+    pointslogo4,
+    vipbenefitslogo1,
+    vipbenefitslogo2,
+    vipbenefitslogo3
 } from "../assets"
 
 const signupArray = [
@@ -63,9 +71,9 @@ const homeScreenList = [
 const drawerMenu = [
     { logo: drawerlisthomelogo, title: 'Home', path: '' },
     { logo: drawerlistprofilelogo, title: 'My Profile', path: 'MyProfileScreen' },
-    { logo: drawerlistaboutlogo, title: 'About Us', path: '' },
-    { logo: drawerlistsupportlogo, title: 'Support', path: '' },
-    { logo: drawerlistprivacylogo, title: 'Privacy Policy', path: '' },
+    { logo: drawerlistaboutlogo, title: 'About Us', path: 'AboutUsScreen' },
+    { logo: drawerlistsupportlogo, title: 'Support', path: 'SupportScreen' },
+    { logo: drawerlistprivacylogo, title: 'Privacy Policy', path: 'PolicyScreen' },
 ]
 
 const terrain = [
@@ -312,4 +320,29 @@ const myActivityBuildArray = [
 
 ]
 
-export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook, myprofileData, myActivityRentArray, myActivityTabs, myActivityServiceArray, myActivityBuildArray }
+const pointHistory = [
+    { id: 1, logo: pointslogo1, title: 'Rentals', date: '03 Jan 2021' },
+    { id: 2, logo: pointslogo2, title: 'Services', date: '03 Jan 2021' },
+    { id: 3, logo: pointslogo3, title: 'Builds', date: '03 Jan 2021' },
+    { id: 4, logo: pointslogo4, title: 'Rental', date: '03 Jan 2021' },
+    { id: 5, logo: pointslogo1, title: 'Rental', date: '03 Jan 2021' },
+    { id: 6, logo: pointslogo2, title: 'Services', date: '03 Jan 2021' },
+    { id: 7, logo: pointslogo3, title: 'Rentals', date: '03 Jan 2021' },
+    { id: 8, logo: pointslogo4, title: 'Builds', date: '03 Jan 2021' },
+]
+
+const vipGoldBenefits = [
+    { id: 1, logo: vipbenefitslogo1, title: 'Gold Exclusive Offers', subtitle: "Enjoy Great Rewards And Deals" },
+    { id: 2, logo: vipbenefitslogo2, title: 'Get %50 More Points', subtitle: "Earn More Points on Orders" },
+    { id: 3, logo: vipbenefitslogo3, title: 'Priority Support', subtitle: "Receive Assistance in A Flash" },
+]
+
+const supportData = [
+    { id: 1, label: "Name", text: 'Name' },
+    { id: 2, label: "Email", text: 'Email' },
+    { id: 3, label: "Phone Number", text: 'PhoneNumber' },
+    { id: 4, label: "Purpose Of Contact", text: 'Purpose' },
+    { id: 5, label: "Message", height: HEIGHT * 0.15, text: 'Message' },
+]
+
+export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook, myprofileData, myActivityRentArray, myActivityTabs, myActivityServiceArray, myActivityBuildArray, pointHistory, vipGoldBenefits, supportData }

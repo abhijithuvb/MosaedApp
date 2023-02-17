@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, FlatList } from 'react-native'
+import { View, Text, SafeAreaView, Image, FlatList, Platform } from 'react-native'
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent'
 import { backarrow, boatimage1, calendarSmalllogo, locationsmalllogo, searchlogo, starrating } from '../assets'
@@ -13,7 +13,7 @@ const BeachListScreen = ({ navigation }) => {
     const time = route.params.selectedDate.time
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1, marginTop: Platform.OS === "android" ? HEIGHT * 0.04 : HEIGHT * 0.08 }}>
                 <View>
                     <HeaderComponent leftlogo={backarrow} title='BEACH' rightlogo={searchlogo} leftOnPress={() => navigation.goBack()} />
                 </View>
@@ -44,11 +44,11 @@ const BeachListScreen = ({ navigation }) => {
                     </View>
                     <View style={{ alignItems: 'center', }}>
 
-                        <FlatList showsHorizontalScrollIndicator={false} style={{ height: HEIGHT * 0.76 }} data={beachVehicleList} renderItem={({ item }) => <BeachListComponent title={item.title} company={item.company} location={item.location} rate={item.rate} sourceimage={item.sourceimage} />} />
+                        <FlatList showsHorizontalScrollIndicator={false} style={{ height: Platform.OS === "android" ? HEIGHT * 0.79 : HEIGHT * 0.74 }} data={beachVehicleList} renderItem={({ item }) => <BeachListComponent title={item.title} company={item.company} location={item.location} rate={item.rate} sourceimage={item.sourceimage} />} />
 
                     </View>
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

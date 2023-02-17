@@ -1,6 +1,6 @@
 
 
-import { View, Text, Image, SafeAreaView } from 'react-native'
+import { View, Text, Image, SafeAreaView, Platform } from 'react-native'
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent'
 import { backarrow, calendarwhitesmalllogo, locationarrowlogo, locationmediumlogo, maplogo, servicelogo1 } from '../assets'
@@ -10,12 +10,12 @@ import ScreenButtonComponent from '../components/ScreenButtonComponent'
 const WashTicketScreen = ({ navigation }) => {
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>{/* <DrinkBoxModalComponent visible={modalVisible} setVisible={setModalVisible} buttonOnPress={() => setModalVisible(!modalVisible)} /> */}
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
 
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
                     <View style={{ height: HEIGHT * 0.83, backgroundColor: 'black', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
-                        <View style={{ height: HEIGHT * 0.23, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
-                            <View style={{ marginTop: HEIGHT * 0.03 }}>
+                        <View style={{ height: HEIGHT * 0.27, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
+                            <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.03 : HEIGHT * 0.08 }}>
                                 <HeaderComponent leftlogo={backarrow} title={"BOOKED TICKET"} leftOnPress={() => navigation.goBack()} />
                             </View>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: HEIGHT * 0.025, alignItems: 'center' }}>
@@ -48,7 +48,7 @@ const WashTicketScreen = ({ navigation }) => {
                         <Text style={{ color: 'white', fontSize: HEIGHT * 0.025, marginLeft: HEIGHT * 0.02, marginTop: HEIGHT * 0.01 }}>ENTER LOCATION</Text>
                         <View style={{ height: HEIGHT * 0.33, width: WIDTH * 0.9, backgroundColor: '#181D23', marginTop: HEIGHT * 0.01, justifyContent: 'center', alignItems: 'center', borderRadius: HEIGHT * 0.01, alignSelf: 'center' }}>
                             <View style={{ marginLeft: HEIGHT * 0.01, }}>
-                                <Image source={maplogo} />
+                                <Image source={maplogo} style={{ marginLeft: -HEIGHT * 0.01 }} />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>
                                     <View style={{ height: HEIGHT * 0.04, backgroundColor: '#0E1114', width: WIDTH * 0.08, justifyContent: 'center', alignItems: 'center', borderRadius: HEIGHT * 0.004, marginTop: HEIGHT * 0.01 }}>
                                         <Image source={locationmediumlogo} />
@@ -61,7 +61,7 @@ const WashTicketScreen = ({ navigation }) => {
 
                             </View>
                         </View>
-                        <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.203, marginTop: HEIGHT * 0.02, borderRadius: HEIGHT * 0.02 }}>
+                        <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.21, marginTop: HEIGHT * 0.02, borderRadius: HEIGHT * 0.02 }}>
                             <View style={{ marginTop: HEIGHT * 0.02, marginLeft: HEIGHT * 0.02 }}>
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>PAYMENTS</Text>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>
@@ -86,10 +86,13 @@ const WashTicketScreen = ({ navigation }) => {
                         </View>
 
                     </View>
-                    <ScreenButtonComponent text={'HOME'} onPress={() => navigation.navigate('HomeScreen')} />
+                    <View style={{ marginTop: HEIGHT * 0.05 }}>
+                        <ScreenButtonComponent text={'HOME'} onPress={() => navigation.navigate('HomeScreen')} />
+                    </View>
+
                 </View>
 
-            </SafeAreaView >
+            </View >
 
         </View >
     )

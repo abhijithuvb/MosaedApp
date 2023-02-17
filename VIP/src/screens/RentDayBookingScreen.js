@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, FlatList } from 'react-native';
+import { View, Text, Image, FlatList, SafeAreaView, Platform } from 'react-native';
 import React, { useState } from 'react';
 import CalendarStrip from 'react-native-calendar-strip';
 
@@ -24,7 +24,7 @@ const RentDayBookingScreen = ({ navigation }) => {
   }
   return (
     <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-      <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1, marginTop: Platform.OS === "android" ? HEIGHT * 0.02 : HEIGHT * 0.06 }}>
         <View style={{ marginTop: HEIGHT * 0.025 }}>
           <HeaderComponent
             leftOnPress={() => navigation.goBack()}
@@ -42,7 +42,7 @@ const RentDayBookingScreen = ({ navigation }) => {
           }}>
           <View
             style={{
-              height: HEIGHT * 0.78,
+              height: HEIGHT * 0.77,
               backgroundColor: 'black',
               borderBottomLeftRadius: HEIGHT * 0.015,
               borderBottomRightRadius: HEIGHT * 0.015,
@@ -83,9 +83,12 @@ const RentDayBookingScreen = ({ navigation }) => {
               </Pressable>} />
             </View>
           </View>
-          <ScreenButtonComponent leftlogo={submitleftarrow} rightlogo={submitrightarrow} text={'Next'} onPress={() => handleSubmit()} />
+          <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.02 : HEIGHT * 0.001 }}>
+            <ScreenButtonComponent leftlogo={submitleftarrow} rightlogo={submitrightarrow} text={'Next'} onPress={() => handleSubmit()} />
+          </View>
+
         </View>
-      </SafeAreaView>
+      </View>
     </View>
   );
 };

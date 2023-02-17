@@ -11,13 +11,13 @@ const TowingLocationScreen = ({ navigation }) => {
     const { serviceStatus } = Route.params
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ marginTop: HEIGHT * 0.035 }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.035 : HEIGHT * 0.08 }}>
                     <HeaderComponent leftOnPress={() => navigation.goBack()} leftlogo={backarrow} title={'LOCATIONS'} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: HEIGHT * 0.77, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
-                        <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.18, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
+                    <View style={{ height: HEIGHT * 0.8, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
+                        <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.19, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
                             <View style={{ flexDirection: 'row', marginTop: HEIGHT * 0.03, marginLeft: HEIGHT * 0.03 }}>
                                 <View style={{ justifyContent: 'center' }}>
                                     <Image source={towingsmalllogo} />
@@ -45,8 +45,8 @@ const TowingLocationScreen = ({ navigation }) => {
                             </View>
 
                         </View>
-                        <Text style={{ color: 'white', fontSize: HEIGHT * 0.025, marginLeft: HEIGHT * 0.02, marginTop: HEIGHT * 0.01 }}>ENTER LOCATION</Text>
-                        <View style={{ height: HEIGHT * 0.3, width: WIDTH * 0.9, backgroundColor: '#181D23', marginTop: HEIGHT * 0.01, alignItems: 'center', borderRadius: HEIGHT * 0.01, alignSelf: 'center' }}>
+                        <Text style={{ color: 'white', fontSize: HEIGHT * 0.025, marginLeft: HEIGHT * 0.02, marginTop: HEIGHT * 0.02 }}>ENTER LOCATION</Text>
+                        <View style={{ height: HEIGHT * 0.3, width: WIDTH * 0.9, backgroundColor: '#181D23', marginTop: HEIGHT * 0.02, alignItems: 'center', borderRadius: HEIGHT * 0.01, alignSelf: 'center' }}>
                             <View style={{ marginLeft: HEIGHT * 0.01, flexDirection: 'row', marginTop: HEIGHT * 0.02 }}>
                                 <View>
                                     <Image source={pickuplogo} />
@@ -87,7 +87,7 @@ const TowingLocationScreen = ({ navigation }) => {
                     </View>
 
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

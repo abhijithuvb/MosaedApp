@@ -7,9 +7,9 @@ import { useNavigation } from '@react-navigation/native'
 const CabanaComponent = ({ title, company, size, rate, logo }) => {
     const navigation = useNavigation()
     return (
-        <Pressable onPress={() => navigation.navigate('SingleCabanaScreen', { title, company, size, rate, logo })} style={{ backgroundColor: '#181D23', height: HEIGHT * 0.3, width: WIDTH * 0.86, borderRadius: HEIGHT * 0.01, marginTop: HEIGHT * 0.025 }}>
+        <Pressable onPress={() => navigation.navigate('SingleCabanaScreen', { title, company, size, rate, logo })} style={{ backgroundColor: '#181D23', height: Platform.OS === "android" ? HEIGHT * 0.33 : HEIGHT * 0.3, width: WIDTH * 0.86, borderRadius: HEIGHT * 0.01, marginTop: HEIGHT * 0.025 }}>
             <View style={{}}>
-                <Image source={logo} />
+                <Image source={logo} style={{ width: WIDTH * 0.86 }} />
             </View>
             <View style={{ margin: HEIGHT * 0.015 }}>
                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.023 }}>{title}</Text>

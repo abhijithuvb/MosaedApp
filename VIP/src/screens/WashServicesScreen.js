@@ -14,12 +14,12 @@ const WashServicesScreen = ({ navigation }) => {
     const { serviceStatus } = Route.params
     return (
         <View style={{ backgroundColor: 'black', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ marginTop: HEIGHT * 0.03 }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.03 : HEIGHT * 0.08 }}>
                     <HeaderComponent leftlogo={backarrow} rightlogo={searchlogo} title={'SERVICES'} leftOnPress={() => navigation.goBack()} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ backgroundColor: 'black', height: HEIGHT * 0.775, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02, alignItems: 'center', }}>
+                    <View style={{ backgroundColor: 'black', height: Platform.OS === "android" ? HEIGHT * 0.82 : HEIGHT * 0.78, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02, alignItems: 'center', paddingTop: HEIGHT * 0.02 }}>
                         <FlatList data={cabanservicelist} renderItem={({ item, index }) => <CabanServiceComponent logo={item.logo} description={item.description} title={item.title} rate={item.rate} index={index} setState={(ind) => setIndex(ind)} state={Index} />} />
 
                     </View>
@@ -28,7 +28,7 @@ const WashServicesScreen = ({ navigation }) => {
                     </View>
                 </View>
 
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

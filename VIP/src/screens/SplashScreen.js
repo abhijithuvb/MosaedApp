@@ -5,7 +5,7 @@ import { splashscreenbackgroundlogo, splashscreenbottomlogo, splashscreentoplogo
 const SplashScreen = ({ navigation }) => {
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate("HomeScreen")
+            navigation.navigate("LoginScreen")
         }, 1000)
     }, [])
 

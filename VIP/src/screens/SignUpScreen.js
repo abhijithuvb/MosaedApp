@@ -6,6 +6,7 @@ import { HEIGHT, WIDTH } from '../../../mosaedApp/src/components/constants/const
 import TextInputComponent from '../components/TextInputComponent'
 import ButtonComponent from '../components/ButtonComponent'
 import { signupArray } from '../Arrays/Arrays'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const SignUpScreen = ({ navigation }) => {
     const [userDetails, setUserDetails] = useState({ firstname: '', lastname: '', email: '', phone: '', qid: '' })
@@ -13,10 +14,14 @@ const SignUpScreen = ({ navigation }) => {
 
     const validation = () => {
         if (userDetails.email !== "" && userDetails.firstname !== "" && userDetails.lastname !== "" && userDetails.phone !== "" & userDetails.qid !== "") {
+            saveUser()
             navigation.navigate("HomeScreen")
         } else {
             alert("Fill Required Fields")
         }
+    }
+    const saveUser = () => {
+        AsyncStorage.setItem("user")
     }
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>

@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, FlatList } from 'react-native';
+import { View, Text, SafeAreaView, Image, FlatList, Platform } from 'react-native';
 import React, { useState } from 'react';
 import CalendarStrip from 'react-native-calendar-strip';
 
@@ -24,8 +24,8 @@ const WashingBookingScreen = ({ navigation }) => {
     console.log("washtiming", washTiming);
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ marginTop: HEIGHT * 0.025 }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.025 : HEIGHT * 0.08 }}>
                     <HeaderComponent
                         leftOnPress={() => navigation.goBack()}
                         title={serviceStatus.washing ? "WASHING" : "TOWING"}
@@ -42,7 +42,7 @@ const WashingBookingScreen = ({ navigation }) => {
                     }}>
                     <View
                         style={{
-                            height: HEIGHT * 0.78,
+                            height: Platform.OS === "android" ? HEIGHT * 0.83 : HEIGHT * 0.79,
                             backgroundColor: 'black',
                             borderBottomLeftRadius: HEIGHT * 0.015,
                             borderBottomRightRadius: HEIGHT * 0.015,
@@ -92,7 +92,7 @@ const WashingBookingScreen = ({ navigation }) => {
                     </View>
                     <ScreenButtonComponent leftlogo={submitleftarrow} rightlogo={submitrightarrow} text={'SUBMIT'} onPress={() => handleSubmit()} />
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

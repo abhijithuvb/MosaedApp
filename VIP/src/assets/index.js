@@ -131,6 +131,17 @@ import goldsmalllogo from './Logo/goldsmalllogo/goldsmalllogo.png'
 import goldimagebackground from './Logo/goldimagebackground/goldimagebackground.png'
 import vipgoldtext from './Logo/vipgoldtext/vipgoldtext.png'
 import rightarrow from './Logo/rightarrow/rightarrow.png'
+import pointslogo1 from './Logo/membership/pointslogo1/pointslogo1.png'
+import pointslogo2 from './Logo/membership/pointslogo2/pointslogo2.png'
+import pointslogo3 from './Logo/membership/pointslogo3/pointslogo3.png'
+import pointslogo4 from './Logo/membership/pointslogo4/pointslogo4.png'
+import vipbenefitslogo1 from './Logo/vipgold/vipbenefitslogo1/vipbenefitslogo1.png'
+import vipbenefitslogo2 from './Logo/vipgold/vipbenefitslogo2/vipbenefitslogo2.png'
+import vipbenefitslogo3 from './Logo/vipgold/vipbenefitslogo3/vipbenefitslogo3.png'
+import goldmediumlogo from './Logo/goldmediumlogo/goldmediumlogo.png'
+import backgroundaboutlogo from './Logo/backgroundaboutlogo/backgroundaboutlogo.png'
+import multicolorlonglogo from './Logo/multicolorlonglogo/multicolorlonglogo.png'
+
 
 
 export {
@@ -264,5 +275,15 @@ export {
   goldsmalllogo,
   goldimagebackground,
   vipgoldtext,
-  rightarrow
+  rightarrow,
+  pointslogo1,
+  pointslogo2,
+  pointslogo3,
+  pointslogo4,
+  vipbenefitslogo1,
+  vipbenefitslogo2,
+  vipbenefitslogo3,
+  goldmediumlogo,
+  backgroundaboutlogo,
+  multicolorlonglogo
 };

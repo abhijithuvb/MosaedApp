@@ -13,7 +13,7 @@ const BeachDetailsScreen = ({ navigation }) => {
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
 
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <View style={{ position: 'absolute', width: '100%', marginTop: HEIGHT * 0.09, zIndex: 1 }}>
                     <HeaderComponent leftlogo={backarrow} title={'RENT'} rightlogo={squarelogo} leftOnPress={() => navigation.goBack()}
                     />
@@ -21,7 +21,7 @@ const BeachDetailsScreen = ({ navigation }) => {
 
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
                     <Image source={boatlargeimage} style={{ width: '100%' }} />
-                    <View style={{ height: HEIGHT * 0.16, backgroundColor: '#0E1114', borderRadius: HEIGHT * 0.01, position: 'absolute', width: '100%', top: HEIGHT * 0.31, zIndex: 1 }}>
+                    <View style={{ height: HEIGHT * 0.16, backgroundColor: '#0E1114', borderRadius: HEIGHT * 0.01, position: 'absolute', width: '100%', top: HEIGHT * 0.32, zIndex: 1 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: HEIGHT * 0.02 }}>
                             <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
                             <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
@@ -44,7 +44,7 @@ const BeachDetailsScreen = ({ navigation }) => {
                         </View>
 
                     </View>
-                    <View style={{ height: HEIGHT * 0.4, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.01, borderBottomRightRadius: HEIGHT * 0.01 }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.41 : HEIGHT * 0.46, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.01, borderBottomRightRadius: HEIGHT * 0.01 }}>
                         <View style={{ marginTop: HEIGHT * 0.06, marginLeft: HEIGHT * 0.02 }}>
                             <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>PICK UP LOCATION</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>
@@ -67,7 +67,7 @@ const BeachDetailsScreen = ({ navigation }) => {
                 </View>
 
 
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

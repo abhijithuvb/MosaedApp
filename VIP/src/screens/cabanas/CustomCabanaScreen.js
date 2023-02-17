@@ -8,6 +8,8 @@ import ScreenButtonComponent from '../../components/ScreenButtonComponent'
 import { useRoute } from '@react-navigation/native'
 import { bathroom, bathroomsize, condition, customDetails, floorDetails, floorDetsils, hook, lifters, outerCover, wall, wardrobe, wardrobeDetails, waterTank, windowshutter, windowsize } from '../../Arrays/Arrays'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import ProgressCircleComponent from '../../components/Cabanas/ProgressCircleComponent'
+import NormalCircleProgressComponent from '../../components/Cabanas/NormalCircleProgressComponent'
 
 const CustomCabanaScreen = ({ navigation }) => {
 
@@ -37,20 +39,20 @@ const CustomCabanaScreen = ({ navigation }) => {
     }, []);
 
     const titleDetails = [
-        { title: 'CABANA SIZE' },
-        { title: 'BATHROOM SIZE' },
-        { title: 'ROOM FLOOR' },
-        { title: 'WARDROBE' },
-        { title: 'THE WALL' },
-        { title: 'WINDOW SIZE' },
-        { title: 'WINDOW SHUTTERS' },
-        { title: 'LIFTERS' },
-        { title: 'BATHROOM TYPE' },
-        { title: 'CONDITION' },
-        { title: 'OUTER COVER' },
-        { title: 'WATER TANK' },
-        { title: 'TOW HOOK' },
-        { title: 'NAME OF CUSTOMIZATION' },
+        { title: 'CABANA SIZE', percentage: 8 },
+        { title: 'BATHROOM SIZE', percentage: 14 },
+        { title: 'ROOM FLOOR', percentage: 23 },
+        { title: 'WARDROBE', percentage: 31 },
+        { title: 'THE WALL', percentage: 39 },
+        { title: 'WINDOW SIZE', percentage: 46 },
+        { title: 'WINDOW SHUTTERS', percentage: 53 },
+        { title: 'LIFTERS', percentage: 60 },
+        { title: 'BATHROOM TYPE', percentage: 68 },
+        { title: 'CONDITION', percentage: 76 },
+        { title: 'OUTER COVER', percentage: 84 },
+        { title: 'WATER TANK', percentage: 93 },
+        { title: 'TOW HOOK', percentage: 100 },
+        { title: 'NAME OF CUSTOMIZATION', percentage: 100 },
     ]
 
     const [bathroomSizeDetails, setbathroomSizeDetails] = useState({ index: '', value: '' })
@@ -256,55 +258,27 @@ const CustomCabanaScreen = ({ navigation }) => {
                             </View>
                         </View>
                     </Pressable >} />
-            // case 'customizationname':
-            //     return <FlatList contentContainerStyle={{ flexDirection: 'row' }} style={{}}
-            //         // horizontal
-            //         data={hook}
-            //         renderItem={({ item, index }) => <Pressable style={{}} onPress={() => setCustomization({ ...customization, value: 'name' })}>
-            //             <View style={{ height: HEIGHT * 0.15, width: WIDTH * 0.4, backgroundColor: 'black', borderRadius: HEIGHT * 0.01, marginTop: HEIGHT * 0.02, justifyContent: 'center', marginLeft: HEIGHT * 0.01 }}>
-            //                 <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: hookDetails.index == index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
-            //                     {index === hookDetails.index && <Ionicons name='checkmark' />}
-            //                 </View>
-            //                 <View style={{ margin: HEIGHT * 0.02 }}>
-            //                     <View>
-            //                         <Text style={{ color: 'white', fontSize: HEIGHT * 0.02 }}>{item.title}</Text>
-            //                         <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.013, marginTop: HEIGHT * 0.007 }}>{item.description}</Text>
-            //                     </View>
-
-            //                 </View>
-            //             </View>
-            //         </Pressable >} />
         }
     }
-
-
-
-
-
-
-
-
-
-
-
     return (
 
         <View style={{ backgroundColor: 'black', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ marginTop: HEIGHT * 0.035, }}>
-                    <HeaderComponent leftlogo={backarrow} leftOnPress={() => scrollIndex === 0 ? navigation.goBack() : minusScroolFunction(scrollIndex)} title={'CUSTOM'} />
+            <View style={{ flex: 1 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.035 : HEIGHT * 0.08, }}>
+                    <HeaderComponent leftlogo={backarrow} leftOnPress={() =>/*  scrollIndex === 0 ? */ navigation.goBack()/*  : minusScroolFunction(scrollIndex) */} title={'CUSTOM'} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: HEIGHT * 0.77, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.015, borderBottomRightRadius: HEIGHT * 0.015 }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.82 : HEIGHT * 0.79, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.015, borderBottomRightRadius: HEIGHT * 0.015 }}>
                         <View style={{ height: HEIGHT * 0.13, backgroundColor: 'black', paddingTop: HEIGHT * 0.03 }}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
                                 <View style={{ marginLeft: HEIGHT * 0.03 }}>
-                                    <Text style={{ color: 'white', fontSize: HEIGHT * 0.023 }}>{screenData.title}</Text>
-                                    <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.02, fontWeight: '500', marginTop: HEIGHT * 0.01 }}>Step {screenData.step}/12</Text>
                                     <Text style={{ color: 'white', fontSize: HEIGHT * 0.023 }}>{titleDetails[scrollIndex].title}</Text>
                                     <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.02, fontWeight: '500', marginTop: HEIGHT * 0.01 }}>Step {scrollIndex + 1}/13</Text>
                                 </View>
-                                <Image source={screenData.progresslogo} style={{ marginRight: HEIGHT * 0.03 }} />
+                                {/* <Image source={screenData.progresslogo} style={{ marginRight: HEIGHT * 0.03 }} /> */}
+                                <View style={{ marginRight: HEIGHT * 0.02 }}>
+                                    <ProgressCircleComponent index={scrollIndex} textPercentage={titleDetails[scrollIndex].percentage} />
+                                </View>
                             </View>
                         </View>
 
@@ -324,52 +298,19 @@ const CustomCabanaScreen = ({ navigation }) => {
 
                                     return <>
 
-                                        {scrollIndex === 13 ? <View>
-                                            <View style={{ width: WIDTH, }}>
-                                                <View style={{ margin: HEIGHT * 0.02 }}>
-                                                    <Text style={{ color: 'white', fontSize: HEIGHT * 0.023, marginTop: HEIGHT * 0.01 }}>NAME OF THE CUSTOMIZATION</Text>
-                                                    <View style={{ marginTop: HEIGHT * 0.01 }}>
-                                                        <TextInputComponent label={'Add Name'} setState={(text) => setCustomization({ ...customization, value: text })} />
-                                                    </View>
-                                                    <View style={{ marginTop: HEIGHT * 0.01 }}>
-                                                        <Text style={{ color: 'white', fontSize: HEIGHT * 0.019, marginTop: HEIGHT * 0.01 }}>
-                                                            ENTER LOCATION
-                                                        </Text>
-                                                        <Text style={{ color: 'white', marginTop: HEIGHT * 0.01 }}>
-                                                            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                                                        </Text>
-                                                        <View style={{ height: HEIGHT * 0.33, width: WIDTH * 0.88, backgroundColor: 'black', marginTop: HEIGHT * 0.01, justifyContent: 'center', borderRadius: HEIGHT * 0.01, }}>
-                                                            <View style={{ marginLeft: HEIGHT * 0.01, }}>
-                                                                <Image source={maplogo} />
-                                                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>
-                                                                    <View style={{ height: HEIGHT * 0.04, backgroundColor: '#0E1114', width: WIDTH * 0.08, justifyContent: 'center', alignItems: 'center', borderRadius: HEIGHT * 0.004, marginTop: HEIGHT * 0.01 }}>
-                                                                        <Image source={locationmediumlogo} />
-                                                                    </View>
-                                                                    <Text style={{ color: '#636B74' }}>Mirqab Mall{'\n'}Al Mirqab Al Jadeed St, Doha{'\n'}Qatar</Text>
-                                                                    <View style={{ height: HEIGHT * 0.03, backgroundColor: '#0E1114', width: WIDTH * 0.06, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.004, marginRight: HEIGHT * 0.02, marginTop: HEIGHT * 0.01 }}>
-                                                                        <Image source={locationarrowlogo} />
-                                                                    </View>
-                                                                </View>
-
-                                                            </View>
-                                                        </View>
-                                                    </View>
+                                        <><View style={{ alignItems: 'center', marginTop: HEIGHT * 0.045, width: WIDTH }}><Image source={item.logo} />
+                                            <Text style={{ color: 'white', fontSize: HEIGHT * 0.03, marginTop: HEIGHT * 0.02 }}>{item.title}</Text>
+                                            <Text style={{ color: 'white', fontSize: HEIGHT * 0.02, width: WIDTH * 0.75, textAlign: 'center', marginTop: HEIGHT * 0.02 }}>Lorem Ipsum Dolor Sit Amet Consetetur Sadipscing Elitr, Sed Diam</Text>
+                                            <View style={{ marginTop: HEIGHT * 0.01, }}>
+                                                <View style={{ alignItems: 'center' }}>
+                                                    {handleComponent(item.case, index)}
                                                 </View>
-                                            </View>
-                                        </View> :
-                                            <><View style={{ alignItems: 'center', marginTop: HEIGHT * 0.045, width: WIDTH }}><Image source={item.logo} />
-                                                <Text style={{ color: 'white', fontSize: HEIGHT * 0.03, marginTop: HEIGHT * 0.02 }}>{item.title}</Text>
-                                                <Text style={{ color: 'white', fontSize: HEIGHT * 0.02, width: WIDTH * 0.75, textAlign: 'center', marginTop: HEIGHT * 0.02 }}>Lorem Ipsum Dolor Sit Amet Consetetur Sadipscing Elitr, Sed Diam</Text>
-                                                <View style={{ marginTop: HEIGHT * 0.01, }}>
-                                                    <View style={{ alignItems: 'center' }}>
-                                                        {handleComponent(item.case, index)}
-                                                    </View>
 
-                                                </View>
                                             </View>
-                                            </>
+                                        </View>
+                                        </>
 
-                                        }
+
 
                                     </>
                                 }} />
@@ -378,10 +319,15 @@ const CustomCabanaScreen = ({ navigation }) => {
 
                     </View>
                     <View>
-                        <ScreenButtonComponent text={'NEXT'} onPress={() => scrollIndex === 13 ? navigation.navigate('HomeScreen') : scrollFunction(scrollIndex)} />
+                        <ScreenButtonComponent text={'NEXT'} onPress={() => {
+                            scrollIndex === 12 ? navigation.navigate('CustomCabanaEndScreen') : scrollFunction(scrollIndex)
+                            // if (scrollIndex === 12) {
+                            //     navigation.navigate("")
+                            // }
+                        }} />
                     </View>
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     )
 }
