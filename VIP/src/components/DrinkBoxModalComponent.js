@@ -1,14 +1,32 @@
 import { View, Text, Modal, Pressable, Image, FlatList } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import { closeiconX, cococolalogo, fantalogo, itaipavadrinklogo, minusicon, pepsibrownlogo, pepsilogo, plusicon, spritelogo } from '../assets'
 import ScreenButtonComponent from './ScreenButtonComponent'
+import RenderItemz from './RenderItemz'
 
-const DrinkBoxModalComponent = ({ visible, setVisible, buttonOnPress }) => {
+
+
+const DrinkBoxModalComponent = ({ visible, setVisible, buttonOnPress, state, }) => {
 
     const DATA = [
-        { id: 1, logo: spritelogo, rate: '10 QAR', text: 'SPRITE' }, { id: 2, logo: pepsilogo, rate: '10 QAR', text: 'PEPSI' }, { id: 3, logo: cococolalogo, rate: '10 QAR', text: 'COCA COLA' }, { id: 4, logo: pepsibrownlogo, rate: '10 QAR', text: 'PEPSI' }, { id: 5, logo: itaipavadrinklogo, rate: '10 QAR', text: 'ITAIPAVA' }, { id: 6, logo: fantalogo, rate: '10 QAR', text: 'FANTA' }, { id: 7, logo: spritelogo, rate: '10 QAR', text: 'SPRITE' }, { id: 8, logo: pepsilogo, rate: '10 QAR', text: 'PEPSI' }
+        { id: 1, logo: spritelogo, rate: '10 QAR', text: 'SPRITE' },
+        { id: 2, logo: pepsilogo, rate: '10 QAR', text: 'PEPSI' },
+        { id: 3, logo: cococolalogo, rate: '10 QAR', text: 'COCA COLA' },
+        { id: 4, logo: pepsibrownlogo, rate: '10 QAR', text: 'PEPSI' },
+        { id: 5, logo: itaipavadrinklogo, rate: '10 QAR', text: 'ITAIPAVA' },
+        { id: 6, logo: fantalogo, rate: '10 QAR', text: 'FANTA' },
+        { id: 7, logo: spritelogo, rate: '10 QAR', text: 'SPRITE' },
+        { id: 8, logo: pepsilogo, rate: '10 QAR', text: 'PEPSI' }
     ]
+
+    const [count, setCount] = useState(0)
+    const plusFunction = () => {
+        setCount(count + 1)
+    }
+    const minusFunction = () => {
+        count > +0 && setCount(count - 1)
+    }
     return (
         <View style={{
             // flex: 1,
@@ -62,23 +80,30 @@ const DrinkBoxModalComponent = ({ visible, setVisible, buttonOnPress }) => {
                                 <Text style={{ color: '#0FC1A1' }}>(3) items</Text>
                             </View>
                             <View>
-                                <FlatList data={DATA} renderItem={({ item }) => <><View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: HEIGHT * 0.02, alignItems: 'center' }}>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <Image source={item.logo} />
-                                        <View style={{ marginLeft: HEIGHT * 0.01 }}>
-                                            <Text style={{ color: 'white', fontSize: HEIGHT * 0.02 }}>{item.text}</Text>
-                                            <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.02 }}>{item.rate}</Text>
-                                        </View>
-                                    </View>
-                                    <View>
-                                        <View style={{ flexDirection: 'row', }}>
-                                            <Pressable style={{ height: HEIGHT * 0.03, width: WIDTH * 0.06, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', borderColor: '#0FC1A1', borderWidth: 1, borderRadius: HEIGHT * 0.002 }}><Image source={minusicon} /></Pressable>
-                                            <Text style={{ color: '#0FC1A1', marginLeft: HEIGHT * 0.02, marginRight: HEIGHT * 0.02, marginTop: HEIGHT * 0.004 }}>0</Text>
-                                            <Pressable style={{ height: HEIGHT * 0.03, width: WIDTH * 0.06, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', borderColor: '#0FC1A1', borderWidth: 1, borderRadius: HEIGHT * 0.002 }}><Image source={plusicon} /></Pressable>
-                                        </View>
+                                <FlatList
+                                    data={DATA}
+                                    renderItem={({ item, index }) => {
+                                        return <RenderItemz {...item} />
+                                        // return <View id={index} style={{ flexDirection: 'row', justifyContent: 'space-between', margin: HEIGHT * 0.02, alignItems: 'center' }}>
+                                        //     <View style={{ flexDirection: 'row' }}>
+                                        //         <Image source={item.logo} />
+                                        //         <View style={{ marginLeft: HEIGHT * 0.01 }}>
+                                        //             <Text style={{ color: 'white', fontSize: HEIGHT * 0.02 }}>{item.text}</Text>
+                                        //             <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.02 }}>{item.rate}</Text>
+                                        //         </View>
+                                        //     </View>
+                                        //     <View>
+                                        //         <View style={{ flexDirection: 'row', }}>
+                                        //             <Pressable
+                                        //                 onPress={() => setCount(count - 1)}
+                                        //                 style={{ height: HEIGHT * 0.03, width: WIDTH * 0.06, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', borderColor: '#0FC1A1', borderWidth: 1, borderRadius: HEIGHT * 0.002 }}><Image source={minusicon} /></Pressable>
+                                        //             <Text style={{ color: '#0FC1A1', marginLeft: HEIGHT * 0.02, marginRight: HEIGHT * 0.02, marginTop: HEIGHT * 0.004 }}>{count}</Text>
+                                        //             <Pressable onPress={() => setCount(count + 1)} style={{ height: HEIGHT * 0.03, width: WIDTH * 0.06, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', borderColor: '#0FC1A1', borderWidth: 1, borderRadius: HEIGHT * 0.002 }}><Image source={plusicon} /></Pressable>
+                                        //         </View>
 
-                                    </View>
-                                </View></>} />
+                                        //     </View>
+                                        // </View>
+                                    }} />
                             </View>
 
 

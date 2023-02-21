@@ -1,5 +1,5 @@
-import { View, Text, Image, FlatList, Platform } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, Image, FlatList, Platform, KeyboardAvoidingView, ScrollView } from 'react-native'
+import React, { useRef, useState } from 'react'
 import { backarrow, backgroundaboutlogo } from '../assets'
 import { HEIGHT } from '../../Constants/Constants'
 import HeaderComponent from '../components/HeaderComponent'
@@ -12,8 +12,9 @@ const SupportScreen = ({ navigation }) => {
     console.log('====================================');
     console.log(details);
     console.log('====================================');
+    const inputRef = useRef([])
     return (
-        <View style={{ flex: 1, backgroundColor: '#181D23' }}>
+        <View style={{ flex: 1, backgroundColor: '#181D23' }}><KeyboardAvoidingView style={{ flex: 1 }} keyboardVerticalOffset={HEIGHT * 0.01} keyb behavior={"padding"}>
             <Image source={backgroundaboutlogo} style={{ position: 'absolute', right: 0, tintColor: 'black' }} />
 
             <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.04 : HEIGHT * 0.08 }}>
@@ -24,12 +25,18 @@ const SupportScreen = ({ navigation }) => {
                     GIT IN TOUCH !
                 </Text>
                 <View style={{ marginTop: HEIGHT * 0.08 }}>
-                    <FlatList data={supportData} renderItem={({ item }) => <View><TextInputComponent label={item.label} Height={item.height} setState={(text) => setDetails({ ...details, [item.text]: text })} /></View>} />
+                    <ScrollView>
+                        <FlatList data={supportData} renderItem={({ item }) => <View><TextInputComponent
+                            returnType={item.returnType}
+                            referance={el => inputRef.current[item.id] = el}
+                            onSubmitEditing={() => { item.id <= 4 && inputRef.current[item.id + 1].focus() }}
+                            label={item.label} Height={item.height} setState={(text) => setDetails({ ...details, [item.text]: text })} /></View>} /></ScrollView>
                     <View style={{ marginTop: HEIGHT * 0.04 }}>
                         <ButtonComponent label={'SEND'} onPressFunction={() => navigation.navigate("HomeScreen")} />
                     </View>
+
                 </View>
-            </View>
+            </View></KeyboardAvoidingView>
         </View>
     )
 }

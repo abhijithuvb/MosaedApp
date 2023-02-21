@@ -141,6 +141,7 @@ import vipbenefitslogo3 from './Logo/vipgold/vipbenefitslogo3/vipbenefitslogo3.p
 import goldmediumlogo from './Logo/goldmediumlogo/goldmediumlogo.png'
 import backgroundaboutlogo from './Logo/backgroundaboutlogo/backgroundaboutlogo.png'
 import multicolorlonglogo from './Logo/multicolorlonglogo/multicolorlonglogo.png'
+import ticklogo from './Logo/ticklogo/ticklogo.png'
 
 
 
@@ -285,5 +286,6 @@ export {
   vipbenefitslogo3,
   goldmediumlogo,
   backgroundaboutlogo,
-  multicolorlonglogo
+  multicolorlonglogo,
+  ticklogo
 };

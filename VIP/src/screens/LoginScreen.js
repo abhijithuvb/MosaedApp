@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image } from 'react-native'
+import { View, Text, SafeAreaView, Image, Pressable } from 'react-native'
 import React, { useState } from 'react'
 
 import { backgroundlogo, mainsmalllogo } from '../assets'
@@ -13,7 +13,7 @@ const LoginScreen = ({ navigation }) => {
             if (phone.length !== 8) {
                 alert("8 Number Required")
             } else {
-                navigation.navigate("OtpScreen")
+                navigation.replace("OtpScreen")
             }
         } else {
             alert("Enter A Valid Phone Number")
@@ -38,11 +38,11 @@ const LoginScreen = ({ navigation }) => {
                     <View style={{ marginTop: HEIGHT * 0.037 }}>
                         <TextInputComponent label="Phone Number" setState={(text) => setPhone(text)} length={8} />
                     </View>
-                    <View>
+                    <Pressable onPress={() => navigation.navigate("SignUpScreen")}>
                         <Text style={{ color: '#DBDBDB', fontSize: HEIGHT * 0.015 }}>
                             Don't Have An Account? <Text style={{ color: '#FF5F00' }}>SIGN UP</Text>
                         </Text>
-                    </View>
+                    </Pressable>
                     <View style={{ marginTop: HEIGHT * 0.045 }}>
                         <ButtonComponent label="SEND" onPressFunction={() => validation()} />
                     </View>

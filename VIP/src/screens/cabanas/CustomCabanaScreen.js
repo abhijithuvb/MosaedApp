@@ -2,7 +2,7 @@ import { View, Text, SafeAreaView, Image, FlatList, Pressable } from 'react-nati
 import React, { useCallback, useRef, useState } from 'react'
 import { HEIGHT, WIDTH } from '../../../Constants/Constants'
 import HeaderComponent from '../../components/HeaderComponent'
-import { backarrow, cabansizelogo, locationarrowlogo, locationmediumlogo, maplogo, progresslogo1 } from '../../assets'
+import { backarrow, cabansizelogo, locationarrowlogo, locationmediumlogo, maplogo, progresslogo1, ticklogo } from '../../assets'
 import TextInputComponent from '../../components/TextInputComponent'
 import ScreenButtonComponent from '../../components/ScreenButtonComponent'
 import { useRoute } from '@react-navigation/native'
@@ -54,13 +54,13 @@ const CustomCabanaScreen = ({ navigation }) => {
         { title: 'TOW HOOK', percentage: 100 },
         { title: 'NAME OF CUSTOMIZATION', percentage: 100 },
     ]
-
+    const [cabanSize, setCabanSize] = useState({ length: '', width: "" })
     const [bathroomSizeDetails, setbathroomSizeDetails] = useState({ index: '', value: '' })
     const [roomFloorDetails, setRoomFloorDetails] = useState({ index: '', value: '' })
     const [wardrobeDetails, setWardrobeDetails] = useState({ index: '', value: '' })
     const [wallDetails, setWallDetails] = useState({ index: '', value: '' })
     const [windowSizeDetails, setWindowSizeDetails] = useState({ index: '', value: '' })
-    const [windowShuttereDetails, setWindowShutterDetails] = useState({ index: '', value: '' })
+    const [windowShutterDetails, setWindowShutterDetails] = useState({ index: '', value: '' })
     const [lifterDetails, setLifterDetails] = useState({ index: '', value: '' })
     const [bathroomType, setBathroomtype] = useState({ index: '', value: '' })
     const [airCondition, setAirCondition] = useState({ index: '', value: '' })
@@ -74,8 +74,8 @@ const CustomCabanaScreen = ({ navigation }) => {
         switch (option) {
             case 'cabansize':
                 return <View>
-                    <TextInputComponent label={'Length'} />
-                    <TextInputComponent label={'Width'} />
+                    <TextInputComponent setState={(text) => setCabanSize({ ...cabanSize, length: text })} label={'Length'} />
+                    <TextInputComponent setState={(text) => setCabanSize({ ...cabanSize, width: text })} label={'Width'} />
                 </View>
             case 'bathroomsize':
                 return <FlatList data={bathroomsize} renderItem={({ item, index }) => <Pressable onPress={() => setbathroomSizeDetails({ ...bathroomSizeDetails, index: index, value: item.size })}>
@@ -86,7 +86,7 @@ const CustomCabanaScreen = ({ navigation }) => {
                                 <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.017, marginTop: HEIGHT * 0.007 }}>{item.size}</Text>
                             </View>
                             <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === bathroomSizeDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
-                                {index === bathroomSizeDetails.index && <Ionicons name='checkmark' />}
+                                {index === bathroomSizeDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                         </View>
                     </View>
@@ -101,7 +101,7 @@ const CustomCabanaScreen = ({ navigation }) => {
 
                             </View>
                             <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === roomFloorDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
-                                {index === roomFloorDetails.index && <Ionicons name='checkmark' />}
+                                {index === roomFloorDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                         </View>
                     </View>
@@ -116,7 +116,7 @@ const CustomCabanaScreen = ({ navigation }) => {
 
                             </View>
                             <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === wardrobeDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
-                                {index === wardrobeDetails.index && <Ionicons name='checkmark' />}
+                                {index === wardrobeDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                         </View>
                     </View>
@@ -130,8 +130,8 @@ const CustomCabanaScreen = ({ navigation }) => {
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.022, marginLeft: HEIGHT * 0.02 }}>{item.title}</Text>
 
                             </View>
-                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === roomFloorDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
-                                {index === roomFloorDetails.index && <Ionicons name='checkmark' />}
+                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === wallDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
+                                {index === wallDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                         </View>
                     </View>
@@ -145,7 +145,7 @@ const CustomCabanaScreen = ({ navigation }) => {
                                 <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.017, marginTop: HEIGHT * 0.007 }}>{item.size}</Text>
                             </View>
                             <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === windowSizeDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
-                                {index === windowSizeDetails.index && <Ionicons name='checkmark' />}
+                                {index === windowSizeDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                         </View>
                     </View>
@@ -154,10 +154,10 @@ const CustomCabanaScreen = ({ navigation }) => {
                 return <FlatList
                     contentContainerStyle={{ flexDirection: 'row' }}
                     // horizontal 
-                    data={windowshutter} renderItem={({ item, index }) => <Pressable style={{}} onPress={() => setWindowShutterDetails({ ...windowShuttereDetails, index: index, value: item.size })}>
+                    data={windowshutter} renderItem={({ item, index }) => <Pressable style={{}} onPress={() => setWindowShutterDetails({ ...windowShutterDetails, index: index, value: item.size })}>
                         <View style={{ height: HEIGHT * 0.15, width: WIDTH * 0.4, backgroundColor: 'black', borderRadius: HEIGHT * 0.01, marginTop: HEIGHT * 0.02, justifyContent: 'center', marginLeft: HEIGHT * 0.01 }}>
-                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === windowSizeDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
-                                {index === windowSizeDetails.index && <Ionicons name='checkmark' />}
+                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === windowShutterDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
+                                {index === windowShutterDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                             <View style={{ margin: HEIGHT * 0.02 }}>
                                 <View>
@@ -174,8 +174,8 @@ const CustomCabanaScreen = ({ navigation }) => {
                     // horizontal 
                     data={lifters} renderItem={({ item, index }) => <Pressable style={{}} onPress={() => setLifterDetails({ ...lifterDetails, index: index, value: item.size })}>
                         <View style={{ height: HEIGHT * 0.15, width: WIDTH * 0.4, backgroundColor: 'black', borderRadius: HEIGHT * 0.01, marginTop: HEIGHT * 0.02, justifyContent: 'center', marginLeft: HEIGHT * 0.01 }}>
-                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === windowSizeDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
-                                {index === windowSizeDetails.index && <Ionicons name='checkmark' />}
+                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === lifterDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
+                                {index === lifterDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                             <View style={{ margin: HEIGHT * 0.02 }}>
                                 <View>
@@ -193,8 +193,8 @@ const CustomCabanaScreen = ({ navigation }) => {
                     data={bathroom}
                     renderItem={({ item, index }) => <Pressable style={{}} onPress={() => setBathroomtype({ ...bathroomType, index: index, value: item.size })}>
                         <View style={{ height: HEIGHT * 0.15, width: WIDTH * 0.4, backgroundColor: 'black', borderRadius: HEIGHT * 0.01, marginTop: HEIGHT * 0.02, justifyContent: 'center', marginLeft: HEIGHT * 0.01 }}>
-                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === windowSizeDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
-                                {index === windowSizeDetails.index && <Ionicons name='checkmark' />}
+                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === bathroomType.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
+                                {index === bathroomType.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                             <View style={{ margin: HEIGHT * 0.02 }}>
                                 <View>
@@ -221,7 +221,7 @@ const CustomCabanaScreen = ({ navigation }) => {
 
                             </View>
                             <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === outerCoverDetails.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
-                                {index === outerCoverDetails.index && <Ionicons name='checkmark' />}
+                                {index === outerCoverDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                         </View>
                     </View>
@@ -235,7 +235,7 @@ const CustomCabanaScreen = ({ navigation }) => {
 
                             </View>
                             <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: index === waterTankdetals.index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center' }}>
-                                {index === waterTankdetals.index && <Ionicons name='checkmark' />}
+                                {index === waterTankdetals.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                         </View>
                     </View>
@@ -246,8 +246,8 @@ const CustomCabanaScreen = ({ navigation }) => {
                     data={hook}
                     renderItem={({ item, index }) => <Pressable style={{}} onPress={() => setHookDetails({ ...hookDetails, index: index, value: item.title })}>
                         <View style={{ height: HEIGHT * 0.15, width: WIDTH * 0.4, backgroundColor: 'black', borderRadius: HEIGHT * 0.01, marginTop: HEIGHT * 0.02, justifyContent: 'center', marginLeft: HEIGHT * 0.01 }}>
-                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: hookDetails.index == index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
-                                {index === hookDetails.index && <Ionicons name='checkmark' />}
+                            <View style={{ height: HEIGHT * 0.033, width: WIDTH * 0.07, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.3, backgroundColor: hookDetails.index === index ? '#0FC1A1' : 'black', justifyContent: 'center', alignItems: 'center', marginLeft: HEIGHT * 0.02 }}>
+                                {index === hookDetails.index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}
                             </View>
                             <View style={{ margin: HEIGHT * 0.02 }}>
                                 <View>
@@ -268,7 +268,7 @@ const CustomCabanaScreen = ({ navigation }) => {
                     <HeaderComponent leftlogo={backarrow} leftOnPress={() =>/*  scrollIndex === 0 ? */ navigation.goBack()/*  : minusScroolFunction(scrollIndex) */} title={'CUSTOM'} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.82 : HEIGHT * 0.79, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.015, borderBottomRightRadius: HEIGHT * 0.015 }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.84 : HEIGHT * 0.81, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.015, borderBottomRightRadius: HEIGHT * 0.015 }}>
                         <View style={{ height: HEIGHT * 0.13, backgroundColor: 'black', paddingTop: HEIGHT * 0.03 }}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
                                 <View style={{ marginLeft: HEIGHT * 0.03 }}>

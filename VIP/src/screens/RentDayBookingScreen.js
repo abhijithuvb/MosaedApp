@@ -42,7 +42,7 @@ const RentDayBookingScreen = ({ navigation }) => {
           }}>
           <View
             style={{
-              height: HEIGHT * 0.77,
+              height: Platform.OS === "android" ? HEIGHT * 0.83 : HEIGHT * 0.8,
               backgroundColor: 'black',
               borderBottomLeftRadius: HEIGHT * 0.015,
               borderBottomRightRadius: HEIGHT * 0.015,
@@ -83,7 +83,7 @@ const RentDayBookingScreen = ({ navigation }) => {
               </Pressable>} />
             </View>
           </View>
-          <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.02 : HEIGHT * 0.001 }}>
+          <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.01 : HEIGHT * 0.001 }}>
             <ScreenButtonComponent leftlogo={submitleftarrow} rightlogo={submitrightarrow} text={'Next'} onPress={() => handleSubmit()} />
           </View>
 

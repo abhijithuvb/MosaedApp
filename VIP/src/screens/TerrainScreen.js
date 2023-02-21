@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, FlatList } from 'react-native';
+import { View, Text, SafeAreaView, Image, FlatList, Platform } from 'react-native';
 import React, { useState } from 'react';
 
 import {
@@ -12,6 +12,7 @@ import {
     backarrow,
     beachlogo,
     desertlogo,
+    ticklogo,
 } from '../assets';
 import {
     HEIGHT,
@@ -23,6 +24,7 @@ import HomeScreenListComponent from '../components/HomeScreenListComponent';
 import TerrainComponent from '../components/TerrainComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ChooseButtonComponent from '../components/ChooseButtonComponent';
 
 const TerrainScreen = ({ navigation }) => {
     const beachStatus = () => {
@@ -33,7 +35,9 @@ const TerrainScreen = ({ navigation }) => {
     };
 
     const handleFunction = () => {
-        navigation.navigate('RentDayBookingScreen', { terrainStatus });
+        if (terrainStatus.beach || terrainStatus.desert) {
+            navigation.navigate('RentDayBookingScreen', { terrainStatus });
+        }
     };
 
     const [terrainStatus, setTerrainStatus] = useState({
@@ -49,7 +53,7 @@ const TerrainScreen = ({ navigation }) => {
             buttonFunction: () => beachStatus(),
             background: terrainStatus?.beach ? '#0FC1A1' : '#181D23',
             checklogo: terrainStatus?.beach ? (
-                <Ionicons name="checkmark-outline" />
+                <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} />
             ) : (
                 ''
             ),
@@ -61,7 +65,7 @@ const TerrainScreen = ({ navigation }) => {
             buttonFunction: () => desertStatus(),
             background: terrainStatus?.desert ? '#0FC1A1' : '#181D23',
             checklogo: terrainStatus?.desert ? (
-                <Ionicons name="checkmark-outline" />
+                <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} />
             ) : (
                 ''
             ),
@@ -71,7 +75,7 @@ const TerrainScreen = ({ navigation }) => {
     console.log('terrain=>', terrainStatus);
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <Image
                     style={{
                         position: 'absolute',
@@ -81,7 +85,7 @@ const TerrainScreen = ({ navigation }) => {
                     }}
                     source={backgroundsmalllogo}
                 />
-                <View style={{ marginTop: HEIGHT * 0.025 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.035 : HEIGHT * 0.075 }}>
                     <HeaderComponent
                         leftOnPress={() => navigation.goBack()}
                         title="RENT"
@@ -140,14 +144,15 @@ const TerrainScreen = ({ navigation }) => {
                             )}
                         />
                         <View style={{ alignItems: 'center', marginBottom: HEIGHT * 0.068 }}>
-                            <ButtonComponent
+                            {/* <ButtonComponent
                                 label="NEXT"
                                 onPressFunction={() => handleFunction()}
-                            />
+                            /> */}
+                            <ChooseButtonComponent onPressFunction={() => handleFunction()} label={"NEXT"} color={terrainStatus.beach === true || terrainStatus.desert === true ? "#0FC1A1" : '#000000'} />
                         </View>
                     </View>
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     );
 };

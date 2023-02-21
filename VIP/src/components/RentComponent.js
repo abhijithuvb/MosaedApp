@@ -1,11 +1,13 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import React from 'react'
 import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import { boatsmallimage, calendarSmalllogo } from '../assets'
+import { useNavigation } from '@react-navigation/native'
 
 const RentComponent = ({ text, bgcolor, color, status }) => {
+    const navigation = useNavigation()
     return (
-        <View style={{ width: WIDTH }}>
+        <Pressable onPress={() => navigation.navigate("BookedTicketScreen")} style={{ width: WIDTH }}>
 
             <View style={{ flexDirection: 'row', width: WIDTH * 0.9, alignSelf: 'center', marginTop: HEIGHT * 0.04 }}>
                 <Image source={boatsmallimage} />
@@ -28,7 +30,7 @@ const RentComponent = ({ text, bgcolor, color, status }) => {
                 </View>
                 <Text style={{ color: 'white', fontSize: 20, marginRight: HEIGHT * 0.03 }}>250</Text>
 
-            </View></View>
+            </View></Pressable>
     )
 }
 

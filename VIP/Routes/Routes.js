@@ -8,7 +8,7 @@ import { Image, View } from 'react-native';
 import Animated, { interpolate, useAnimatedStyle } from 'react-native-reanimated';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import { WIDTH } from '../Constants/Constants';
+import { HEIGHT, WIDTH } from '../Constants/Constants';
 import { drawertoplogo } from '../src/assets';
 import BeachDetailsScreen from '../src/screens/BeachDetailsScreen';
 import BeachListScreen from '../src/screens/BeachListScreen';
@@ -51,6 +51,7 @@ import AboutUsScreen from '../src/screens/AboutUsScreen';
 import SupportScreen from '../src/screens/SupportScreen';
 import PolicyScreen from '../src/screens/PolicyScreen';
 import CustomCabanaEndScreen from '../src/screens/cabanas/CustomCabanaEndScreen';
+import DrawerBackScreen from '../src/components/DrawerBackScreen'
 
 const RouteDrawer = createDrawerNavigator();
 
@@ -67,14 +68,19 @@ const Drawer = () => {
 
   const scaleX = Animated.interpolateNode(progressValue, {
     inputRange: [0, 1],
-    outputRange: [1, 1],
+    outputRange: [1, 0.8],
   });
   const scaleY = Animated.interpolateNode(progressValue, {
     inputRange: [0, 1],
     outputRange: [1, 0.8],
   });
+  const borderRadius = Animated.interpolateNode(progressValue, {
+    inputRange: [0, 1],
+    outputRange: [0, WIDTH * 0.09],
+  });
   const animatedStyle = {
-    transform: [{ scaleX: scaleX }, { scaleY: scaleY }],
+    borderRadius, transform: [{ scaleX: scaleX }, { scaleY: scaleY }],
+
   };
   console.log(scaleX, scaleY);
 
@@ -84,15 +90,18 @@ const Drawer = () => {
       drawerContent={props => {
         return <CustomDrawerContent {...props} />;
       }}
+
       screenOptions={{
-        drawerStyle: { width: WIDTH * 0.8 },
+        // drawerStyle: { width: WIDTH * 0.8 },
         headerShown: false,
         drawerType: 'back',
-        overlayColor: 'transparent',
+        overlayColor: "transparent",
         sceneContainerStyle: { backgroundColor: '#181D23' },
+        drawerContentStyle: { backgroundColor: "red" }
       }}>
       <RouteDrawer.Screen name="drawer">
         {props => {
+
           return <AnimatedScreen animatedStyles={animatedStyle} {...props} />;
         }}
       </RouteDrawer.Screen>
@@ -103,13 +112,18 @@ const Drawer = () => {
 const animatedStack = createStackNavigator();
 const AnimatedScreen = ({ animatedStyles }) => {
   return (
-    <Animated.View style={[animatedStyles, { flex: 1 }]}>
-      <View style={{ position: 'absolute', left: 0, top: -100 }}>
-        <Image source={drawertoplogo} />
+    <Animated.View style={[animatedStyles, { flex: 1, shadowColor: 'black', shadowOpacity: 0.9, }]}>
+      <View style={{ position: 'absolute', right: WIDTH * 0.15, top: HEIGHT * 0.16, borderWidth: 1, borderRadius: HEIGHT * 0.009 }}>
+        <DrawerBackScreen />
       </View>
-      <animatedStack.Navigator screenOptions={{ headerShown: false }}>
-        <animatedStack.Screen name="HomeScreen" component={HomeScreen} />
-      </animatedStack.Navigator>
+      <Animated.View style={[{ flex: 1, shadowColor: 'black', shadowOpacity: 0.9, borderWidth: 1, borderColor: 'black' }]}>
+        <View style={{ position: 'absolute', left: 0, top: -100 }}>
+          <Image source={drawertoplogo} />
+        </View>
+        <animatedStack.Navigator screenOptions={{ headerShown: false }}>
+          <animatedStack.Screen name="HomeScreen" component={HomeScreen} />
+        </animatedStack.Navigator>
+      </Animated.View>
     </Animated.View>
   );
 };

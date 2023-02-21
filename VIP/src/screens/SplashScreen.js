@@ -1,12 +1,33 @@
 import { View, Text, Image } from 'react-native'
 import React, { useEffect } from 'react'
 import { splashscreenbackgroundlogo, splashscreenbottomlogo, splashscreentoplogo, splashscreenmainlogo } from '../assets'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const SplashScreen = ({ navigation }) => {
+    const navigationFunction = async () => {
+        const user = await AsyncStorage.getItem("user")
+        const loggedIn = await AsyncStorage.getItem("loggedIn")
+        console.log('====================================');
+        console.log(user, loggedIn);
+        console.log('====================================');
+        setTimeout(() => {
+            if (user) {
+                if (loggedIn) {
+                    navigation.replace("HomeScreen")
+                } else {
+                    navigation.replace("LoginScreen")
+                }
+            } else if (!user) {
+                navigation.replace("SignUpScreen");
+            }
+        }, 1500)
+    }
+
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate("LoginScreen")
+            navigationFunction()
         }, 1000)
+
     }, [])
 
 

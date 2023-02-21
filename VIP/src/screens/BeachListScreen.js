@@ -44,7 +44,7 @@ const BeachListScreen = ({ navigation }) => {
                     </View>
                     <View style={{ alignItems: 'center', }}>
 
-                        <FlatList showsHorizontalScrollIndicator={false} style={{ height: Platform.OS === "android" ? HEIGHT * 0.79 : HEIGHT * 0.74 }} data={beachVehicleList} renderItem={({ item }) => <BeachListComponent title={item.title} company={item.company} location={item.location} rate={item.rate} sourceimage={item.sourceimage} />} />
+                        <FlatList showsVerticalScrollIndicator={false} style={{ height: Platform.OS === "android" ? HEIGHT * 0.79 : HEIGHT * 0.74 }} data={beachVehicleList} renderItem={({ item }) => <BeachListComponent title={item.title} company={item.company} location={item.location} rate={item.rate} sourceimage={item.sourceimage} />} />
 
                     </View>
                 </View>

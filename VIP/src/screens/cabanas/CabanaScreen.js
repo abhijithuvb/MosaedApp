@@ -16,7 +16,15 @@ const CabanaScreen = ({ navigation }) => {
                 </View>
 
                 <View style={{ alignItems: 'center', }}>
-                    <FlatList style={{ height: HEIGHT * 0.85 }} data={cabanadata} renderItem={({ item }) => <CabanaComponent company={item.company} size={item.size} rate={item.price} title={item.title} logo={item.image} />} />
+                    <FlatList
+                        showsVerticalScrollIndicator={false}
+                        style={{ height: HEIGHT * 0.85 }}
+                        data={cabanadata}
+                        renderItem={({ item }) => <CabanaComponent company={item.company}
+                            size={item.size} r
+                            ate={item.price}
+                            title={item.title}
+                            logo={item.image} />} />
                 </View>
 
 

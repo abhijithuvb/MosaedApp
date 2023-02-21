@@ -4,9 +4,22 @@ import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import { drawerbottomlogo, drawertoplogo, splashscreentoplogo, drwaerdp, giftsmall, drawerlisthomelogo, drawerlistlogoutlogo } from '../assets'
 import DrawerMenuComponent from '../components/DrawerMenuComponent'
 import { drawerMenu } from '../Arrays/Arrays'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/native'
 
-const DrawerScreen = () => {
+const DrawerScreen = ({ }) => {
     const [colors, setColors] = useState(false)
+    const navigation = useNavigation()
+    const onPressFn = () => {
+        AsyncStorage.removeItem("loggedIn")
+        // AsyncStorage.removeItem("user")
+        navigation.replace("LoginScreen")
+        // alert("hi")
+
+    }
+    const onPressFunction = (path) => {
+        navigation.navigate(path)
+    }
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
             <SafeAreaView style={{ flex: 1, }}>
@@ -37,11 +50,13 @@ const DrawerScreen = () => {
                         </View>
                     </View>
                     <View>
-                        <FlatList data={drawerMenu} renderItem={({ item }) => <DrawerMenuComponent logo={item.logo} title={item.title} path={item.path} />} />
+                        <FlatList data={drawerMenu} renderItem={({ item }) => <DrawerMenuComponent onPressFunction={() => onPressFunction(item.path)} logo={item.logo} title={item.title} path={item.path} />} />
                     </View>
 
                     <View style={{ marginTop: HEIGHT * 0.045, }}>
-                        <DrawerMenuComponent logo={drawerlistlogoutlogo} title="Logout" />
+
+                        <DrawerMenuComponent logo={drawerlistlogoutlogo} /* path="LoginScreen" */ title="Logout" onPressFunction={() => onPressFn()} />
+
                     </View>
 
                 </View>

@@ -15,7 +15,7 @@ const PolicyScreen = ({ navigation }) => {
                 <HeaderComponent title={'PRIVACY POLICY'} leftlogo={backarrow} leftOnPress={() => navigation.goBack()} />
             </View>
             <View style={{ marginTop: HEIGHT * 0.05, alignSelf: 'center', height: HEIGHT * 0.8 }}>
-                <ScrollView style={{}}>
+                <ScrollView style={{}} showsVerticalScrollIndicator={false}>
                     <View style={{ width: WIDTH * 0.852 }}>
                         <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>LOREM IPSUM DOLOR SIT AMET</Text>
                         <Text style={{ fontSize: 16, color: 'white' }}>

@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from 'react-native'
+import { View, Text, Image, FlatList, Platform } from 'react-native'
 import React from 'react'
 import { HEIGHT, WIDTH } from '../../Constants/Constants';
 import HeaderComponent from '../components/HeaderComponent';
@@ -15,7 +15,7 @@ const GoldScreen = ({ navigation }) => {
         <View style={{ flex: 1, backgroundColor: 'black' }}>
             <View style={{ height: HEIGHT * 0.4812, backgroundColor: '#181D23' }}>
                 <Image source={backgroundsmalllogo} style={{ position: 'absolute', top: 0, right: 0, tintColor: 'black' }} />
-                <View style={{ marginTop: HEIGHT * 0.09 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.04 : HEIGHT * 0.09 }}>
                     <HeaderComponent title={"VIP-GOLD"} leftlogo={backarrow} leftOnPress={() => navigation.goBack()} />
                 </View>
                 <View style={{ marginTop: HEIGHT * 0.04 }}>

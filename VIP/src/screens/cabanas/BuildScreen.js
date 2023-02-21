@@ -12,6 +12,7 @@ import {
     buildstandardlogo,
     progresslogo1,
     cabansizelogo,
+    ticklogo,
 } from '../../assets';
 import {
     HEIGHT,
@@ -23,6 +24,7 @@ import HomeScreenListComponent from '../../components/HomeScreenListComponent';
 import TerrainComponent from '../../components/TerrainComponent';
 import ButtonComponent from '../../components/ButtonComponent';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ChooseButtonComponent from '../../components/ChooseButtonComponent';
 // import { service } from '../Arrays/Arrays';
 
 const BuildScreen = ({ navigation }) => {
@@ -35,7 +37,12 @@ const BuildScreen = ({ navigation }) => {
     const screenData = { id: 1, title: 'CABANA SIZE', step: '1', progresslogo: progresslogo1, maintitle: 'CABANA SIZE', mainlogo: cabansizelogo, case: 'cabansize' }
 
     const handleFunction = () => {
-        navigation.navigate(buildStatus.standard ? 'CabanaScreen' : 'CustomCabanaScreen', { buildStatus, screenData });
+        // navigation.navigate(buildStatus.standard ? 'CabanaScreen' : 'CustomCabanaScreen', { buildStatus, screenData });
+        if (buildStatus.standard) {
+            navigation.navigate("CabanaScreen")
+        } else if (buildStatus.custom) {
+            navigation.navigate('CustomCabanaScreen', { buildStatus, screenData })
+        }
     };
 
     const [buildStatus, setbuildStatus] = useState({
@@ -51,7 +58,7 @@ const BuildScreen = ({ navigation }) => {
             buttonFunction: () => standardStatus(),
             background: buildStatus?.standard ? '#0FC1A1' : '#181D23',
             checklogo: buildStatus?.standard ? (
-                <Ionicons name="checkmark-outline" />
+                <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} />
             ) : (
                 ''
             ),
@@ -63,7 +70,7 @@ const BuildScreen = ({ navigation }) => {
             buttonFunction: () => customStatus(),
             background: buildStatus?.custom ? '#0FC1A1' : '#181D23',
             checklogo: buildStatus?.custom ? (
-                <Ionicons name="checkmark-outline" />
+                <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} />
             ) : (
                 ''
             ),
@@ -74,7 +81,7 @@ const BuildScreen = ({ navigation }) => {
     return (
 
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <Image
                     style={{
                         position: 'absolute',
@@ -84,7 +91,7 @@ const BuildScreen = ({ navigation }) => {
                     }}
                     source={backgroundsmalllogo}
                 />
-                <View style={{ marginTop: HEIGHT * 0.025 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.035 : HEIGHT * 0.075 }}>
                     <HeaderComponent
                         leftOnPress={() => navigation.goBack()}
                         title="SERVICES"
@@ -143,14 +150,15 @@ const BuildScreen = ({ navigation }) => {
                             )}
                         />
                         <View style={{ alignItems: 'center', marginBottom: HEIGHT * 0.068 }}>
-                            <ButtonComponent
+                            {/* <ButtonComponent
                                 label="VIEW CABANAS"
                                 onPressFunction={() => handleFunction()}
-                            />
+                            /> */}
+                            <ChooseButtonComponent onPressFunction={() => handleFunction()} label={"NEXT"} color={buildStatus.standard === true || buildStatus.custom === true ? "#0FC1A1" : '#000000'} />
                         </View>
                     </View>
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

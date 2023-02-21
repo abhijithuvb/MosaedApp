@@ -12,9 +12,10 @@ const TerrainSummaryScreen = ({ navigation }) => {
     const route = useRoute()
     const { title, company, location, rate, sourceimage } = route.params
     const [modalVisible, setModalVisible] = useState(false)
+    const [count, setCount] = useState(0)
 
     return (
-        <View style={{ backgroundColor: '#181D23', flex: 1 }}><DrinkBoxModalComponent visible={modalVisible} setVisible={setModalVisible} buttonOnPress={() => setModalVisible(!modalVisible)} />
+        <View style={{ backgroundColor: '#181D23', flex: 1 }}><DrinkBoxModalComponent visible={modalVisible} setVisible={setModalVisible} buttonOnPress={() => setModalVisible(!modalVisible)} state={count} setState={setCount} />
             <View style={{ flex: 1 }}>
 
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
@@ -81,7 +82,7 @@ const TerrainSummaryScreen = ({ navigation }) => {
                                 <Image source={plusicon} />
                             </View>
                         </View>
-                        <View style={{ backgroundColor: '#181D23', height: Platform.OS === "android" ? HEIGHT * 0.29 : HEIGHT * 0.28, marginTop: HEIGHT * 0.02, borderRadius: HEIGHT * 0.02 }}>
+                        <View style={{ backgroundColor: '#181D23', height: Platform.OS === "android" ? HEIGHT * 0.29 : HEIGHT * 0.3, marginTop: HEIGHT * 0.02, borderRadius: HEIGHT * 0.02 }}>
                             <View style={{ marginTop: HEIGHT * 0.02, marginLeft: HEIGHT * 0.02 }}>
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>PAYMENTS</Text>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>
@@ -112,7 +113,7 @@ const TerrainSummaryScreen = ({ navigation }) => {
                         </View>
 
                     </View>
-                    <View style={{ marginTop: HEIGHT * 0.05 }}>
+                    <View style={{ marginTop: HEIGHT * 0.055 }}>
                         <ScreenButtonComponent text={'PROCEED TO PAYMENT'} onPress={() => navigation.navigate('PaymentGatewayScreen', { path: "BookedTicketScreen" })} />
                     </View>
 

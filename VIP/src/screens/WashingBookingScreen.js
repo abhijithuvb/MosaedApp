@@ -4,7 +4,7 @@ import CalendarStrip from 'react-native-calendar-strip';
 
 import HeaderComponent from '../components/HeaderComponent';
 import { HEIGHT, WIDTH } from '../../Constants/Constants';
-import { backarrow, calendarleftlogo, calendarleftlogocontainer, calendarrightlogo, calendarrightlogocontainer, submitleftarrow, submitrightarrow } from '../assets';
+import { backarrow, calendarleftlogo, calendarleftlogocontainer, calendarrightlogo, calendarrightlogocontainer, submitleftarrow, submitrightarrow, ticklogo } from '../assets';
 import { Pressable } from 'react-native';
 import { washingTime } from '../Arrays/Arrays';
 import { useRoute } from '@react-navigation/native';
@@ -42,7 +42,7 @@ const WashingBookingScreen = ({ navigation }) => {
                     }}>
                     <View
                         style={{
-                            height: Platform.OS === "android" ? HEIGHT * 0.83 : HEIGHT * 0.79,
+                            height: Platform.OS === "android" ? HEIGHT * 0.85 : HEIGHT * 0.81,
                             backgroundColor: 'black',
                             borderBottomLeftRadius: HEIGHT * 0.015,
                             borderBottomRightRadius: HEIGHT * 0.015,
@@ -81,10 +81,10 @@ const WashingBookingScreen = ({ navigation }) => {
                             }} style={{ height: HEIGHT * 0.11, width: WIDTH * 0.9, backgroundColor: '#181D23', marginTop: HEIGHT * 0.017, justifyContent: 'center', borderRadius: HEIGHT * 0.005, }}>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', margin: HEIGHT * 0.03 }}>
                                     <View>
-                                        <Text style={{ color: 'white', fontSize: HEIGHT * 0.023 }}>MORNING</Text>
-                                        <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.018 }}>7:00 am to 12:00pm</Text>
+                                        <Text style={{ color: 'white', fontSize: HEIGHT * 0.023 }}>{item.title}</Text>
+                                        <Text style={{ color: '#0FC1A1', fontSize: HEIGHT * 0.018 }}>{item.timing}</Text>
                                     </View>
-                                    <View style={{ height: HEIGHT * 0.029, width: WIDTH * 0.06, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.03, backgroundColor: washTiming.selectedIndex === index ? '#0FC1A1' : '#181D23', justifyContent: 'center', alignItems: 'center' }}>{washTiming.selectedIndex === index ? <Ionicons name='checkmark' /> : ''}</View>
+                                    <View style={{ height: HEIGHT * 0.029, width: WIDTH * 0.06, borderWidth: 1, borderColor: '#0FC1A1', borderRadius: HEIGHT * 0.03, backgroundColor: washTiming.selectedIndex === index ? '#0FC1A1' : '#181D23', justifyContent: 'center', alignItems: 'center' }}>{washTiming.selectedIndex === index ? <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} /> : ''}</View>
                                 </View>
 
                             </Pressable>} />

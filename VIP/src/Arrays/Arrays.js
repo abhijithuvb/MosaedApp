@@ -34,31 +34,38 @@ import {
     pointslogo4,
     vipbenefitslogo1,
     vipbenefitslogo2,
-    vipbenefitslogo3
+    vipbenefitslogo3,
+    boatlargeimage,
+    singlecabanaimage
 } from "../assets"
 
 const signupArray = [
     {
         id: 1,
         label: "First Name",
-        data: "firstname"
+        data: "firstname",
+        returnType: 'next'
     }
     , {
         id: 2,
         label: "Last Name",
-        data: "lastname"
+        data: "lastname",
+        returnType: 'next'
     }, {
         id: 3,
         label: "Email",
-        data: "email"
+        data: "email",
+        returnType: 'next'
     }, {
         id: 4,
         label: "Phone Number",
-        data: "phone"
+        data: "phone",
+        returnType: 'next'
     }, {
         id: 5,
         label: "Qid",
-        data: "qid"
+        data: "qid",
+        returnType: 'done'
     }
 ]
 
@@ -111,6 +118,8 @@ const hours = [
     { id: 23, time: '03:00 am' },
     { id: 24, time: '04:00 am' },
 ]
+
+
 
 const beachVehicleList = [
     { id: 1, title: '2021 FX SVHO', company: 'Yamaha', location: 'Abu Hamour,Doha', sourceimage: boatimage1, rate: 50 },
@@ -338,11 +347,26 @@ const vipGoldBenefits = [
 ]
 
 const supportData = [
-    { id: 1, label: "Name", text: 'Name' },
-    { id: 2, label: "Email", text: 'Email' },
-    { id: 3, label: "Phone Number", text: 'PhoneNumber' },
-    { id: 4, label: "Purpose Of Contact", text: 'Purpose' },
-    { id: 5, label: "Message", height: HEIGHT * 0.15, text: 'Message' },
+    { id: 1, label: "Name", text: 'Name', returnType: 'next' },
+    { id: 2, label: "Email", text: 'Email', returnType: 'next' },
+    { id: 3, label: "Phone Number", text: 'PhoneNumber', returnType: 'next' },
+    { id: 4, label: "Purpose Of Contact", text: 'Purpose', returnType: 'next' },
+    { id: 5, label: "Message", height: HEIGHT * 0.15, text: 'Message', returnType: 'done' },
 ]
 
-export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook, myprofileData, myActivityRentArray, myActivityTabs, myActivityServiceArray, myActivityBuildArray, pointHistory, vipGoldBenefits, supportData }
+const beachImageFlatlist = [
+    { id: 1, logo: boatlargeimage },
+    { id: 2, logo: boatlargeimage },
+    { id: 3, logo: boatlargeimage },
+    { id: 4, logo: boatlargeimage },
+]
+
+const cabanaImageFlatlist = [
+    { id: 1, logo: singlecabanaimage },
+    { id: 2, logo: singlecabanaimage },
+    { id: 3, logo: singlecabanaimage },
+    { id: 4, logo: singlecabanaimage },
+
+]
+
+export { signupArray, homeScreenList, drawerMenu, terrain, hours, beachVehicleList, service, locations, washingTime, cabanservicelist, cabanadata, cabanafeature, bathroomsize, customDetails, floorDetails, wardrobe, wall, windowsize, windowshutter, lifters, bathroom, condition, outerCover, waterTank, hook, myprofileData, myActivityRentArray, myActivityTabs, myActivityServiceArray, myActivityBuildArray, pointHistory, vipGoldBenefits, supportData, beachImageFlatlist, cabanaImageFlatlist }

@@ -1,5 +1,5 @@
 import { View, Text, Image, Platform } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { backarrow, locationarrowlogo, locationmediumlogo, maplogo } from '../../assets'
 import { HEIGHT, WIDTH } from '../../../Constants/Constants'
 import TextInputComponent from '../../components/TextInputComponent'
@@ -8,6 +8,7 @@ import NormalCircleProgressComponent from '../../components/Cabanas/NormalCircle
 import ScreenButtonComponent from '../../components/ScreenButtonComponent'
 
 const CustomCabanaEndScreen = ({ navigation }) => {
+    const [name, setName] = useState()
     return (
 
         <View style={{ backgroundColor: 'black', flex: 1 }}>
@@ -16,7 +17,7 @@ const CustomCabanaEndScreen = ({ navigation }) => {
                     <HeaderComponent leftlogo={backarrow} leftOnPress={() =>/*  scrollIndex === 0 ? */ navigation.navigate("HomeScreen")/*  : minusScroolFunction(scrollIndex) */} title={'CUSTOM'} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.82 : HEIGHT * 0.79, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.015, borderBottomRightRadius: HEIGHT * 0.015 }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.84 : HEIGHT * 0.8, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.015, borderBottomRightRadius: HEIGHT * 0.015 }}>
                         <View style={{ height: HEIGHT * 0.13, backgroundColor: 'black', paddingTop: HEIGHT * 0.03 }}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
                                 <View style={{ marginLeft: HEIGHT * 0.03 }}>
@@ -28,12 +29,12 @@ const CustomCabanaEndScreen = ({ navigation }) => {
                                 </View>
                             </View>
                         </View>
-                        <View style={{ height: HEIGHT * 0.6, backgroundColor: '#181D23' }}>
+                        <View style={{ height: HEIGHT * 0.61, backgroundColor: '#181D23' }}>
                             <View style={{ width: WIDTH, }}>
                                 <View style={{ margin: HEIGHT * 0.02 }}>
                                     <Text style={{ color: 'white', fontSize: HEIGHT * 0.023, marginTop: HEIGHT * 0.01 }}>NAME OF THE CUSTOMIZATION</Text>
                                     <View style={{ marginTop: HEIGHT * 0.01 }}>
-                                        <TextInputComponent label={'Add Name'} />
+                                        <TextInputComponent setState={(text) => setName(text)} label={'Add Name'} />
                                     </View>
                                     <View style={{ marginTop: HEIGHT * 0.01 }}>
                                         <Text style={{ color: 'white', fontSize: HEIGHT * 0.019, marginTop: HEIGHT * 0.01 }}>
@@ -42,7 +43,7 @@ const CustomCabanaEndScreen = ({ navigation }) => {
                                         <Text style={{ color: 'white', marginTop: HEIGHT * 0.01 }}>
                                             is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                                         </Text>
-                                        <View style={{ height: HEIGHT * 0.33, width: WIDTH * 0.88, backgroundColor: 'black', marginTop: HEIGHT * 0.01, justifyContent: 'center', borderRadius: HEIGHT * 0.01, }}>
+                                        <View style={{ height: Platform.OS === 'android' ? HEIGHT * 0.36 : HEIGHT * 0.33, width: Platform.OS === 'android' ? WIDTH * 0.92 : WIDTH * 0.85, backgroundColor: 'black', marginTop: HEIGHT * 0.02, justifyContent: 'center', borderRadius: HEIGHT * 0.01, }}>
                                             <View style={{ marginLeft: HEIGHT * 0.01, }}>
                                                 <Image source={maplogo} />
                                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>

@@ -8,6 +8,7 @@ import {
     backarrow,
     washinglogo,
     towinglogo,
+    ticklogo,
 } from '../assets';
 import {
     HEIGHT,
@@ -19,6 +20,7 @@ import HomeScreenListComponent from '../components/HomeScreenListComponent';
 import TerrainComponent from '../components/TerrainComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ChooseButtonComponent from '../components/ChooseButtonComponent';
 // import { service } from '../Arrays/Arrays';
 
 const ServiceScreen = ({ navigation }) => {
@@ -30,7 +32,9 @@ const ServiceScreen = ({ navigation }) => {
     };
 
     const handleFunction = () => {
-        navigation.navigate('ChooseLocationScreen', { serviceStatus });
+        if (serviceStatus.towing || serviceStatus.washing) {
+            navigation.navigate('ChooseLocationScreen', { serviceStatus });
+        }
     };
 
     const [serviceStatus, setServiceStatus] = useState({
@@ -46,7 +50,7 @@ const ServiceScreen = ({ navigation }) => {
             buttonFunction: () => washingStatus(),
             background: serviceStatus?.washing ? '#0FC1A1' : '#181D23',
             checklogo: serviceStatus?.washing ? (
-                <Ionicons name="checkmark-outline" />
+                <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} />
             ) : (
                 ''
             ),
@@ -58,7 +62,7 @@ const ServiceScreen = ({ navigation }) => {
             buttonFunction: () => towingStatus(),
             background: serviceStatus?.towing ? '#0FC1A1' : '#181D23',
             checklogo: serviceStatus?.towing ? (
-                <Ionicons name="checkmark-outline" />
+                <Image source={ticklogo} resizeMode="contain" style={{ width: WIDTH * 0.0256411, tintColor: 'white' }} />
             ) : (
                 ''
             ),
@@ -66,10 +70,13 @@ const ServiceScreen = ({ navigation }) => {
     ];
 
     console.log("service==>>", serviceStatus);
+    console.log('====================================');
+    console.log(WIDTH * 0.0256411);
+    console.log('====================================');
     return (
 
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <Image
                     style={{
                         position: 'absolute',
@@ -79,7 +86,7 @@ const ServiceScreen = ({ navigation }) => {
                     }}
                     source={backgroundsmalllogo}
                 />
-                <View style={{ marginTop: HEIGHT * 0.025 }}>
+                <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.035 : HEIGHT * 0.075 }}>
                     <HeaderComponent
                         leftOnPress={() => navigation.goBack()}
                         title="SERVICES"
@@ -138,14 +145,15 @@ const ServiceScreen = ({ navigation }) => {
                             )}
                         />
                         <View style={{ alignItems: 'center', marginBottom: HEIGHT * 0.068 }}>
-                            <ButtonComponent
+                            {/* <ButtonComponent
                                 label="NEXT"
                                 onPressFunction={() => handleFunction()}
-                            />
+                            /> */}
+                            <ChooseButtonComponent onPressFunction={() => handleFunction()} label={"NEXT"} color={serviceStatus.towing === true || serviceStatus.washing === true ? "#0FC1A1" : '#000000'} />
                         </View>
                     </View>
                 </View>
-            </SafeAreaView>
+            </View>
         </View>
     )
 }

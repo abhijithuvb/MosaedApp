@@ -1,15 +1,22 @@
-import { View, Text, SafeAreaView, Image, FlatList } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, Image, FlatList, Platform } from 'react-native'
+import React, { useCallback, useState } from 'react'
 import HeaderComponent from '../../components/HeaderComponent'
 import { backarrow, boatlargeimage, cabanakitchenlogo, locationarrowlogo, locationmediumlogo, messagelogo, phonelogo, singlecabanaimage, sizearrowlogo, sizemediumlogo, squarelogo, starrating, submitleftarrow, submitrightarrow } from '../../assets'
 import { HEIGHT, WIDTH } from '../../../Constants/Constants'
 import { useRoute } from '@react-navigation/native'
 import ScreenButtonComponent from '../../components/ScreenButtonComponent'
-import { cabanafeature } from '../../Arrays/Arrays'
+import { cabanafeature, cabanaImageFlatlist } from '../../Arrays/Arrays'
 
 const SingleCabanaScreen = ({ navigation }) => {
     const route = useRoute()
     const { title, company, size, rate, logo } = route.params
+    const [scrollIndex, setScrollIndex] = useState()
+    const viewabilityConfig = {
+        viewAreaCoveragePercentThreshold: 50
+    }
+    const handleViewableItemsChanged = useCallback(({ viewableItems }) => {
+        setScrollIndex(viewableItems[0].index)
+    }, []);
 
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
@@ -21,13 +28,21 @@ const SingleCabanaScreen = ({ navigation }) => {
                 </View>
 
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <Image source={singlecabanaimage} style={{ width: '100%' }} />
-                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.16 : HEIGHT * 0.15, backgroundColor: '#0E1114', borderRadius: HEIGHT * 0.01, position: 'absolute', width: '100%', top: HEIGHT * 0.35, zIndex: 1 }}>
+                    <FlatList
+                        showsVerticalScrollIndicator={false}
+                        pagingEnabled
+                        horizontal
+                        onViewableItemsChanged={handleViewableItemsChanged}
+                        viewabilityConfig={viewabilityConfig}
+                        data={cabanaImageFlatlist}
+                        renderItem={({ item }) => <Image source={singlecabanaimage} style={{ width: WIDTH }} />} />
+
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.16 : HEIGHT * 0.15, backgroundColor: '#0E1114', borderRadius: HEIGHT * 0.01, position: 'absolute', width: '100%', top: HEIGHT * 0.36, zIndex: 1 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: HEIGHT * 0.02 }}>
-                            <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
-                            <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
-                            <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
-                            <View style={{ backgroundColor: 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
+                            <View style={{ backgroundColor: scrollIndex === 0 ? '#0FC1A1' : 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
+                            <View style={{ backgroundColor: scrollIndex === 1 ? '#0FC1A1' : 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
+                            <View style={{ backgroundColor: scrollIndex === 2 ? '#0FC1A1' : 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
+                            <View style={{ backgroundColor: scrollIndex === 3 ? '#0FC1A1' : 'white', width: WIDTH * 0.02, height: HEIGHT * 0.003, marginLeft: HEIGHT * 0.008 }}></View>
                         </View>
                         <View style={{ margin: HEIGHT * 0.015 }}>
                             <View style={{ marginTop: HEIGHT * 0.01 }}>
@@ -46,16 +61,20 @@ const SingleCabanaScreen = ({ navigation }) => {
 
 
                     </View>
-                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.4 : HEIGHT * 0.45, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.01, borderBottomRightRadius: HEIGHT * 0.01 }}>
-                        <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.04 : HEIGHT * 0.09, marginLeft: HEIGHT * 0.02 }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.45 : HEIGHT * 0.45, backgroundColor: '#181D23', borderBottomLeftRadius: HEIGHT * 0.01, borderBottomRightRadius: HEIGHT * 0.01 }}>
+                        <View style={{ marginTop: Platform.OS === "android" ? HEIGHT * 0.09 : HEIGHT * 0.09, marginLeft: HEIGHT * 0.02 }}>
                             <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>FEATURES</Text>
                             <View style={{ marginTop: HEIGHT * 0.02 }}>
-                                <FlatList data={cabanafeature} horizontal renderItem={({ item }) => <View style={{ height: HEIGHT * 0.045, width: WIDTH * 0.28, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', marginRight: HEIGHT * 0.02 }}>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <Image source={item.logo} />
-                                        <Text style={{ color: '#0FC1A1', marginLeft: HEIGHT * 0.01 }}>(1){item.text}</Text>
-                                    </View>
-                                </View>} />
+                                <FlatList
+                                    data={cabanafeature}
+                                    showsHorizontalScrollIndicator={false}
+                                    horizontal
+                                    renderItem={({ item }) => <View style={{ height: HEIGHT * 0.045, width: WIDTH * 0.28, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', marginRight: HEIGHT * 0.02 }}>
+                                        <View style={{ flexDirection: 'row' }}>
+                                            <Image source={item.logo} />
+                                            <Text style={{ color: '#0FC1A1', marginLeft: HEIGHT * 0.01 }}>(1){item.text}</Text>
+                                        </View>
+                                    </View>} />
 
 
                             </View>
@@ -90,7 +109,10 @@ const SingleCabanaScreen = ({ navigation }) => {
                             </View>
                         </View>
                     </View>
-                    <ScreenButtonComponent leftlogo={submitleftarrow} rightlogo={submitrightarrow} text={'HOME'} onPress={() => navigation.navigate('HomeScreen', { title, company, size, rate, logo })} />
+                    <View style={{ marginBottom: Platform.OS === "android" ? WIDTH * 0.02 : WIDTH * 0.01, paddingTop: HEIGHT * 0.01 }}>
+                        <ScreenButtonComponent leftlogo={submitleftarrow} rightlogo={submitrightarrow} text={'HOME'} onPress={() => navigation.navigate('HomeScreen', { title, company, size, rate, logo })} />
+                    </View>
+
                 </View>
 
 
