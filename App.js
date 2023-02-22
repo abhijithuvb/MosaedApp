@@ -18,7 +18,8 @@ import {
 
 // import Routes from './src/components/Routes/Routes';
 // import Routes from '../MyApp/mosaedApp/src/Routes/Routes';
-import Routes from './VIP/Routes/Routes';
+// import Routes from './VIP/Routes/Routes';
+import Routes from './WaltersApp/Routes/Routes'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
