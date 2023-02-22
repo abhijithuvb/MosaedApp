@@ -76,7 +76,7 @@ const Drawer = () => {
   });
   const borderRadius = Animated.interpolateNode(progressValue, {
     inputRange: [0, 1],
-    outputRange: [0, WIDTH * 0.09],
+    outputRange: [0, WIDTH * 0.05],
   });
   const animatedStyle = {
     borderRadius, transform: [{ scaleX: scaleX }, { scaleY: scaleY }],
@@ -116,7 +116,7 @@ const AnimatedScreen = ({ animatedStyles }) => {
       <View style={{ position: 'absolute', right: WIDTH * 0.15, top: HEIGHT * 0.16, borderWidth: 1, borderRadius: HEIGHT * 0.009 }}>
         <DrawerBackScreen />
       </View>
-      <Animated.View style={[{ flex: 1, shadowColor: 'black', shadowOpacity: 0.9, borderWidth: 1, borderColor: 'black' }]}>
+      <Animated.View style={[{ flex: 1, shadowColor: 'black', shadowOpacity: 0.9, borderLeftWidth: 1, borderColor: 'black', overflow: 'hidden' }]}>
         <View style={{ position: 'absolute', left: 0, top: -100 }}>
           <Image source={drawertoplogo} />
         </View>
@@ -128,16 +128,7 @@ const AnimatedScreen = ({ animatedStyles }) => {
   );
 };
 
-const TopTabs = () => {
-  const Tab = createMaterialTopTabNavigator()
-  return (
-    <Tab.Navigator tabBar={MyActivityScreen} >
-      <Tab.Screen name='activity' component={ActivityIndicatorsDemo} />
-      <Tab.Screen name='two' component={TextSwitch} />
-      <Tab.Screen name='three' component={ScrollViewDemo} />
-    </Tab.Navigator>
-  )
-}
+
 
 const Routes = () => {
   const RouteStack = createStackNavigator();

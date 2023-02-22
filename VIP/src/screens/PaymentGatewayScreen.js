@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import PaymentModalComponent from '../components/PaymentModalComponent'
 import { set } from 'react-native-reanimated'
 import { useRoute } from '@react-navigation/native'
+import WebView from 'react-native-webview'
 
 const PaymentGatewayScreen = ({ navigation }) => {
 
@@ -25,7 +26,8 @@ const PaymentGatewayScreen = ({ navigation }) => {
                 navigation.navigate(path)
                 setVisible(!visible)
             }} />
-            <Text>PaymentGatewayScreen</Text>
+            {/* <Text>PaymentGatewayScreen</Text> */}
+
         </View>
     )
 }

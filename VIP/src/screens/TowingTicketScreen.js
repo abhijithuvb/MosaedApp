@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image } from 'react-native'
+import { View, Text, SafeAreaView, Image, Platform } from 'react-native'
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent'
 import { backarrow, calendarwhitesmalllogo, dropofflocationlogo, locationarrowlogo, locationmediumlogo, maplogo, pickuplogo, towingsmalllogo } from '../assets'
@@ -16,7 +16,7 @@ const TowingTicketScreen = ({ navigation }) => {
                     <HeaderComponent leftOnPress={() => navigation.goBack()} leftlogo={backarrow} title={'LOCATIONS'} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.82 : HEIGHT * 0.79, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.84 : HEIGHT * 0.805, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
                         <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.18, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
                             <View style={{ flexDirection: 'row', marginTop: HEIGHT * 0.03, marginLeft: HEIGHT * 0.03 }}>
                                 <View style={{ justifyContent: 'center' }}>
@@ -80,7 +80,7 @@ const TowingTicketScreen = ({ navigation }) => {
                                 </View>
                             </View>
                         </View>
-                        <View style={{ backgroundColor: '#181D23', height: Platform.OS === "android" ? HEIGHT * 0.236 : HEIGHT * 0.223, marginTop: HEIGHT * 0.04, borderRadius: HEIGHT * 0.02 }}>
+                        <View style={{ backgroundColor: '#181D23', height: Platform.OS === "android" ? HEIGHT * 0.236 : HEIGHT * 0.223, marginTop: Platform.OS === "android" ? HEIGHT * 0.07 : HEIGHT * 0.05, borderRadius: HEIGHT * 0.02 }}>
                             <View style={{ marginTop: HEIGHT * 0.02, marginLeft: HEIGHT * 0.02 }}>
                                 <Text style={{ color: 'white', fontSize: HEIGHT * 0.025 }}>PAYMENTS</Text>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: HEIGHT * 0.01 }}>

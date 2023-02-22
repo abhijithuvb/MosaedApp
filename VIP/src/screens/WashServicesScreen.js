@@ -19,7 +19,7 @@ const WashServicesScreen = ({ navigation }) => {
                     <HeaderComponent leftlogo={backarrow} rightlogo={searchlogo} title={'SERVICES'} leftOnPress={() => navigation.goBack()} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ backgroundColor: 'black', height: Platform.OS === "android" ? HEIGHT * 0.845 : HEIGHT * 0.8, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02, alignItems: 'center', paddingTop: HEIGHT * 0.02 }}>
+                    <View style={{ backgroundColor: 'black', height: Platform.OS === "android" ? HEIGHT * 0.845 : HEIGHT * 0.805, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02, alignItems: 'center', paddingTop: HEIGHT * 0.02 }}>
                         <FlatList
                             showsVerticalScrollIndicator={false}
                             data={cabanservicelist}

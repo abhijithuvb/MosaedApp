@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image } from 'react-native'
+import { View, Text, SafeAreaView, Image, Platform } from 'react-native'
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent'
 import { backarrow, calendarwhitesmalllogo, dropofflocationlogo, locationarrowlogo, locationmediumlogo, maplogo, pickuplogo, towingsmalllogo } from '../assets'
@@ -16,7 +16,7 @@ const TowingLocationScreen = ({ navigation }) => {
                     <HeaderComponent leftOnPress={() => navigation.goBack()} leftlogo={backarrow} title={'LOCATIONS'} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#0FC1A1' }}>
-                    <View style={{ height: HEIGHT * 0.8, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
+                    <View style={{ height: Platform.OS === "android" ? HEIGHT * 0.83 : HEIGHT * 0.8, borderRadius: HEIGHT * 0.02, backgroundColor: 'black' }}>
                         <View style={{ backgroundColor: '#181D23', height: HEIGHT * 0.19, borderBottomLeftRadius: HEIGHT * 0.02, borderBottomRightRadius: HEIGHT * 0.02 }}>
                             <View style={{ flexDirection: 'row', marginTop: HEIGHT * 0.03, marginLeft: HEIGHT * 0.03 }}>
                                 <View style={{ justifyContent: 'center' }}>

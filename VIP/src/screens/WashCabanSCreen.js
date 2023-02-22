@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, Image } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { backarrow, backgroundsmalllogo, cabanlogo, searchlogo } from '../assets'
 import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import HeaderComponent from '../components/HeaderComponent'
@@ -10,6 +10,8 @@ import { useRoute } from '@react-navigation/native'
 const WashCabanSCreen = ({ navigation }) => {
     const Route = useRoute()
     const { serviceStatus } = Route.params
+
+    const [cabanSize, setCabanSize] = useState({ length: '', width: '' })
     return (
         <View style={{ backgroundColor: '#181D23', flex: 1 }}>
             <SafeAreaView style={{ flex: 1 }}>
@@ -40,9 +42,9 @@ const WashCabanSCreen = ({ navigation }) => {
                         />
                         <Text style={{ color: 'white', fontSize: HEIGHT * 0.03, marginTop: HEIGHT * 0.02 }}>CABAN SIZE</Text>
                         <Text style={{ width: WIDTH * 0.75, color: 'white', fontSize: HEIGHT * 0.02, textAlign: 'center', marginTop: HEIGHT * 0.03 }}>Please Enter The Cubicle Area To Be Washed In Square Meteres</Text>
-                        <View style={{ marginTop: HEIGHT * 0.03 }}>{serviceStatus.washing ? <TextInputComponent label={'Caban Size'} /> : <View style={{ flexDirection: 'row', }}>
-                            <View style={{ marginLeft: HEIGHT * 0.02 }}><TextInputComponent Width={true} label={"Length"} /></View>
-                            <View style={{ marginLeft: HEIGHT * 0.02 }}><TextInputComponent Width={true} label={"Width"} /></View>
+                        <View style={{ marginTop: HEIGHT * 0.03 }}>{serviceStatus.washing ? <TextInputComponent setState={(text) => setCabanSize({ ...cabanSize, length: text })} label={'Caban Size'} /> : <View style={{ flexDirection: 'row', }}>
+                            <View style={{ marginLeft: HEIGHT * 0.02 }}><TextInputComponent setState={(text) => setCabanSize({ ...cabanSize, length: text })} Width={true} label={"Length"} /></View>
+                            <View style={{ marginLeft: HEIGHT * 0.02 }}><TextInputComponent setState={(text) => setCabanSize({ ...cabanSize, width: text })} Width={true} label={"Width"} /></View>
                         </View>}
 
                         </View>
