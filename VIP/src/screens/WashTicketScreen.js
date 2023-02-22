@@ -3,9 +3,10 @@
 import { View, Text, Image, SafeAreaView, Platform } from 'react-native'
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent'
-import { backarrow, calendarwhitesmalllogo, locationarrowlogo, locationmediumlogo, maplogo, servicelogo1 } from '../assets'
+import { backarrow, barcodesmalllogo, calendarwhitesmalllogo, locationarrowlogo, locationmediumlogo, maplogo, servicelogo1 } from '../assets'
 import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import ScreenButtonComponent from '../components/ScreenButtonComponent'
+import QrButtonComponent from '../components/QrButtonComponent'
 
 const WashTicketScreen = ({ navigation }) => {
     return (
@@ -87,7 +88,8 @@ const WashTicketScreen = ({ navigation }) => {
 
                     </View>
                     <View style={{ marginTop: HEIGHT * 0.05 }}>
-                        <ScreenButtonComponent text={'HOME'} onPress={() => navigation.navigate('HomeScreen')} />
+                        {/* <ScreenButtonComponent text={'HOME'} onPress={() => navigation.navigate('HomeScreen')} /> */}
+                        <QrButtonComponent onPress={() => navigation.navigate('HomeScreen')} logo={barcodesmalllogo} text={'SCAN BAR CODE'} />
                     </View>
 
                 </View>

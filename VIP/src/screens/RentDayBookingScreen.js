@@ -20,7 +20,8 @@ const RentDayBookingScreen = ({ navigation }) => {
 
   console.log(selectedDate)
   const handleSubmit = () => {
-    navigation.navigate(routes.params.terrainStatus.beach ? 'BeachListScreen' : 'DesertListScreen', { selectedDate })
+    // navigation.navigate(routes.params.terrainStatus.beach ? 'BeachListScreen' : 'DesertListScreen', { selectedDate })
+    navigation.navigate("BeachListScreen", { selectedDate })
   }
   return (
     <View style={{ backgroundColor: '#181D23', flex: 1 }}>

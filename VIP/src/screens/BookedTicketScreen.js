@@ -2,11 +2,12 @@ import { View, Text, SafeAreaView, Image, Pressable, Platform } from 'react-nati
 import React, { useState } from 'react'
 import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import HeaderComponent from '../components/HeaderComponent'
-import { backarrow, boatsmallimage, calendarSmalllogo, calendarwhitesmalllogo, locationarrowlogo, locationmediumlogo, plusicon } from '../assets'
+import { backarrow, barcodesmalllogo, boatsmallimage, calendarSmalllogo, calendarwhitesmalllogo, locationarrowlogo, locationmediumlogo, plusicon } from '../assets'
 import { useRoute } from '@react-navigation/native'
 import { color } from 'react-native-reanimated'
 import ScreenButtonComponent from '../components/ScreenButtonComponent'
 import DrinkBoxModalComponent from '../components/DrinkBoxModalComponent'
+import QrButtonComponent from '../components/QrButtonComponent'
 
 const BookedTicketScreen = ({ navigation }) => {
     return (
@@ -104,10 +105,8 @@ const BookedTicketScreen = ({ navigation }) => {
                     </View>
 
                 </View>
-                <ScreenButtonComponent text={'Home'} onPress={() => navigation.navigate('HomeScreen')} />
-                {/* <Pressable>
-
-                    </Pressable> */}
+                {/* <ScreenButtonComponent text={'Home'} onPress={() => navigation.navigate('HomeScreen')} /> */}
+                <QrButtonComponent onPress={() => navigation.navigate('HomeScreen')} logo={barcodesmalllogo} text={'SCAN BAR CODE'} />
             </View>
 
             {/* </View > */}

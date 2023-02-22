@@ -142,6 +142,7 @@ import goldmediumlogo from './Logo/goldmediumlogo/goldmediumlogo.png'
 import backgroundaboutlogo from './Logo/backgroundaboutlogo/backgroundaboutlogo.png'
 import multicolorlonglogo from './Logo/multicolorlonglogo/multicolorlonglogo.png'
 import ticklogo from './Logo/ticklogo/ticklogo.png'
+import barcodesmalllogo from './Logo/barcodesmalllogo/barcodesmalllogo.png'
 
 
 
@@ -287,5 +288,6 @@ export {
   goldmediumlogo,
   backgroundaboutlogo,
   multicolorlonglogo,
-  ticklogo
+  ticklogo,
+  barcodesmalllogo
 };

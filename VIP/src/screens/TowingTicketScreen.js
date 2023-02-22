@@ -1,10 +1,11 @@
 import { View, Text, SafeAreaView, Image, Platform } from 'react-native'
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent'
-import { backarrow, calendarwhitesmalllogo, dropofflocationlogo, locationarrowlogo, locationmediumlogo, maplogo, pickuplogo, towingsmalllogo } from '../assets'
+import { backarrow, barcodesmalllogo, calendarwhitesmalllogo, dropofflocationlogo, locationarrowlogo, locationmediumlogo, maplogo, pickuplogo, towingsmalllogo } from '../assets'
 import { HEIGHT, WIDTH } from '../../Constants/Constants'
 import ScreenButtonComponent from '../components/ScreenButtonComponent'
 import { useRoute } from '@react-navigation/native'
+import QrButtonComponent from '../components/QrButtonComponent'
 
 const TowingTicketScreen = ({ navigation }) => {
     const Route = useRoute()
@@ -106,7 +107,8 @@ const TowingTicketScreen = ({ navigation }) => {
 
                     </View>
                     <View>
-                        <ScreenButtonComponent text={'HOME'} onPress={() => navigation.navigate('HomeScreen')} />
+                        {/* <ScreenButtonComponent text={'HOME'} onPress={() => navigation.navigate('HomeScreen')} /> */}
+                        <QrButtonComponent onPress={() => navigation.navigate('HomeScreen')} logo={barcodesmalllogo} text={'SCAN BAR CODE'} />
                     </View>
 
                 </View>
