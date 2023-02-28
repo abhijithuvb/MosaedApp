@@ -3,6 +3,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import SplashScreen from '../src/screens/SplashScreen'
 import UserLoginScreen from '../src/screens/user/UserLoginScreen'
+import KnowMoreScreen from '../src/screens/user/KnowMoreScreen'
 
 const Routes = () => {
     const RouteStack = createStackNavigator()
@@ -15,6 +16,7 @@ const Routes = () => {
             }}>
             <RouteStack.Screen name='SplashScreen' component={SplashScreen} />
             <RouteStack.Screen name='UserLoginScreen' component={UserLoginScreen} />
+            <RouteStack.Screen name='KnowMoreScreen' component={KnowMoreScreen} />
 
         </RouteStack.Navigator>
     )
