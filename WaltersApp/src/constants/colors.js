@@ -6,7 +6,11 @@ const colors = {
     lightblack: '#2A3845',
     yellow: "#F5CB0F",
     darkgray: '#A2A2A2',
-    lightorange: '#CE6114'
+    tomato: "#FF494C",
+    lightblack_2: "#4A4A4A",
+    brown: "#A27C51",
+    gray: "#979797",
+    lightbrown: "#4A392D"
 }
 
 export { colors }

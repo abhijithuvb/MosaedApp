@@ -38,7 +38,9 @@ const App = () => {
           animated={true}
           barStyle={'dark-content'}
           hidden={false}
-          backgroundColor="#181D23"
+          // backgroundColor="#181D23"
+          translucent backgroundColor='transparent'
+
         />
         <Provider store={store}>
           <I18n translations={Translations} initialLang={"en"}>

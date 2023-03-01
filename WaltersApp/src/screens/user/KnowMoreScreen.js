@@ -7,14 +7,14 @@ import { curvedtea, leftarrow } from '../../assets/images'
 import { HEIGHT, WIDTH } from '../../constants/dimensions';
 import { colors } from '../../constants/colors';
 import { commonStyles } from '../../constants/styles';
-import TextInputComponent from '../../components/TextInputComponent';
+import TextInputComponent from '../../components/user/TextInputComponent';
 import ButtonComponent from '../../components/user/ButtonComponent';
 
 
 const KnowMoreScreen = (props, context) => {
     const { navigation } = props
     const { lang } = useSelector((store) => store.i18nState)
-    console.log("HEIGHT==>", HEIGHT * 0.004);
+
     return (
         <View style={{ flex: 1 }}>
             <Image source={curvedtea}
@@ -25,7 +25,7 @@ const KnowMoreScreen = (props, context) => {
                     transform: [{ rotateY: lang === 'en' ? '0deg' : '180deg' }]
                 }} />
             <View
-                style={[{ marginHorizontal: WIDTH * 0.05, marginTop: Platform.OS == "android" ? HEIGHT * 0.04 : HEIGHT * 0.06, }, commonStyles.alignItems(lang)]}>
+                style={[{ marginHorizontal: WIDTH * 0.05, marginTop: Platform.OS == "android" ? HEIGHT * 0.07 : HEIGHT * 0.06, }, commonStyles.alignItems(lang)]}>
                 <Pressable onPress={() => navigation.goBack()}>
                     <Image source={leftarrow}
                         style={{ transform: [{ rotateY: lang === 'en' ? '0deg' : '180deg' }] }} />
@@ -44,7 +44,7 @@ const KnowMoreScreen = (props, context) => {
                 }, commonStyles.textAlign(lang)]}>{context.t("know_you_more")},</Text>
             </View>
             <View style={{ marginHorizontal: WIDTH * 0.05, marginVertical: HEIGHT * 0.02 }}>
-                <View style={{ height: HEIGHT * 0.583, width: WIDTH * 0.859, backgroundColor: colors.white, borderWidth: 0.5, alignSelf: 'center', borderRadius: HEIGHT * 0.009, position: 'absolute' }}>
+                <View style={{ height: HEIGHT * 0.593, width: WIDTH * 0.859, backgroundColor: colors.white, borderWidth: 0.5, alignSelf: 'center', borderRadius: HEIGHT * 0.009, position: 'absolute' }}>
                     <View style={{ alignItems: 'center', marginTop: HEIGHT * 0.01 }}>
                         <TextInputComponent label={'Enter Name'} />
                         <TextInputComponent label={'Gender'} />
@@ -56,7 +56,7 @@ const KnowMoreScreen = (props, context) => {
                     <View style={{ height: HEIGHT * 0.0759, width: HEIGHT * 0.0759, backgroundColor: colors.lightgray_2, borderRadius: WIDTH, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
                         <Text style={{ color: colors.darkgray, fontSize: 25 }}>W</Text>
                     </View>
-                    <View style={{ marginHorizontal: WIDTH * 0.05, marginVertical: HEIGHT * 0.02, width: WIDTH * 0.65, alignSelf: 'center', alignItems: 'center' }}>
+                    <View style={{ marginHorizontal: WIDTH * 0.05, marginVertical: HEIGHT * 0.02, width: WIDTH * 0.68, alignSelf: 'center', alignItems: 'center' }}>
                         <Text style={[{
                             fontSize: 14,
                             color: colors.lightblack
@@ -70,7 +70,7 @@ const KnowMoreScreen = (props, context) => {
                         </Text>
                     </View>
                     <View style={{ marginHorizontal: WIDTH * 0.05, width: WIDTH * 0.65, alignSelf: 'center', alignItems: 'center' }}>
-                        <ButtonComponent label={'Submit'} />
+                        <ButtonComponent onPress={() => navigation.navigate("OtpScreen")} label={'Submit'} />
                     </View>
                 </View>
 
