@@ -10,7 +10,8 @@ const colors = {
     lightblack_2: "#4A4A4A",
     brown: "#A27C51",
     gray: "#979797",
-    lightbrown: "#4A392D"
+    lightbrown: "#4A392D",
+    lightgray: "#D8D8D8"
 }
 
 export { colors }

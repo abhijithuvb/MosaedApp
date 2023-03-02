@@ -1,10 +1,41 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, StatusBar, SafeAreaView, Image, Pressable } from 'react-native'
+import React, { Children } from 'react'
+import { colors } from '../../constants/colors'
+import { carticon, drawericon, leftarrow } from '../../assets/images'
+import { commonStyles } from '../../constants/styles'
+import { useSelector } from 'react-redux'
+import { HEIGHT, WIDTH } from '../../constants/dimensions'
+import { DrawerActions, useNavigation } from '@react-navigation/native'
 
-const MainContainer = () => {
+const MainContainer = (props) => {
+    const { lang } = useSelector((store) => store.i18nState)
+    const { rightlogo, leftlogo, secondlogo, title } = props
+    const navigation = useNavigation()
+
     return (
-        <View>
-            <Text>MainContainer</Text>
+        <View style={{ flex: 1, backgroundColor: colors.white }}><View style={{ backgroundColor: colors.yellow, height: HEIGHT * 0.13 }}>
+
+
+            <StatusBar />
+            <View style={{ marginHorizontal: WIDTH * 0.05 }}>
+                <View style={[, { marginTop: HEIGHT * 0.07 }]}>
+                    <View style={[commonStyles.flexDirection(lang), { justifyContent: 'space-between', alignItems: 'center' }]}>
+                        <View style={[commonStyles.flexDirection(lang), { width: WIDTH * 0.18, justifyContent: 'space-between' }]}>
+                            <Pressable /* onPress={() => navigation.toggleDrawer()} */><Image source={leftlogo} style={{ tintColor: colors.lightblack }} /></Pressable>
+                            <Pressable onPress={() => navigation.goBack()}>
+                                <Image source={secondlogo} style={{ tintColor: colors.lightblack, transform: [{ rotateY: lang === 'en' ? '0deg' : '180deg' }] }} />
+                            </Pressable>
+
+                        </View>
+                        <Text style={[lang == "en" ? { marginRight: rightlogo ? WIDTH * 0.1 : WIDTH * 0.165, } : { marginLeft: rightlogo ? WIDTH * 0.1 : WIDTH * 0.165, }, { fontSize: 20, color: colors.lightblack }]}>{title}</Text>
+                        {rightlogo ? <Image source={carticon} style={{ tintColor: colors.lightblack }} /> : <View />}
+                    </View>
+
+
+                </View>
+            </View>
+        </View>
+            <SafeAreaView style={{ flex: 1, }}>{props?.children}</SafeAreaView>
         </View>
     )
 }

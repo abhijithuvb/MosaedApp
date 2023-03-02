@@ -9,7 +9,7 @@ import { setLanguage } from 'redux-i18n';
 const SwipeSwitch = (props) => {
 
 
-    const [activeIndex, setActiveIndex] = useState()
+    const [activeIndex, setActiveIndex] = useState(0)
     const { lang } = useSelector((state) => state.i18nState)
     const { buttons = [], onChange = () => { }, navigation } = props
     const beta = useSharedValue(0);
@@ -27,14 +27,14 @@ const SwipeSwitch = (props) => {
         setActiveIndex(index)
         setTimeout(() => {
             dispatch(setLanguage(lang === 'en' ? 'ar' : 'en'))
-        }, 200)
+        }, 500)
     }
     return (
         <View>
-            <View style={{ height: HEIGHT * 0.03614, width: WIDTH * 0.3222, backgroundColor: colors.yellow, borderRadius: HEIGHT * 0.006, flexDirection: 'row' }}><Animated.View style={[buttonStyle, { width: (WIDTH * 0.3) / 2, backgroundColor: colors.white, position: 'absolute', height: HEIGHT * 0.03, alignSelf: 'center', marginHorizontal: WIDTH * 0.005, borderRadius: HEIGHT * 0.006 }]}>
+            <View style={{ height: HEIGHT * 0.03614, width: WIDTH * 0.3222, backgroundColor: colors.yellow, borderRadius: HEIGHT * 0.006, flexDirection: 'row' }}><Animated.View style={[buttonStyle, activeIndex == 0 ? { borderTopLeftRadius: HEIGHT * 0.006, borderBottomLeftRadius: HEIGHT * 0.006 } : { borderTopRightRadius: HEIGHT * 0.006, borderBottomRightRadius: HEIGHT * 0.006 }, { width: (WIDTH * 0.3) / 2, backgroundColor: colors.white, position: 'absolute', height: HEIGHT * 0.03, alignSelf: 'center', marginHorizontal: WIDTH * 0.005, }]}>
 
             </Animated.View>
-                {buttons.map((item, index) => <Pressable onPress={() => handleTouch(item, index)}
+                {buttons.map((item, index) => <Pressable key={index} onPress={() => handleTouch(item, index)}
                     style={{ width: (WIDTH * 0.3222) / 2, borderTopLeftRadius: HEIGHT * 0.006, borderBottomLeftRadius: HEIGHT * 0.006, justifyContent: 'center' }}><Text style={{ textAlign: 'center', color: colors.lightblack }}>{item.value}</Text></Pressable>)}
 
 
