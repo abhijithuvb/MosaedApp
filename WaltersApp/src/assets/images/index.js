@@ -21,7 +21,16 @@ import tabdashboard from './tabdashboard/tabdashboard.png'
 import toparrow from './toparrow/toparrow.png'
 import mapimagewithindicator from './mapimagewithindicator/mapimagewithindicator.png'
 import mapimage from './mapimage/mapimage.png'
+import carouselimage from './carouselimage/carouselimage.png'
+import roundminuslogo from './roundminuslogo/roundminuslogo.png'
+import roundpluslogo from './roundpluslogo/roundpluslogo.png'
+import uparrow from './uparrow/uparrow.png'
+import ticklogo from './ticklogo/ticklogo.png'
+import spanishlatte from './spanishlatte/spanishlatte.png'
+import locationoneimage from './locationoneimage/locationoneimage.png'
+import pickupmap from './pickupmap/pickupmap.png'
+import dualsquare from './dualsquare/dualsquare.png'
 
 
 
-export { splashimage, splashtext, waltersyellowtext, userloginbgimage, rightarrow, curvedtea, leftarrow, curvedyellow, pencilicon, homemainimage, drawericon, carticon, drawerdp, rightsmallarrow, colddrinklogo, hotdrinklogo, sandwitchlogo, hotdrink1, tabhome, tabdashboard, toparrow, mapimagewithindicator, mapimage, }
+export { splashimage, splashtext, waltersyellowtext, userloginbgimage, rightarrow, curvedtea, leftarrow, curvedyellow, pencilicon, homemainimage, drawericon, carticon, drawerdp, rightsmallarrow, colddrinklogo, hotdrinklogo, sandwitchlogo, hotdrink1, tabhome, tabdashboard, toparrow, mapimagewithindicator, mapimage, carouselimage, roundminuslogo, roundpluslogo, uparrow, ticklogo, spanishlatte, locationoneimage, pickupmap, dualsquare }

@@ -22,6 +22,9 @@ import { tabdashboard, tabhome } from '../src/assets/images'
 import { colors } from '../src/constants/colors'
 import EditProfileScreen from '../src/screens/user/EditProfileScreen'
 import ContactusScreen from '../src/screens/user/ContactusScreen'
+import CarouselScreen from '../src/screens/user/CarouselScreen'
+import CartScreen from '../src/screens/user/CartScreen'
+import PickUpLocationScreen from '../src/screens/user/PickUpLocationScreen'
 
 
 
@@ -93,6 +96,11 @@ const Routes = () => {
             <RouteStack.Screen name='HomeScreen' component={Drawer} />
             <RouteStack.Screen name='EditProfileScreen' component={EditProfileScreen} />
             <RouteStack.Screen name='ContactusScreen' component={ContactusScreen} />
+            <RouteStack.Screen name='CarouselScreen' component={CarouselScreen} />
+            <RouteStack.Screen name='CartScreen' component={CartScreen} />
+            <RouteStack.Screen name='PickUpLocationScreen' component={PickUpLocationScreen} />
+
+
 
 
 

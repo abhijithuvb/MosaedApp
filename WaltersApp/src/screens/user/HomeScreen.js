@@ -55,7 +55,7 @@ const HomeScreen = (props, context) => {
                     ItemSeparatorComponent={<View style={{ marginVertical: HEIGHT * 0.015 }} />}
                     data={products}
                     renderItem={({ item, index }) => <View>
-                        <View style={[commonStyles.flexDirection(lang), { justifyContent: 'space-between', width: WIDTH }]}>
+                        <Pressable onPress={() => navigation.navigate("CarouselScreen")} style={[commonStyles.flexDirection(lang), { justifyContent: 'space-between', width: WIDTH }]}>
                             <Image source={hotdrink1} />
                             <View>
                                 <Text style={[commonStyles.textAlign(lang), { fontSize: 18, color: colors.lightblack }]}>
@@ -66,7 +66,7 @@ const HomeScreen = (props, context) => {
                                 </Text>
                             </View>
                             <Text style={{ color: colors.darkbrown, fontSize: 24 }}>28</Text>
-                        </View>
+                        </Pressable>
                     </View>}
                 />
             case 'sandwich':

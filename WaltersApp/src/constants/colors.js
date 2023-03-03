@@ -11,7 +11,8 @@ const colors = {
     brown: "#A27C51",
     gray: "#979797",
     lightbrown: "#4A392D",
-    lightgray: "#D8D8D8"
+    lightgray: "#D8D8D8",
+    lightgreen: "#79C84C"
 }
 
 export { colors }

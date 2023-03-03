@@ -9,11 +9,11 @@ import { DrawerActions, useNavigation } from '@react-navigation/native'
 
 const MainContainer = (props) => {
     const { lang } = useSelector((store) => store.i18nState)
-    const { rightlogo, leftlogo, secondlogo, title } = props
+    const { rightlogo, leftlogo, secondlogo, title, description } = props
     const navigation = useNavigation()
 
     return (
-        <View style={{ flex: 1, backgroundColor: colors.white }}><View style={{ backgroundColor: colors.yellow, height: HEIGHT * 0.13 }}>
+        <View style={{ flex: 1, backgroundColor: colors.white }}><View style={{ backgroundColor: colors.yellow, height: description ? HEIGHT * 0.17 : HEIGHT * 0.13 }}>
 
 
             <StatusBar />
@@ -29,6 +29,9 @@ const MainContainer = (props) => {
                         </View>
                         <Text style={[lang == "en" ? { marginRight: rightlogo ? WIDTH * 0.1 : WIDTH * 0.165, } : { marginLeft: rightlogo ? WIDTH * 0.1 : WIDTH * 0.165, }, { fontSize: 20, color: colors.lightblack }]}>{title}</Text>
                         {rightlogo ? <Image source={carticon} style={{ tintColor: colors.lightblack }} /> : <View />}
+                    </View>
+                    <View style={{ alignSelf: 'center', marginVertical: HEIGHT * 0.01 }}>
+                        {description && <Text style={{ width: WIDTH * 0.55, textAlign: 'center', fontSize: 13, color: colors.lightblack }}>{description}</Text>}
                     </View>
 
 
