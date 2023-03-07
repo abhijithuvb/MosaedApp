@@ -16,6 +16,9 @@ const commonStyles = StyleSheet.create({
     flexDirection: (lang) => {
         return { flexDirection: `${lang === 'en' ? 'row' : 'row-reverse'}` }
     },
+    justifyContent: (lang) => {
+        return { justifyContent: `flex-${lang === 'en' ? 'start' : 'end'}` }
+    },
 })
 
 export { commonStyles }

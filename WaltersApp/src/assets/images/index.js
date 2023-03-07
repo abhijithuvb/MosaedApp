@@ -30,7 +30,19 @@ import spanishlatte from './spanishlatte/spanishlatte.png'
 import locationoneimage from './locationoneimage/locationoneimage.png'
 import pickupmap from './pickupmap/pickupmap.png'
 import dualsquare from './dualsquare/dualsquare.png'
+import cashlogo from './cashlogo/cashlogo.png'
+import creditcardlogo from './creditcardlogo/creditcardlogo.png'
+import walletlogo from './walletlogo/walletlogo.png'
+import americanodrinkimage from './americanodrinkimage/americanodrinkimage.png'
+import calendarlogo from './calendarlogo/calendarlogo.png'
+import leaffullimage from './leaffullimage/leaffullimage.png'
+import leafhalfimage from './leafhalfimage/leafhalfimage.png'
+import walletbigimage from './walletbigimage/walletbigimage.png'
+import barcodelogo from './barcodelogo/barcodelogo.png'
+import coffeelogo from './coffeelogo/coffeelogo.png'
+import cuptealogo from './cuptealogo/cuptealogo.png'
+import freelogo from './freelogo/freelogo.png'
 
 
 
-export { splashimage, splashtext, waltersyellowtext, userloginbgimage, rightarrow, curvedtea, leftarrow, curvedyellow, pencilicon, homemainimage, drawericon, carticon, drawerdp, rightsmallarrow, colddrinklogo, hotdrinklogo, sandwitchlogo, hotdrink1, tabhome, tabdashboard, toparrow, mapimagewithindicator, mapimage, carouselimage, roundminuslogo, roundpluslogo, uparrow, ticklogo, spanishlatte, locationoneimage, pickupmap, dualsquare }
+export { splashimage, splashtext, waltersyellowtext, userloginbgimage, rightarrow, curvedtea, leftarrow, curvedyellow, pencilicon, homemainimage, drawericon, carticon, drawerdp, rightsmallarrow, colddrinklogo, hotdrinklogo, sandwitchlogo, hotdrink1, tabhome, tabdashboard, toparrow, mapimagewithindicator, mapimage, carouselimage, roundminuslogo, roundpluslogo, uparrow, ticklogo, spanishlatte, locationoneimage, pickupmap, dualsquare, cashlogo, creditcardlogo, walletlogo, americanodrinkimage, calendarlogo, leaffullimage, leafhalfimage, walletbigimage, barcodelogo, coffeelogo, cuptealogo, freelogo }

@@ -1,4 +1,5 @@
-import { carouselimage, colddrinklogo, hotdrink1, hotdrinklogo, sandwitchlogo } from "../assets/images"
+import { carouselimage, cashlogo, colddrinklogo, creditcardlogo, hotdrink1, hotdrinklogo, sandwitchlogo, walletlogo } from "../assets/images"
+import { colors } from "./colors"
 
 const buttons = [
     { id: 1, value: "English", language: 'en' },
@@ -52,5 +53,16 @@ const locationCases = [
     { id: 2, case: 'firstlocation ' },
 
 ]
+const money = [
+    { id: 1, logo: cashlogo, title: 'Cash', sub: '' },
+    { id: 2, logo: creditcardlogo, title: 'Credit Card', sub: '' },
+    { id: 3, logo: walletlogo, title: 'Wallet', sub: '(10 QAR Available)' }
+]
+const orders = [
+    { id: 1, color: colors.lightgreen, title: 'Completed', },
+    { id: 2, color: colors.darkred, title: 'Cancelled', },
+    { id: 3, color: colors.lightgreen, title: 'Completed', }
+]
 
-export { buttons, drinks, products, cases, carousel, selectItem, pickupTime, pickupOption, location, locationCases }
+
+export { buttons, drinks, products, cases, carousel, selectItem, pickupTime, pickupOption, location, locationCases, money, orders }

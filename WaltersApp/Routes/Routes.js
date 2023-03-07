@@ -25,6 +25,8 @@ import ContactusScreen from '../src/screens/user/ContactusScreen'
 import CarouselScreen from '../src/screens/user/CarouselScreen'
 import CartScreen from '../src/screens/user/CartScreen'
 import PickUpLocationScreen from '../src/screens/user/PickUpLocationScreen'
+import PaymentScreen from '../src/screens/user/PaymentScreen'
+import DashBoardScreen from '../src/screens/user/DashBoardScreen'
 
 
 
@@ -44,7 +46,7 @@ const BottomTab = () => {
                 ),
 
             }} />
-            <RouteTab.Screen name="TermsScreen" component={TermsScreen} options={{
+            <RouteTab.Screen name="DashBoardScreen" component={DashBoardScreen} options={{
                 tabBarLabel: 'DashBoard',
                 tabBarIcon: ({ color, size }) => (
                     <Image source={tabdashboard} size={size} style={{}} />
@@ -62,13 +64,17 @@ const Drawer = (props, context) => {
     return (
         <RouteDrawer.Navigator
             drawerContent={() => <DrawerContent {...props} context={context} />}
-            screenOptions={{ headerShown: false, drawerPosition: lang == 'en' ? 'left' : 'right' }}>
+            screenOptions={{ headerShown: false, drawerPosition: lang == 'en' ? 'left' : 'right', }}>
             <RouteDrawer.Screen name='bottom' component={BottomTab} />
             <RouteDrawer.Screen name='Drawer' component={HomeScreen} />
             <RouteDrawer.Screen name='OurLocationScreen' component={OurLocationScreen} />
             <RouteDrawer.Screen name='EditProfileScreen' component={EditProfileScreen} />
             <RouteDrawer.Screen name='ContactusScreen' component={ContactusScreen} />
-
+            <RouteDrawer.Screen name='CarouselScreen' component={CarouselScreen} />
+            <RouteDrawer.Screen name='CartScreen' component={CartScreen} />
+            <RouteDrawer.Screen name='PickUpLocationScreen' component={PickUpLocationScreen} />
+            <RouteDrawer.Screen name='PaymentScreen' component={PaymentScreen} />
+            <RouteDrawer.Screen name='DashBoardScreen' component={DashBoardScreen} />
 
         </RouteDrawer.Navigator>
     )
@@ -94,11 +100,11 @@ const Routes = () => {
             <RouteStack.Screen name='TermsScreen' component={TermsScreen} />
             <RouteStack.Screen name='OurLocationScreen' component={OurLocationScreen} />
             <RouteStack.Screen name='HomeScreen' component={Drawer} />
-            <RouteStack.Screen name='EditProfileScreen' component={EditProfileScreen} />
-            <RouteStack.Screen name='ContactusScreen' component={ContactusScreen} />
-            <RouteStack.Screen name='CarouselScreen' component={CarouselScreen} />
-            <RouteStack.Screen name='CartScreen' component={CartScreen} />
-            <RouteStack.Screen name='PickUpLocationScreen' component={PickUpLocationScreen} />
+            {/* <RouteStack.Screen name='EditProfileScreen' component={EditProfileScreen} /> */}
+            {/* <RouteStack.Screen name='ContactusScreen' component={ContactusScreen} /> */}
+            {/* <RouteStack.Screen name='CarouselScreen' component={CarouselScreen} /> */}
+            {/* <RouteStack.Screen name='CartScreen' component={CartScreen} /> */}
+            {/* <RouteStack.Screen name='PickUpLocationScreen' component={PickUpLocationScreen} /> */}
 
 
 

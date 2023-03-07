@@ -29,7 +29,7 @@ const CarouselScreen = (props) => {
 
             <View style={{ marginHorizontal: WIDTH * 0.05 }}>
                 <View style={[, { marginTop: HEIGHT * 0.07 }]}><View style={[commonStyles.flexDirection(lang), { justifyContent: 'space-between', alignItems: 'center' }]}><View style={[commonStyles.flexDirection(lang), { width: WIDTH * 0.18, justifyContent: 'space-between' }]}>
-                    <Pressable /* onPress={() => navigation.toggleDrawer()} */><Image source={drawericon} style={{ tintColor: colors.lightblack }} /></Pressable>
+                    <Pressable onPress={() => navigation.toggleDrawer()}><Image source={drawericon} style={{ tintColor: colors.lightblack }} /></Pressable>
                     <Pressable onPress={() => navigation.goBack()}>
                         <Image source={leftarrow} style={{ tintColor: colors.lightblack, transform: [{ rotateY: lang === 'en' ? '0deg' : '180deg' }] }} />
                     </Pressable>

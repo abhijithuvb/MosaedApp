@@ -12,7 +12,10 @@ const colors = {
     gray: "#979797",
     lightbrown: "#4A392D",
     lightgray: "#D8D8D8",
-    lightgreen: "#79C84C"
+    lightgreen: "#79C84C",
+    gray_2: "#ACACAC",
+    lightgreen: "#68AF40",
+    darkred: "#B52E2E"
 }
 
 export { colors }
