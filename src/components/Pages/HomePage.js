@@ -32,6 +32,13 @@ function HomePage({ navigation }) {
             navigation.navigate('calculator');
           }}></Button>
       </View>
+      <View>
+        <Button
+          title="Pattern"
+          onPress={() => {
+            navigation.navigate('Pattern');
+          }}></Button>
+      </View>
     </>
   );
 }

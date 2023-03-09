@@ -31,6 +31,7 @@ import TabRender from '../TabRender';
 import Calculator from '../Calculator';
 import Animations from '../Animation';
 import Reduxtest from '../Reduxtest';
+import Pattern from '../Pattern';
 
 // const RouteStack = createStackNavigator();
 const RouteStack = createStackNavigator();
@@ -217,6 +218,8 @@ const Routes = () => {
       <RouteStack.Screen name="StackDrawer" component={StackDrawer} />
       <RouteStack.Screen name="bottom" component={Bottom} />
       <RouteStack.Screen name="calculator" component={Calculator} />
+      <RouteStack.Screen name="Pattern" component={Pattern} />
+
     </RouteStack.Navigator>
   );
 };
