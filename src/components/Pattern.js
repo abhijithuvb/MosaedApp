@@ -1,11 +1,14 @@
-import { View, Text, SafeAreaView, Pressable, Image, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Pressable, Image, ScrollView, Linking } from 'react-native'
 import React, { useState } from 'react'
 import { confirmButtonStyles } from 'react-native-modal-datetime-picker'
 import { HEIGHT } from '../../mosaedApp/src/components/constants/constants'
 import DocumentPicker from 'react-native-document-picker'
 import ImagePicker from 'react-native-image-crop-picker'
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera } from 'react-native-camera';
+import QRCodeScanner from 'react-native-qrcode-scanner'
+import { RNCamera } from 'react-native-camera'
+import BarcodeMask from 'react-native-barcode-mask'
+
+
 
 const Pattern = () => {
     // *
@@ -147,14 +150,23 @@ const Pattern = () => {
     // }
     const [cameraImage, setCameraImage] = useState({})
     const [galleryImage, setGalleryImage] = useState({})
+    const [camVisible, setCamVisible] = useState(false)
+    const [barVisible, setBarVisible] = useState(false)
+    const [bar, setBar] = useState("")
     console.log('====================================');
     console.log("imageDetails", galleryImage.path);
     console.log('====================================');
-    const onSuccess = e => {
-        Linking.openURL(e.data).catch(err =>
-            console.error('An error occured', err)
-        );
+
+    const onsuccess = (t) => {
+        const check = t.data.substring(0, 4);
+        if (check == 'www.') {
+            Linking.openURL(`https://${t.data}`)
+        } else {
+            console.log("data", t?.data)
+            setBar(t.data)
+        }
     }
+
     return (
         <View style={{ flex: 1, backgroundColor: 'yellow' }}>
             <ScrollView>
@@ -184,22 +196,36 @@ const Pattern = () => {
                     ><Text>Open Camera</Text></Pressable>
                     <Image source={{ uri: galleryImage?.path }} style={{ height: 200, width: 200, borderWidth: 1, borderColor: 'red', resizeMode: 'contain' }} />
                     <Image source={{ uri: cameraImage?.path }} style={{ height: 200, width: 200, borderWidth: 1, borderColor: 'red', resizeMode: 'contain' }} />
-                    <QRCodeScanner
-                        onRead={onSuccess}
-                        flashMode={RNCamera.Constants.FlashMode.torch}
+
+                </View>
+                <View>
+                    <Pressable style={{ marginVertical: HEIGHT * 0.08, }} onPress={() => setCamVisible(!camVisible)}><Text style={{ textAlign: 'center', height: 50, width: 150, backgroundColor: 'red', alignSelf: 'center', color: 'white' }}>{!camVisible ? "open QRScanner" : "close QRScanner"}</Text></Pressable>
+                    {camVisible && <QRCodeScanner
+
+                        reactivate={false}
+                        showMarker={true}
+                        onRead={(t) => onsuccess(t)}
                         topContent={
-                            <Text style={styles.centerText}>
-                                Go to{' '}
-                                <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-                                your computer and scan the QR code.
+                            <Text style={{}}>
+                                Please move your camera {"\n"} over the QR Code
                             </Text>
                         }
                         bottomContent={
-                            <TouchableOpacity style={styles.buttonTouchable}>
-                                <Text style={styles.buttonText}>OK. Got it!</Text>
-                            </TouchableOpacity>
+                            <View>
+                                <Text>{bar}</Text>
+                            </View>
                         }
-                    />
+                    />}
+                </View>
+                <View style={{}}>
+                    <Pressable style={{ marginVertical: HEIGHT * 0.08, }} onPress={() => setBarVisible(!barVisible)}><Text style={{ textAlign: 'center', height: 50, width: 150, backgroundColor: 'red', alignSelf: 'center', color: 'white' }}>{!camVisible ? "open BarScanner" : "close BarScanner"}</Text></Pressable>
+                    {barVisible && <RNCamera style={{ height: 500 }} captureAudio={false} onBarCodeRead={(t) => {
+                        setBar(t.data)
+                        console.log("hi", t)
+                    }} on>
+                        <BarcodeMask width={300} height={100} />
+                    </RNCamera>}
+                    <View style={{ height: 100, justifyContent: 'center', alignItems: 'center' }}><Text>{bar}</Text></View>
                 </View>
             </ScrollView>
         </View>
